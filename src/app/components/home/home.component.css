@@ -2,3 +2,20 @@
     background-color: #FBE7F2;
     border-color: #843534;
 }
+.scsb-txt{
+    color: #2E5391;
+    text-align: left;
+    font-size: 43px;
+    padding-top: 5px;
+    font-family: mukta-regular;
+    margin-top: 2px;
+}
+.rcp-img{
+    width: 100%;
+    margin-top: -10px;
+    height: 76px;
+}
+.bdr-ln{
+    border-right: 1px solid;
+    color: #29588c;
+}

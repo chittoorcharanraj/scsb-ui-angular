@@ -6,6 +6,7 @@
 @import "~primeng/resources/themes/saga-blue/theme.css";
 @import "~primeng/resources/primeng.min.css";
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@font-face{ font-family: 'mukta-regular'; src: url('src/fonts/mukta_regular.ttf'); } 
 .p-component {
   font-family: "roboto-condensed", sans-serif !important;
   color: #848484 !important;
@@ -690,9 +691,12 @@ footer {
 }
 
 .dashboard_recap {
-  margin: 25px 0;
-  border-right: 1px solid #29588C;
-  max-width: 200px;
+    border-right: 2px solid #29588c;
+    width: 250px;
+    height: 103px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
 
 .dashboard_recaptext {

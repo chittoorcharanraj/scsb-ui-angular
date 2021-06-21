@@ -1,9 +1,10 @@
+
 .scsb-cls{
-    color: #2E5391 !important;
+    color: #2e5391!important;
     font-weight: 500;
-    font-size: 37px;
-    font-family: sans-serif;
-    top: 6px;
+    font-size: 50px;
+    font-family: mukta-regular;
+    margin-top: 33px
 }
 .clr-bl{
     color: #29588C;
