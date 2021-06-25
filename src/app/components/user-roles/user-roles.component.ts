@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { TreeNode } from 'primeng/api';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
@@ -11,13 +11,18 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./user-roles.component.css']
 })
 export class UserRolesComponent implements OnInit {
-
+  keypressed : string= 'Enter';
   constructor(private userRolesService: UserRolesService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) { }
-
   ngOnInit(): void {
     this.dashBoardService.setApiPath('userRoles');
     this.spinner.hide();
   }
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if(this.keypressed == event.key)
+      this.searchUserRoles();
+  }
+
   networkLoginIdErrMsg: boolean;
   roleId: string;
   searchNetworkId: string;

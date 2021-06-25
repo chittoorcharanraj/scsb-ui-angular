@@ -425,7 +425,8 @@ select::-ms-expand {
 }
 
 .content-top {
-  background: url("images/home-bg.png") top center no-repeat;
+  background: url("images/home-bg.png") no-repeat;
+  background-size: cover;
 }
 
 .content-bottom {
@@ -479,6 +480,8 @@ select::-ms-expand {
 .twitter-block {
   background: #fff;
   font-family: arial;
+  margin-top: 27px;
+  height: 375px;
 }
 
 .twitter-block h3 {
@@ -691,7 +694,7 @@ footer {
 }
 
 .dashboard_recap {
-    border-right: 2px solid #29588c;
+    border-right: 2px solid #24578D;
     width: 250px;
     height: 103px;
     margin-top: 15px;

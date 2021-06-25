@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { TreeNode } from 'primeng/api';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
@@ -9,10 +9,16 @@ import { RolesService } from '@service/roles/roles.service';
   styleUrls: ['./roles.component.css']
 })
 export class RolesComponent implements OnInit {
+  keypressed : string= 'Enter';
   constructor(private rolesService: RolesService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) { }
   ngOnInit(): void {
     this.dashBoardService.setApiPath('roles');
     this.spinner.hide();
+  }
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if(this.keypressed == event.key)
+      this.searchRoles();
   }
   rolesVal: TreeNode[];
   permissionNames: TreeNode[];

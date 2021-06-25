@@ -1,99 +1,113 @@
-<html>
-
-<head>
-    <title>Roles</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-    <div id="rolesContentId" name="rolesContentName">
-        <div id="rolesFormDivId" name="rolesFormDivName">
-            <form class="form-horizontal" id="roles-form" name="roles-form">
-                <input type="hidden">
-                <fieldset>
-                    <div class="tab-pane" id="recaprole" role="tabpanel">
-                        <div class="roles-main-section" id="role-searchview" data-th-if="*{showIntial}" *ngIf="rolesPanel">
-                            <div class="col-sm-7">Provide one or more data to search. Empty search would return all data.
-                            </div>
-                            <div class="col-lg-12 text-right roleCreateNewlink" style="margin-top: -20px;"><a id="createRoleLink" (click)="createRole()" style="cursor: pointer !important;"><span class="glyphicon glyphicon-plus-sign"></span> Create Role</a></div>
-                            <div class="search-bar">
-                                <div class="row margin-0">
-                                    <div class="col-xs-12  padding-0">
-                                        <form id="rolesearch">
-                                            <div class="input-group buscador-principal search-role-section">
-                                                <input id="pageNumber" name="pageNumber" type="text" th:field="*{pageNumber}" hidden="hidden">
-                                                <input id="totalPageCount" name="totalPageCount" type="text" th:field="*{totalPageCount}" hidden="hidden">
-                                                <input id="totalRecordsCount" name="totalBibRecordsCount" type="text" th:field="*{totalRecordCount}" hidden="hidden">
-                                                <input id="permissioinList" name="permissioinList" type="text" th:field="*{permissionNameList}" hidden="hidden">
-                                                <button id="pageSizeChangeButtonId" name="action" type="submit" value="pageSizeChange" hidden="hidden"></button>
-                                                <div class="col-md-6 col-sm-4 padding-right-25 padding-left-25">
-                                                    <label class="fontcolor-dark margin-btm-10">Role Name</label>
-                                                    <input class="form-control themed-input" id="roleName" name="roleName" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="roleName">
-                                                </div>
-                                                <div class="col-md-6 col-sm-4 padding-right-25 padding-left-25">
-                                                    <label class="fontcolor-dark margin-btm-10">Permission Name</label>
-                                                    <input class="form-control themed-input" id="associatedFunctionality" name="associatedFunctionality" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="permissionName">
-                                                </div>
-                                                <div class="input-group-btn search-panel padding-left-70 padding-right-10">
-                                                    <button class="btn themed-button themed-button-search" id="searchRoles" value="searchRoles" (click)="searchRoles()">Search
-                                            </button>
-                                                </div>
-                                                <div class="input-group-btn">
-                                                    <button class="btn themed-button themed-button-cancel" id="clearRolesForm" type="reset" value="clear" (click)="resetFields()">Clear Search
-                                            </button>
-                                                </div>
+<div id="rolesContentId" name="rolesContentName">
+    <div id="rolesFormDivId" name="rolesFormDivName">
+        <form class="form-horizontal" id="roles-form" name="roles-form">
+            <input type="hidden">
+            <fieldset>
+                <div class="tab-pane" id="recaprole" role="tabpanel">
+                    <div class="roles-main-section" id="role-searchview" data-th-if="*{showIntial}" *ngIf="rolesPanel">
+                        <div class="col-sm-7">Provide one or more data to search. Empty search would return all
+                            data.
+                        </div>
+                        <div class="col-lg-12 text-right roleCreateNewlink" style="margin-top: -20px;"><a
+                                id="createRoleLink" (click)="createRole()" style="cursor: pointer !important;"><span
+                                    class="glyphicon glyphicon-plus-sign"></span> Create Role</a></div>
+                        <div class="search-bar">
+                            <div class="row margin-0">
+                                <div class="col-xs-12  padding-0">
+                                    <form id="rolesearch">
+                                        <div class="input-group buscador-principal search-role-section">
+                                            <input id="pageNumber" name="pageNumber" type="text"
+                                                th:field="*{pageNumber}" hidden="hidden">
+                                            <input id="totalPageCount" name="totalPageCount" type="text"
+                                                th:field="*{totalPageCount}" hidden="hidden">
+                                            <input id="totalRecordsCount" name="totalBibRecordsCount" type="text"
+                                                th:field="*{totalRecordCount}" hidden="hidden">
+                                            <input id="permissioinList" name="permissioinList" type="text"
+                                                th:field="*{permissionNameList}" hidden="hidden">
+                                            <button id="pageSizeChangeButtonId" name="action" type="submit"
+                                                value="pageSizeChange" hidden="hidden"></button>
+                                            <div class="col-md-6 col-sm-4 padding-right-25 padding-left-25">
+                                                <label class="fontcolor-dark margin-btm-10">Role Name</label>
+                                                <input class="form-control themed-input" id="roleName" name="roleName"
+                                                    type="text" [ngModelOptions]="{standalone: true}"
+                                                    [(ngModel)]="roleName">
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div class="col-md-6 col-sm-4 padding-right-25 padding-left-25">
+                                                <label class="fontcolor-dark margin-btm-10">Permission Name</label>
+                                                <input class="form-control themed-input" id="associatedFunctionality"
+                                                    name="associatedFunctionality" type="text"
+                                                    [ngModelOptions]="{standalone: true}" [(ngModel)]="permissionName">
+                                            </div>
+                                            <div class="input-group-btn search-panel padding-left-70 padding-right-10">
+                                                <button class="btn themed-button themed-button-search" id="searchRoles"
+                                                    value="searchRoles" (click)="searchRoles()">Search
+                                                </button>
+                                            </div>
+                                            <div class="input-group-btn">
+                                                <button class="btn themed-button themed-button-cancel"
+                                                    id="clearRolesForm" type="reset" value="clear"
+                                                    (click)="resetFields()">Clear Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="search-results-container" *ngIf="showResults">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="row margin-btm-10">
+                                        <div class="col-sm-12 text-left" *ngIf="successDiv">
+                                            <div class="alert alert-success" role="alert"
+                                                style="margin-top: 10px;margin-bottom: -5px;"><span
+                                                    class="margin-right-05 glyphicon glyphicon-ok-sign"></span><span>{{deleteResponse['message']}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row margin-top-0">
+                                        <div class="col-sm-6 margin-top-0">
+                                            <h3 class="margin-0">Search Results</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="search-results-container" *ngIf="showResults">
+                            <div class="divider-horizontal margin-top-10 margin-btm-10"></div>
+                            <div class="row margin-btm-10 errorMessage" id="errorMessageId" *ngIf="errorMessageDiv">
+                                <div class="col-sm-12">
+                                    <div class="alert alert-danger"><span
+                                            class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div *ngIf="rolesSearchResultsDiv">
+                                <div class="row" id="showEntriesAndNumFoundDiv" name="showEntriesAndNumFoundDiv"
+                                    style="margin-bottom: 5px;">
+                                    <div class="col-sm-2 margin-top-05 show-entries-section">
+                                        <div class style="margin-top: -10px;">
+                                            <span class="show-title">Show Entries</span>
+                                            <select class="themed-input" id="numOfRecordsId" name="numOfRecordsName"
+                                                [(ngModel)]="numOfRecordsId" [ngModelOptions]="{standalone: true}"
+                                                (change)="pageSizeChange(numOfRecordsId)" style="margin-left: 5px;">
+                                                <option value="10" selected="selected">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-md-10 col-lg-7"></div>
+                                    <div class="col-sm-12 col-md-12 col-lg-3 text-right pull-right"
+                                        style="margin-top:-10px;">
+                                        <h4><span>Total Results Found:
+                                                <span>{{rolesVal['totalRecordCount']}}</span></span>
+                                        </h4>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <div class="row margin-btm-10">
-                                            <div class="col-sm-12 text-left" *ngIf="successDiv">
-                                                <div class="alert alert-success" role="alert" style="margin-top: 10px;margin-bottom: -5px;"><span class="margin-right-05 glyphicon glyphicon-ok-sign"></span><span>{{deleteResponse['message']}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row margin-top-0">
-                                            <div class="col-sm-6 margin-top-0">
-                                                <h3 class="margin-0">Search Results</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="divider-horizontal margin-top-10 margin-btm-10"></div>
-                                <div class="row margin-btm-10 errorMessage" id="errorMessageId" *ngIf="errorMessageDiv">
-                                    <div class="col-sm-12">
-                                        <div class="alert alert-danger"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div *ngIf="rolesSearchResultsDiv">
-                                    <div class="row" id="showEntriesAndNumFoundDiv" name="showEntriesAndNumFoundDiv">
-                                        <div class="col-sm-2 margin-top-05 show-entries-section">
-                                            <div class style="margin-top: -10px;">
-                                                <span class="show-title">Show Entries</span>
-                                                <select class="themed-input" id="numOfRecordsId" name="numOfRecordsName" [(ngModel)]="numOfRecordsId" [ngModelOptions]="{standalone: true}" (change)="pageSizeChange(numOfRecordsId)" style="margin-left: 5px;">
-                                            <option value="10" selected="selected">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-9 col-md-10 col-lg-7"></div>
-                                        <div class="col-sm-12 col-md-12 col-lg-3 text-right pull-right" style="margin-top:-10px;">
-                                            <h4><span>Total Results Found:
-                                            <span>{{rolesVal['totalRecordCount']}}</span></span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class=" roleDetails" style="margin-top: -5px;">
                                             <table class="table table-striped margin-btm-0" id>
                                                 <thead class="tablesorter-headerRow">
@@ -105,7 +119,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="parentRow" id="rowData_results_{{i}}" *ngFor="let searchResult of rolesVal['rolesSearchResults']; let i= index">
+                                                    <tr class="parentRow" id="rowData_results_{{i}}"
+                                                        *ngFor="let searchResult of rolesVal['rolesSearchResults']; let i= index">
 
                                                         <input type="hidden">
                                                         <td id="colData_rn_{{i}}">
@@ -121,14 +136,21 @@
                                                             <span>{{searchResult.permissionName}}</span>
                                                         </td>
                                                         <td class="text-center" id="colData_editDelete_{{i}}">
-                                                            <div class="edit-link margin-left-05 margin-right-05 editRole">
+                                                            <div
+                                                                class="edit-link margin-left-05 margin-right-05 editRole">
                                                                 <a id="editUserLink_{{i}}">
-                                                                    <span class="glyphicon glyphicon-pencil" title="Edit Role" (click)="editRole(searchResult['roleId'],searchResult['rolesName'],searchResult['rolesDescription'],searchResult['permissionName'])" style="cursor: pointer;">
-                                                            </span>
+                                                                    <span class="glyphicon glyphicon-pencil"
+                                                                        title="Edit Role"
+                                                                        (click)="editRole(searchResult['roleId'],searchResult['rolesName'],searchResult['rolesDescription'],searchResult['permissionName'])"
+                                                                        style="cursor: pointer;">
+                                                                    </span>
                                                                 </a>
                                                                 <a id="deleteUserLink_{{i}}">
-                                                                    <span class="glyphicon glyphicon-trash" title="Delete Role" (click)="deleteRole(searchResult['roleId'],searchResult['rolesName'],searchResult['rolesDescription'],searchResult['permissionName'])" style="cursor: pointer;margin-left: 5px;">
-                                                             </span>
+                                                                    <span class="glyphicon glyphicon-trash"
+                                                                        title="Delete Role"
+                                                                        (click)="deleteRole(searchResult['roleId'],searchResult['rolesName'],searchResult['rolesDescription'],searchResult['permissionName'])"
+                                                                        style="cursor: pointer;margin-left: 5px;">
+                                                                    </span>
                                                                 </a>
                                                             </div>
                                                         </td>
@@ -138,20 +160,26 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <div class="margin-btm-0 pull-right" style="margin-top:-10px; margin-bottom:-30px;">
-                                                    <div class="pull-right" id="reportPaginationId" name="reportPaginationName">
+                                                <div class="margin-btm-0 pull-right"
+                                                    style="margin-top:-10px; margin-bottom:-30px;">
+                                                    <div class="pull-right" id="reportPaginationId"
+                                                        name="reportPaginationName">
                                                         <ul class="pagination" id="reportPaginationUl">
                                                             <li [ngClass]="(firstbutton==true)?'disabled':''">
-                                                                <span id="btn_first" (click)="firstCall()" style="cursor: pointer;">First</span>
+                                                                <span id="btn_first" (click)="firstCall()"
+                                                                    style="cursor: pointer;">First</span>
                                                             </li>
                                                             <li [ngClass]="(previousbutton==true)?'disabled':''">
-                                                                <span id="btn_previous" (click)="previousCall()" style="cursor: pointer;">Previous</span>
+                                                                <span id="btn_previous" (click)="previousCall()"
+                                                                    style="cursor: pointer;">Previous</span>
                                                             </li>
                                                             <li [ngClass]="(nextbutton==true)?'disabled':''">
-                                                                <span id="btn_next" (click)="nextCall()" style="cursor: pointer;">Next</span>
+                                                                <span id="btn_next" (click)="nextCall()"
+                                                                    style="cursor: pointer;">Next</span>
                                                             </li>
                                                             <li [ngClass]="(lastbutton==true)?'disabled':''">
-                                                                <span id="btn_last" (click)="lastCall()" style="cursor: pointer;">Last</span>
+                                                                <span id="btn_last" (click)="lastCall()"
+                                                                    style="cursor: pointer;">Last</span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -163,258 +191,360 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="create-role-section" id="createRoleSection" *ngIf="createRoleSectionDiv">
-                            <div class="row margin-top-0">
-                                <div class="col-sm-6 margin-top-0">
-                                    <h3 class="margin-0">Create Role</h3>
-                                </div>
-                                <div class="col-sm-6 text-right backtext"><a id="createGoBackLink" (click)="goBack($event)" style="cursor: pointer !important;"><span class="glyphicon glyphicon-menu-left"></span> Go Back</a></div>
+                    </div>
+                    <div class="create-role-section" id="createRoleSection" *ngIf="createRoleSectionDiv">
+                        <div class="row margin-top-0">
+                            <div class="col-sm-6 margin-top-0">
+                                <h3 class="margin-0">Create Role</h3>
                             </div>
-                            <div class="row margin-btm-10" id="successMessageRoleCreateion" *ngIf="successMessageRoleCreateionDiv">
-                                <div class="col-sm-12 text-left">
-                                    <div class="alert alert-success" id="success-alert" role="alert"><span class="margin-right-05 glyphicon glyphicon-ok-sign"></span><span>{{rolesVal['message']}}</span></div>
-                                </div>
-                            </div>
-                            <div class="row margin-btm-10" id="errorMessageRoleCreateion" *ngIf="errorMessageRoleCreateionDiv">
-                                <div class="col-sm-12">
-                                    <div class="alert alert-danger"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 divider-horizontal margin-top-10 margin-btm-10"></div>
-                            </div>
-                            <div class="buscador-principal">
-                                <div class="row margin-top-25 margin-btm-30">
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="roleNameId">Role Name <span class="error-color">*</span></label></div>
-                                                        <div class="col-sm- col-sm-6">
-                                                            <input class="form-control themed-input" id="roleNameId" name="roleName" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="roleNameId">
-                                                            <span id="roleNameErrorMessage" *ngIf="roleNameErrorMessageDiv" style="color: red;">Role Name is required.</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="roleDescriptionId">Role Description <span class="error-color">*</span></label></div>
-                                                        <div class="col-sm- col-sm-6">
-                                                            <input class="form-control themed-input" id="roleDescriptionId" name="roleDescriptionId" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="roleDescriptionId" maxlength="45">
-                                                            <span id="roleDescriptionErrorMessage" *ngIf="roleDescriptionErrorMessageDiv" style="color: red;">Role description is required.</span>
-                                                            <p>Characters Remaining : <span id="roleDescCharactersRemaining">45</span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6" id="permissionName">
-                                                    <div class="form-group">
-                                                        <div class="col-md-4 col-sm-6 text-right margin-top-05"><label class="fontcolor-dark" for="permissionNameId">Permission Names <span class="error-color">*</span></label></div>
-                                                        <div class="col-md-8 col-sm-6">
-                                                            <div class="">
-                                                                <ng-select id="permissionNameId" [items]="permissionNamesList" [multiple]="true" bindLabel="name" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="permissionNameId" placeholder="Select One or More">
-                                                                    <ng-template name="itemList" ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                                                                        <input id="item-{{index}}" type="checkbox" [ngModelOptions]="{standalone: true}" [ngModel]="item$.selected"> {{item}}
-                                                                    </ng-template>
-                                                                </ng-select>
-                                                                <span id="permErrorMessage" *ngIf="permissionNamesErrorMessageDiv" style="color: red;">Permission Name is required.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                                                <button class="pull-right btn btn-default themed-button btn-primary" id="createrolesubmit" type="button" (click)="saveCreateRole()">Create Role</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="col-sm-6 text-right backtext"><a id="createGoBackLink" (click)="goBack($event)"
+                                    style="cursor: pointer !important;"><span
+                                        class="glyphicon glyphicon-menu-left"></span> Go Back</a></div>
+                        </div>
+                        <div class="row margin-btm-10" id="successMessageRoleCreateion"
+                            *ngIf="successMessageRoleCreateionDiv">
+                            <div class="col-sm-12 text-left">
+                                <div class="alert alert-success" id="success-alert" role="alert"><span
+                                        class="margin-right-05 glyphicon glyphicon-ok-sign"></span><span>{{rolesVal['message']}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="edit-role-section" id="editRoleSection" *ngIf="editRoleSectionDiv">
-                            <div class="row margin-top-0">
-                                <div class="col-sm-6 margin-top-0">
-                                    <h3 class="margin-0">Edit Role</h3>
-                                </div>
-                                <div class="col-sm-6 text-right backtext"><a id="editGoBackLink" (click)="goBack($event)" style="cursor: pointer !important;"><span class="glyphicon glyphicon-menu-left"></span> Go Back</a></div>
-                            </div>
-                            <div class="row margin-btm-10" id="successMessageEditRole" *ngIf="successMessageEditRoleDiv">
-                                <div class="col-sm-12 text-left">
-                                    <div class="alert alert-success" role="alert"><span class="margin-right-05 glyphicon glyphicon-ok-sign"></span><span>{{rolesVal['message']}}</span></div>
-                                </div>
-                            </div>
-                            <div class="row margin-btm-10" id="errorMessageEditRole" *ngIf="errorMessageEditRoleDiv">
-                                <div class="col-sm-12">
-                                    <div class="alert alert-danger"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span></div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-12 divider-horizontal margin-top-10 margin-btm-10"></div>
-                            </div>
-                            <div class="buscador-principal">
-                                <div class="row margin-top-25 margin-btm-30">
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="roleId"><span class="error-color"></span></label></div>
-                                                        <div class="col-sm-6 col-sm-4">
-                                                            <input class="form-control themed-input" id="roleId" name="roleId" type="hidden" hidden="hidden">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="editRoleName">Role Name <span class="error-color">*</span></label></div>
-                                                        <div class="col-sm- col-sm-6">
-                                                            <input class="form-control themed-input" id="editRoleName" name="roleName" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editRoleName">
-                                                            <span id="editRoleNameErrorMessage" *ngIf="editRoleNameErrorMessageDiv" style="color: red;">Role Name is required.</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="editRoleDescription">Role Description <span class="error-color">*</span></label></div>
-                                                        <div class="col-sm- col-sm-6">
-                                                            <input class="form-control themed-input" id="editRoleDescription" name="roleName" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editRoleDescription" onkeyup="editDescLengthValidation(this)" maxlength="45">
-                                                            <span id="editRoleDescriptionErrorMessage" *ngIf="editRoleDescriptionErrorMessageDiv" style="color: red;">Role description is required.</span>
-                                                            <p id="charactersRemainingInRoleDesc" style="display: none">Characters Remaining : <span id="editRoleDescCharactersRemaining">45</span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6" id="editPermissionName">
-                                                    <div class="form-group">
-                                                        <div class="col-md-4 col-sm-6 text-right margin-top-05"><label class="fontcolor-dark" for="editPermissionNameId">Permission Names <span class="error-color">*</span></label></div>
-                                                        <div class="col-md-8 col-sm-6">
-                                                            <div class data-th-if="*{selectedPermissionNames ne null}">
-                                                                <ng-select id="editPermissionNameId" [items]="permissionNamesList" [multiple]="true" bindLabel="name" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="editPermissionNameId">
-                                                                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                                                                        <input id="item-{{index}}" type="checkbox" [ngModelOptions]="{standalone: true}" [ngModel]="item$.selected"> {{item}}
-                                                                    </ng-template>
-                                                                </ng-select>
-                                                                <span id="editPermissionNamesErrorMessage" *ngIf="editPermissionNamesErrorMessageDiv" style="color: red;">Permission Name is required.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                                                <!-- <button type="submit" name="action" value="editRole" class="btn btn-default themed-button btn-primary" id="editRolesubmitHdn" style="display: none;">Edit Role</button> -->
-                                                <button class="pull-right btn btn-default themed-button btn-primary" id="editRolesubmit" (click)="saveEditedRole(roleId,editRoleName,editRoleDescription,editPermissionNameId)">Edit Role</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="row margin-btm-10" id="errorMessageRoleCreateion"
+                            *ngIf="errorMessageRoleCreateionDiv">
+                            <div class="col-sm-12">
+                                <div class="alert alert-danger"><span
+                                        class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="delete-role-section" id="deleteRoleSection" *ngIf="deleteRoleSectionDiv">
-                            <div class="row margin-top-0">
-                                <div class="col-sm-6 margin-top-0">
-                                    <h3 class="margin-0">Delete Role</h3>
-                                </div>
-                                <div class="col-sm-6 text-right backtext"><a id="deleteGoBackLink" (click)="goBack($event)" style="cursor: pointer !important;"><span class="glyphicon glyphicon-menu-left"></span> Go Back</a></div>
-                            </div>
-                            <input id="afterDelPageNumber" name="afterDelPageNumber" type="text" th:field="${rolesForm.afterDelPageNumber}" hidden="hidden">
-                            <input id="afterDelTotalPageCount" name="afterDelTotalPageCount" type="text" th:field="${rolesForm.afterDelTotalPageCount}" hidden="hidden">
-                            <input id="afterDelPageSize" name="afterDelPageSize" type="text" th:field="${rolesForm.afterDelPageSize}" hidden="hidden">
-                            <div class="row margin-btm-10" id="successMessageDeleteRole" *ngIf="successMessageDeleteRoleDiv">
-                                <div class="col-sm-12 text-left">
-                                    <div class="alert alert-success" role="alert"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['message']}}</span></div>
-                                </div>
-                            </div>
-                            <div class="row margin-btm-10" id="errorMessageDeleteRole" *ngIg="errorMessageDeleteRoleDiv">
+                        <div class="row">
+                            <div class="col-xs-12 divider-horizontal margin-top-10 margin-btm-10"></div>
+                        </div>
+                        <div class="buscador-principal">
+                            <div class="row margin-top-25 margin-btm-30">
                                 <div class="col-sm-12">
-                                    <div class="alert alert-danger"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span></div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-12 divider-horizontal margin-top-10 margin-btm-10"></div>
-                            </div>
-                            <div class="buscador-principal">
-                                <div class="row margin-top-25 margin-btm-30" style="margin-top: 60px;">
-                                    <div class="col-sm-12">
+                                    <div class="row">
                                         <div class="row">
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="roleNameId">Role Name <span class="error-color">*</span></label></div>
-                                                        <div class="col-sm-6 col-sm-6">
-                                                            <input class="form-control themed-input" id="deleteRoleNameId" name="roleName" type="text" readonly="readonly" [ngModelOptions]="{standalone: true}" [ngModel]="deleteRoleNameId">
-                                                        </div>
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="roleNameId">Role Name <span
+                                                                class="error-color">*</span></label></div>
+                                                    <div class="col-sm- col-sm-6">
+                                                        <input class="form-control themed-input" id="roleNameId"
+                                                            name="roleName" type="text"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [(ngModel)]="roleNameId">
+                                                        <span id="roleNameErrorMessage" *ngIf="roleNameErrorMessageDiv"
+                                                            style="color: red;">Role
+                                                            Name is required.</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label class="fontcolor-dark" for="deleteRoleDescriptionId">Role Description <span class="error-color">*</span></label></div>
-                                                        <div class="col-sm-6 col-sm-6">
-                                                            <input class="form-control themed-input" id="deleteRoleDescriptionId" name="roleName" type="text" readonly="readonly" [ngModelOptions]="{standalone: true}" [ngModel]="deleteRoleDescriptionId">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6" id="deletePermissionName">
-                                                    <div class="form-group">
-                                                        <div class="col-md-4 col-sm-6 text-right margin-top-05"><label class="fontcolor-dark" for="deletePermissionNameId">Permission Names <span class="error-color">*</span></label></div>
-                                                        <div class="col-md-8 col-sm-6">
-                                                            <div class="">
-                                                                <!-- <select id="deletePermissionNameId"
-                                                        multiple="multiple"
-                                                        disabled="disabled"
-                                                        class="form-control themed-input themed-select multiSelectPermissionName"
-                                                        [ngModelOptions]="{standalone: true}" [ngModel]="deletePermissionNameId"
-                                                        name="permissionNamesForDelete">
-                                                        
-                                                    <option th:each="permission : *{permissionNameList}" th:value="${permission}" th:text="${permission}" th:selected="${rolesForm.selectedPermissionNames.contains(permission)}"></option>
-                                                </select> -->
-                                                                <ng-select id="deletePermissionNameId" disabled="disabled" [items]="permissionNamesList" [multiple]="true" bindLabel="name" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="deletePermissionNameId">
-                                                                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                                                                        <input id="item-{{index}}" type="checkbox" [ngModelOptions]="{standalone: true}" [ngModel]="item$.selected"> {{item}}
-                                                                    </ng-template>
-                                                                </ng-select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-12 text-center">
-                                                <!--<button type="submit" name="action" value="loadCreateRole" class="btn btn-default themed-button btn-primary" id="createrolesubmitHdn" style="display: none;">Submit</button>-->
-                                                <button class="btn btn-default themed-button btn-primary" id="deleteRole" type="button" (click)="deleteFromDb()">Delete Role</button>
-                                                <!--<button type="reset" class="btn btn-default themed-button themed-button-cancel" value="clear" id="createrequestclear" onclick="resetDefault()">Clear</button>-->
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="roleDescriptionId">Role
+                                                            Description <span class="error-color">*</span></label>
+                                                    </div>
+                                                    <div class="col-sm- col-sm-6">
+                                                        <input class="form-control themed-input" id="roleDescriptionId"
+                                                            name="roleDescriptionId" type="text"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [(ngModel)]="roleDescriptionId" maxlength="45">
+                                                        <span id="roleDescriptionErrorMessage"
+                                                            *ngIf="roleDescriptionErrorMessageDiv"
+                                                            style="color: red;">Role description is required.</span>
+                                                        <p>Characters Remaining : <span
+                                                                id="roleDescCharactersRemaining">45</span></p>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6" id="permissionName">
+                                                <div class="form-group">
+                                                    <div class="col-md-4 col-sm-6 text-right margin-top-05"><label
+                                                            class="fontcolor-dark" for="permissionNameId">Permission
+                                                            Names <span class="error-color">*</span></label></div>
+                                                    <div class="col-md-8 col-sm-6">
+                                                        <div class="">
+                                                            <ng-select id="permissionNameId"
+                                                                [items]="permissionNamesList" [multiple]="true"
+                                                                bindLabel="name" [selectableGroup]="true"
+                                                                [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                                bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="permissionNameId"
+                                                                placeholder="Select One or More">
+                                                                <ng-template name="itemList" ng-option-tmp
+                                                                    let-item="item" let-item$="item$" let-index="index">
+                                                                    <input id="item-{{index}}" type="checkbox"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        [ngModel]="item$.selected"> {{item}}
+                                                                </ng-template>
+                                                            </ng-select>
+                                                            <span id="permErrorMessage"
+                                                                *ngIf="permissionNamesErrorMessageDiv"
+                                                                style="color: red;">Permission Name is
+                                                                required.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                            <button class="pull-right btn btn-default themed-button btn-primary"
+                                                id="createrolesubmit" type="button" (click)="saveCreateRole()">Create
+                                                Role</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-</body>
+                    <div class="edit-role-section" id="editRoleSection" *ngIf="editRoleSectionDiv">
+                        <div class="row margin-top-0">
+                            <div class="col-sm-6 margin-top-0">
+                                <h3 class="margin-0">Edit Role</h3>
+                            </div>
+                            <div class="col-sm-6 text-right backtext"><a id="editGoBackLink" (click)="goBack($event)"
+                                    style="cursor: pointer !important;"><span
+                                        class="glyphicon glyphicon-menu-left"></span> Go Back</a></div>
+                        </div>
+                        <div class="row margin-btm-10" id="successMessageEditRole" *ngIf="successMessageEditRoleDiv">
+                            <div class="col-sm-12 text-left">
+                                <div class="alert alert-success" role="alert"><span
+                                        class="margin-right-05 glyphicon glyphicon-ok-sign"></span><span>{{rolesVal['message']}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-btm-10" id="errorMessageEditRole" *ngIf="errorMessageEditRoleDiv">
+                            <div class="col-sm-12">
+                                <div class="alert alert-danger"><span
+                                        class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span>
+                                </div>
+                            </div>
+                        </div>
 
-</html>
+                        <div class="row">
+                            <div class="col-xs-12 divider-horizontal margin-top-10 margin-btm-10"></div>
+                        </div>
+                        <div class="buscador-principal">
+                            <div class="row margin-top-25 margin-btm-30">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="roleId"><span
+                                                                class="error-color"></span></label></div>
+                                                    <div class="col-sm-6 col-sm-4">
+                                                        <input class="form-control themed-input" id="roleId"
+                                                            name="roleId" type="hidden" hidden="hidden">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="editRoleName">Role Name
+                                                            <span class="error-color">*</span></label></div>
+                                                    <div class="col-sm- col-sm-6">
+                                                        <input class="form-control themed-input" id="editRoleName"
+                                                            name="roleName" type="text"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [(ngModel)]="editRoleName">
+                                                        <span id="editRoleNameErrorMessage"
+                                                            *ngIf="editRoleNameErrorMessageDiv" style="color: red;">Role
+                                                            Name is required.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="editRoleDescription">Role
+                                                            Description <span class="error-color">*</span></label>
+                                                    </div>
+                                                    <div class="col-sm- col-sm-6">
+                                                        <input class="form-control themed-input"
+                                                            id="editRoleDescription" name="roleName" type="text"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [(ngModel)]="editRoleDescription"
+                                                            onkeyup="editDescLengthValidation(this)" maxlength="45">
+                                                        <span id="editRoleDescriptionErrorMessage"
+                                                            *ngIf="editRoleDescriptionErrorMessageDiv"
+                                                            style="color: red;">Role description is required.</span>
+                                                        <p id="charactersRemainingInRoleDesc" style="display: none">
+                                                            Characters Remaining : <span
+                                                                id="editRoleDescCharactersRemaining">45</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6" id="editPermissionName">
+                                                <div class="form-group">
+                                                    <div class="col-md-4 col-sm-6 text-right margin-top-05"><label
+                                                            class="fontcolor-dark" for="editPermissionNameId">Permission
+                                                            Names <span class="error-color">*</span></label></div>
+                                                    <div class="col-md-8 col-sm-6">
+                                                        <div class data-th-if="*{selectedPermissionNames ne null}">
+                                                            <ng-select id="editPermissionNameId"
+                                                                [items]="permissionNamesList" [multiple]="true"
+                                                                bindLabel="name" [selectableGroup]="true"
+                                                                [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                                bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="editPermissionNameId">
+                                                                <ng-template ng-option-tmp let-item="item"
+                                                                    let-item$="item$" let-index="index">
+                                                                    <input id="item-{{index}}" type="checkbox"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        [ngModel]="item$.selected"> {{item}}
+                                                                </ng-template>
+                                                            </ng-select>
+                                                            <span id="editPermissionNamesErrorMessage"
+                                                                *ngIf="editPermissionNamesErrorMessageDiv"
+                                                                style="color: red;">Permission Name is
+                                                                required.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                            <button class="pull-right btn btn-default themed-button btn-primary"
+                                                id="editRolesubmit"
+                                                (click)="saveEditedRole(roleId,editRoleName,editRoleDescription,editPermissionNameId)">Edit
+                                                Role</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delete-role-section" id="deleteRoleSection" *ngIf="deleteRoleSectionDiv">
+                        <div class="row margin-top-0">
+                            <div class="col-sm-6 margin-top-0">
+                                <h3 class="margin-0">Delete Role</h3>
+                            </div>
+                            <div class="col-sm-6 text-right backtext"><a id="deleteGoBackLink" (click)="goBack($event)"
+                                    style="cursor: pointer !important;"><span
+                                        class="glyphicon glyphicon-menu-left"></span> Go Back</a></div>
+                        </div>
+                        <input id="afterDelPageNumber" name="afterDelPageNumber" type="text"
+                            th:field="${rolesForm.afterDelPageNumber}" hidden="hidden">
+                        <input id="afterDelTotalPageCount" name="afterDelTotalPageCount" type="text"
+                            th:field="${rolesForm.afterDelTotalPageCount}" hidden="hidden">
+                        <input id="afterDelPageSize" name="afterDelPageSize" type="text"
+                            th:field="${rolesForm.afterDelPageSize}" hidden="hidden">
+                        <div class="row margin-btm-10" id="successMessageDeleteRole"
+                            *ngIf="successMessageDeleteRoleDiv">
+                            <div class="col-sm-12 text-left">
+                                <div class="alert alert-success" role="alert"><span
+                                        class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['message']}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-btm-10" id="errorMessageDeleteRole" *ngIg="errorMessageDeleteRoleDiv">
+                            <div class="col-sm-12">
+                                <div class="alert alert-danger"><span
+                                        class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{rolesVal['errorMessage']}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 divider-horizontal margin-top-10 margin-btm-10"></div>
+                        </div>
+                        <div class="buscador-principal">
+                            <div class="row margin-top-25 margin-btm-30" style="margin-top: 60px;">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="roleNameId">Role Name <span
+                                                                class="error-color">*</span></label></div>
+                                                    <div class="col-sm-6 col-sm-6">
+                                                        <input class="form-control themed-input" id="deleteRoleNameId"
+                                                            name="roleName" type="text" readonly="readonly"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            [ngModel]="deleteRoleNameId">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <div class="col-sm-3 col-sm-4 text-right margin-top-15"><label
+                                                            class="fontcolor-dark" for="deleteRoleDescriptionId">Role
+                                                            Description <span class="error-color">*</span></label></div>
+                                                    <div class="col-sm-6 col-sm-6">
+                                                        <input class="form-control themed-input"
+                                                            id="deleteRoleDescriptionId" name="roleName" type="text"
+                                                            readonly="readonly" [ngModelOptions]="{standalone: true}"
+                                                            [ngModel]="deleteRoleDescriptionId">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6" id="deletePermissionName">
+                                                <div class="form-group">
+                                                    <div class="col-md-4 col-sm-6 text-right margin-top-05"><label
+                                                            class="fontcolor-dark"
+                                                            for="deletePermissionNameId">Permission Names <span
+                                                                class="error-color">*</span></label></div>
+                                                    <div class="col-md-8 col-sm-6">
+                                                        <div class="">
+                                                            <ng-select id="deletePermissionNameId" disabled="disabled"
+                                                                [items]="permissionNamesList" [multiple]="true"
+                                                                bindLabel="name" [selectableGroup]="true"
+                                                                [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                                bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="deletePermissionNameId">
+                                                                <ng-template ng-option-tmp let-item="item"
+                                                                    let-item$="item$" let-index="index">
+                                                                    <input id="item-{{index}}" type="checkbox"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        [ngModel]="item$.selected"> {{item}}
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <button class="btn btn-default themed-button btn-primary" id="deleteRole"
+                                                type="button" (click)="deleteFromDb()">Delete
+                                                Role</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -3,7 +3,7 @@
     border-color: #843534;
 }
 .scsb-txt{
-    color: #2E5391;
+    color: #24578D;
     text-align: left;
     font-size: 43px;
     padding-top: 5px;
@@ -17,5 +17,15 @@
 }
 .bdr-ln{
     border-right: 1px solid;
-    color: #29588c;
+    color: #24578D;
+}
+.home-block{
+    padding: 0;
+    min-height: calc(100vh - 59px);
+}
+.ftr-sl{
+    width: 100%;
+    padding-bottom: 6px;
+    padding-top: 23px;
+    height: 59px;
 }

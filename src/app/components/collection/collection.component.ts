@@ -482,6 +482,8 @@ export class CollectionComponent implements OnInit {
           this.DeliveryLocation = '';
           this.deliveryLocationDisable = true;
         }
+        this.deaccessionNotesErrorMessage = false;
+        this.locationErrorMessage = false;
         this.validateResponse();
         this.spinner.hide();
       },
@@ -686,6 +688,8 @@ export class CollectionComponent implements OnInit {
 
     } else if (this.DeaccessionNotes == undefined || this.DeaccessionNotes == '') {
       this.deaccessionNotesErrorMessage = true;
+      this.spinner.hide();
+    } else {
       this.spinner.hide();
     }
   }
