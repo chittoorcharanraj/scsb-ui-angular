@@ -650,5 +650,9 @@ export class UserRolesComponent implements OnInit {
     this.editusersDiv = false;
     this.createUserDiv = false;
   }
+  ngOnDestroy(): void {
+    this.exportUsersRes = null;
+    this.userRoleFormVal = null;
+  }
 }
 

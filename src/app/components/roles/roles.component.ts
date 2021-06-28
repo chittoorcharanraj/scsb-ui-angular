@@ -476,4 +476,7 @@ export class RolesComponent implements OnInit {
     this.deleteRoleSectionDiv = false;
     this.successMessageRoleCreateionDiv = false;
   }
+  ngOnDestroy(): void {
+    this.rolesVal = null;
+  }
 }

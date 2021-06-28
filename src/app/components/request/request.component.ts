@@ -1116,8 +1116,11 @@ export class RequestComponent implements OnInit,OnDestroy {
     if (this.refreshCount < 59) {
       this.interval = setTimeout(this.refreshRequestStatus.bind(this), 3000);
       this.refreshCount++;
-    } else {
+    } else if(this.refreshCount < 89) {
       this.interval = setTimeout(this.refreshRequestStatus.bind(this), 10000);
+      this.refreshCount++;
+    } else {
+      this.interval = setTimeout(this.refreshRequestStatus.bind(this), 180000);
     }
   }
   refreshRequestStatus(): boolean {

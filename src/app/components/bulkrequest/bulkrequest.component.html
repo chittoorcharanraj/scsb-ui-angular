@@ -144,19 +144,19 @@
                                             </thead>
                                             <tbody>
                                                 <tr class="requestRow"
-                                                    *ngFor="let item of searchRequestVal['bulkSearchResultRows']">
+                                                    *ngFor="let item of searchRequestVal['bulkSearchResultRows']; let i=index">
                                                     <th style="text-align: center">{{ item.bulkRequestId }}</th>
-                                                    <td>{{ item.bulkRequestName }}</td>
-                                                    <td>{{ item.fileName }}</td>
-                                                    <td>{{ item.patronBarcode }}</td>
-                                                    <td>{{ item.requestingInstitution}}</td>
-                                                    <td>{{ item.imsLocation }}</td>
-                                                    <td>{{ item.deliveryLocation }}</td>
-                                                    <td>{{ item.createdBy}}</td>
-                                                    <td>{{ item.emailAddress }}</td>
-                                                    <td>{{ item.createdDate | date:'yyyy-MM-dd HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss': 'UTC')}}
+                                                    <td id="ibrn_{{i}}}">{{ item.bulkRequestName }}</td>
+                                                    <td id="ifn_{{i}}}">{{ item.fileName }}</td>
+                                                    <td id="ipb_{{i}}}">{{ item.patronBarcode }}</td>
+                                                    <td id="iri_{{i}}}">{{ item.requestingInstitution}}</td>
+                                                    <td id="iil_{{i}}}">{{ item.imsLocation }}</td>
+                                                    <td id="idl_{{i}}}">{{ item.deliveryLocation }}</td>
+                                                    <td id="icb_{{i}}}">{{ item.createdBy}}</td>
+                                                    <td id="iea_{{i}}}">{{ item.emailAddress }}</td>
+                                                    <td id="icd_{{i}}}">{{ item.createdDate | date:'yyyy-MM-dd HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss': 'UTC')}}
                                                     </td>
-                                                    <td><i class="fa fa-refresh fa-spin"
+                                                    <td id="isfn_{{i}}}"><i class="fa fa-refresh fa-spin" id="refreshIcon-{{i}}"
                                                         style="font-size: 18px;"
                                                         *ngIf="item.status == 'IN PROCESS'"></i>&nbsp;<span>{{item.status}}</span><br>
                                                         <span><a *ngIf="item.status == 'PROCESSED'"
@@ -164,7 +164,7 @@
                                                                 style="cursor: pointer;"><span>Results_</span>{{item.fileName}}</a>
                                                         </span>
                                                     </td>
-                                                    <td style="text-align: center"><button name="action" type="button"
+                                                    <td id="ibrnc_{{i}}}" style="text-align: center"><button name="action" type="button"
                                                             title="{{item.bulkRequestNotes}}"
                                                             style="border-radius: revert;"
                                                             (click)="reqNotemodal(item.bulkRequestNotes)"><i

@@ -44,7 +44,7 @@ export class BulkrequestComponent implements OnInit {
   EmailMandatoryErrorMessage = false;
   requestNotesId: string;
   notesLengthErrMsg = false;
-
+  refreshCount: number = 0;
   createResponse: TreeNode[];
   createRequestError: boolean;
   errorMessage: string;
@@ -370,17 +370,54 @@ export class BulkrequestComponent implements OnInit {
     if (this.searchRequestVal != null && this.searchRequestVal != undefined) {
       let searchResults = this.searchRequestVal['bulkSearchResultRows'];
       searchResults.forEach((item, index) => {
-        if (item.status == 'IN_PROCESS') {
-          statusJson.status.push(item.requestId + '-' + index);
+        if (item.status == 'IN PROCESS') {
+          statusJson.status.push(item.bulkRequestId + '-' + index);
         }
       });
 
       if (statusJson.status.length > 0) {
         refreshStatus = true;
-        this.searchRequests();
+        this.bulkrequestService.refreshStatus(JSON.stringify(statusJson)).subscribe(
+          (res) => {
+            let changeStatus = res['Status'];
+            let changefiles = res['fileNames'];
+            let changeNotes = res['Notes']
+            if (changeStatus != null && changeStatus != '' && changeNotes != null && changeNotes != '') {
+              Object.keys(changeStatus).forEach(statusKey => {
+                let reqStatus = changeStatus[statusKey];
+                this.searchRequestVal['bulkSearchResultRows'][statusKey].status = reqStatus;
+                if (reqStatus !== "IN PROCESS") {
+                  $('#refreshIcon-' + statusKey).hide();
+                }
+                Object.keys(changefiles).forEach(files => {
+                  let fileNames = changeNotes[files];
+                  this.searchRequestVal['bulkSearchResultRows'][files].requestNotes = fileNames;
+                });
+                Object.keys(changeNotes).forEach(notesKey => {
+                  let reqNotes = changeNotes[notesKey];
+                  this.searchRequestVal['bulkSearchResultRows'][notesKey].requestNotes = reqNotes;
+                });
+              });
+            }
+          },
+          (error) => {
+            this.dashBoardService.errorNavigation();
+          });
+          this.refreshRequestStatusRecursive();
       }
     }
     return refreshStatus;
+  }
+  refreshRequestStatusRecursive() {
+    if (this.refreshCount < 35) {
+      this.interval = setTimeout(this.refreshRequestStatus.bind(this), 5000);
+      this.refreshCount++;
+    } else if(this.refreshCount < 65){
+      this.interval = setTimeout(this.refreshRequestStatus.bind(this), 20000);
+      this.refreshCount++;
+    } else {
+      this.interval = setTimeout(this.refreshRequestStatus.bind(this), 300000);
+    }
   }
   searchRequests() {
     this.postData = {
@@ -438,10 +475,7 @@ export class BulkrequestComponent implements OnInit {
           this.results_container_table = true;
           this.errorResponse = false;
           this.pagination();
-          var refreshStatus = this.refreshRequestStatus();
-          if (refreshStatus) {
-            this.interval = setInterval(this.refreshRequestStatus.bind(this), 50000);
-          }
+          this.refreshRequestStatus();
         }
       },
       (error) => {
@@ -781,5 +815,11 @@ export class BulkrequestComponent implements OnInit {
   }
   timezone(date) {
     return this.dashBoardService.setTimeZone(date);
+  }
+  ngOnDestroy(): void {
+    this.searchRequestVal = null;
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 }

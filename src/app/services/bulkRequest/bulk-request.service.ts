@@ -91,4 +91,10 @@ export class BulkRequestService {
         headers: appHeaders.getHeaders()
       });
   }
+  refreshStatus(postData: string): Observable<TreeNode[]> {
+    return this.httpClient.post<TreeNode[]>(this.PREFIX + "/refreshStatus", postData,
+      {
+        headers: appHeaders.getHeaders()
+      });
+  }
 }

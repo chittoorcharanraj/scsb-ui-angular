@@ -731,4 +731,7 @@ export class CollectionComponent implements OnInit {
       this.barcodesNotFoundErrorMessageId = true;
     }
   }
+  ngOnDestroy(): void {
+    this.collectionVal = null;
+  }
 }
