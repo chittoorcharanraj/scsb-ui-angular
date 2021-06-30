@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { DatePipe } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
@@ -11,6 +11,10 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { MessageService, TreeNode } from 'primeng/api';
 import { Table } from 'primeng/table';
 declare var $: any;
+
+enum CONSTANTS {
+  ENTER = 'Enter'
+}
 
 @Component({
   selector: 'app-search',
@@ -35,7 +39,6 @@ export class SearchComponent implements OnInit {
   constructor(private rolesService: RolesPermissionsService, private reportsService: ReportsService, private searchService: SearchService,
     private messageService: MessageService, private formBuilder: FormBuilder, private router: Router,
     private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) {     }
-
   @ViewChild('dt') dt: Table;
   public data: Object[];
   clearSearchTextCross = false;
@@ -172,6 +175,7 @@ export class SearchComponent implements OnInit {
     if (this.rolesRes['isBarcodeRestricted'] == true) {
       this.validateColumns();
     }
+   
     this.selectedNodes1 = [];
     this.selectedNodes2 = [];
     this.searchForm = this.formBuilder.group({
@@ -192,6 +196,11 @@ export class SearchComponent implements OnInit {
       InLibraryUse: [true],
       SupervisedUse: [true]
     });
+  }
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if(CONSTANTS.ENTER == event.key)
+    this.searchRecord();
   }
   checkedItem(item) {
     if (this.owningInstitutionInst) {
@@ -654,6 +663,13 @@ export class SearchComponent implements OnInit {
       "errorMessage": null
     }
     return this.postData;
+  }
+  onPasteHandler(val){
+    $("#fieldValue").val(val);
+    this.clearSearchTextCross = true;
+    $("#clearSearchText").show();
+    this.fieldValuseStatus = false;
+    $("#resetSearch").prop('disabled', false);
   }
   clearFieldvalue() {
     if ($("#fieldValue").val().length > 0) {

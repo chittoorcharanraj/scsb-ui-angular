@@ -5,13 +5,16 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { UserRolesService } from '@service/userRoles/user-roles.service';
 import { DatePipe } from '@angular/common';
+
+enum CONSTANTS {
+  ENTER = 'Enter'
+}
 @Component({
   selector: 'app-user-roles',
   templateUrl: './user-roles.component.html',
   styleUrls: ['./user-roles.component.css']
 })
 export class UserRolesComponent implements OnInit {
-  keypressed : string= 'Enter';
   constructor(private userRolesService: UserRolesService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) { }
   ngOnInit(): void {
     this.dashBoardService.setApiPath('userRoles');
@@ -19,7 +22,7 @@ export class UserRolesComponent implements OnInit {
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if(this.keypressed == event.key)
+    if(CONSTANTS.ENTER == event.key)
       this.searchUserRoles();
   }
 

@@ -2,50 +2,41 @@
     <header>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12 col-md-12">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="row">
-                                <div class="dashboard_recap col-sm-4">
-                                    <a href="http://recap.princeton.edu/">
-                                        <img src="../../../../assets/images/recap-logo-final.png" alt="ReCAP">
-                                    </a>
-                                </div>
-                                <div class="dashboard_recaptext col-sm-2 scsb-cls">
-                                    SCSB
-                                </div>
+                <div class="col-xs-8 width-100">
+                    <div class="row mrg-left-per">
+                        <div class="dashboard_recap col-xs-6">
+                            <a href="http://recap.princeton.edu/">
+                                <img src="../../../../assets/images/recap-logo-final.png" alt="ReCAP"
+                                    class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="dashboard_recaptext col-xs-4 scsb-cls">
+                            SCSB
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 width-100">
+                    <div class="row header-info">
+                        <div class="col-xs-12">
+                            <div class="pull-right margin-left-30 clr-bl">
+                                Welcome <span>{{userDesc}}</span>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="header-info">
-                                <div class="row margin-top-15 text-right">
-                                    <div class="col-xs-12">
-                                        <div class="pull-right margin-left-30 clr-bl">
-                                            Welcome <span>{{userDesc}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row margin-top-15 text-right" style="margin-bottom: 15px;">
-                                    <div class="col-xs-12">
-                                        <div class="pull-right  margin-left-30">
-                                            <form id="logoutForm" name="logoutForm" ngNoForm [action]="url"
-                                                method="GET">
-                                                <input type="hidden">
-                                                <button class="btn logout-login logout clr-bl" id="logout" type="submit"
-                                                    style="background-color: transparent;box-shadow: none;outline: none;"><span
-                                                        style="position: relative;top: -13px;left: 8px;"><img
-                                                            src="../../../../assets/images/logout.png"></span>Logout</button>
-                                            </form>
-                                        </div>
-                                        <div class="pull-right" style="margin-top: 5px;">
-                                            <a class="clr-bl" id="help"
-                                                href="https://htcrecap.atlassian.net/wiki/display/RTG/Search"
-                                                target="_blank"><span
-                                                    class="glyphicon glyphicon-question-sign clr-bl"></span>
-                                                Help</a>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-xs-12 padding-top-15">
+                            <div class="pull-right  margin-left-30">
+                                <form id="logoutForm" name="logoutForm" ngNoForm [action]="url" method="GET">
+                                    <input type="hidden">
+                                    <button class="btn logout-login logout clr-bl" id="logout" type="submit"
+                                        style="background-color: transparent;box-shadow: none;outline: none;"><span
+                                            style="position: relative;top: -13px;left: 8px;"><img
+                                                src="../../../../assets/images/logout.png"></span>Logout</button>
+                                </form>
+                            </div>
+                            <div class="pull-right" style="margin-top: 5px;">
+                                <a class="clr-bl" id="help"
+                                    href="https://htcrecap.atlassian.net/wiki/display/RTG/Search" target="_blank"><span
+                                        class="glyphicon glyphicon-question-sign clr-bl"></span>
+                                    Help</a>
                             </div>
                         </div>
                     </div>

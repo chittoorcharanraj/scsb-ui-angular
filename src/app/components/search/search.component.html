@@ -20,7 +20,9 @@
                                     <div>
                                         <div class="has-feedback">
                                             <input class="form-control" id="fieldValue" name="fieldValue" type="search"
-                                                (keyup)="clearFieldvalue()" formControlName="fieldValue"
+                                                (keyup)="clearFieldvalue()"
+                                                (paste)="onPasteHandler($event.clipboardData.getData('text/plain'))"
+                                                formControlName="fieldValue"
                                                 placeholder="Type Text Here....." />
                                             <span *ngIf="clearSearchTextCross" class="add-clear-x form-control-feedback glyphicon glyphicon-remove"
                                                 id="clearSearchText" style="

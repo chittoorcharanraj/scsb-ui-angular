@@ -21,5 +21,6 @@ export const urls = {
     LOGOUT: '/logout?CSRF-TOKEN=',
     MONITORING: '/monitoring',
     APP_URL: appURL,
-    PORT: window.location.port
+    PORT: window.location.port,
+    ENTER: 'Enter'
 }

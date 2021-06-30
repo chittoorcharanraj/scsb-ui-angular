@@ -3,13 +3,16 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { TreeNode } from 'primeng/api';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { RolesService } from '@service/roles/roles.service';
+
+enum CONSTANTS {
+  ENTER = 'Enter'
+}
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
   styleUrls: ['./roles.component.css']
 })
 export class RolesComponent implements OnInit {
-  keypressed : string= 'Enter';
   constructor(private rolesService: RolesService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) { }
   ngOnInit(): void {
     this.dashBoardService.setApiPath('roles');
@@ -17,7 +20,7 @@ export class RolesComponent implements OnInit {
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if(this.keypressed == event.key)
+    if(CONSTANTS.ENTER == event.key)
       this.searchRoles();
   }
   rolesVal: TreeNode[];
