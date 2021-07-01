@@ -665,7 +665,6 @@ export class SearchComponent implements OnInit {
     return this.postData;
   }
   onPasteHandler(val){
-    $("#fieldValue").val(val);
     this.clearSearchTextCross = true;
     $("#clearSearchText").show();
     this.fieldValuseStatus = false;
