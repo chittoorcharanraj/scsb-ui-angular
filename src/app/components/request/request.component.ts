@@ -364,6 +364,7 @@ export class RequestComponent implements OnInit,OnDestroy {
       "disableSearchInstitution": false,
       "searchInstitutionHdn": null
     }
+    if(!(itemBarcodeId == undefined || itemBarcodeId == null || itemBarcodeId == '')){
     this.requestService.populateItemtDetails(this.postData).subscribe(
       (res) => {
         this.itembarcodeVal = res;
@@ -423,6 +424,7 @@ export class RequestComponent implements OnInit,OnDestroy {
       (error) => {
         this.dashBoardService.errorNavigation();
       });
+    }
   }
 
   populateDeliveryLocations(insituval) {
@@ -482,16 +484,22 @@ export class RequestComponent implements OnInit,OnDestroy {
       "disableSearchInstitution": false,
       "searchInstitutionHdn": null
     }
+    if(!(insituval == undefined || insituval == null || insituval == '') && !(this.itemBarcodeId == undefined || this.itemBarcodeId == null || this.itemBarcodeId == '')){
     this.requestService.populateItemtDetails(this.postData).subscribe(
       (res) => {
         var del = res['deliveryLocation'];
         this.deliveryLocVal = Object.keys(del).map(function (data) {
           return [data, del[data]];
         });
+        this.requestTypes = [];
+        for (var j = 0; j < res['requestTypes'].length; j++) {
+          this.requestTypes.push(res['requestTypes'][j]);
+        }
       },
       (error) => {
         this.dashBoardService.errorNavigation();
       });
+    }
   }
 
   reqTpeEDD(val) {
