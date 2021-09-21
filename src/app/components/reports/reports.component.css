@@ -93,18 +93,11 @@ tr:nth-child(even) {
     color: blue !important;
     margin-left: -5px;
   }
-  #header_column_4 {
-      width: 10%;
-  }
-  #colData_column_4 {
-      width: 10%;
-  }
-
   #header_column_5 {
-      width: 7%;
+      width: 10%;
   }
   #colData_column_5 {
-      width: 7%;
+      width: 10%;
   }
 
   #header_column_6 {
@@ -113,16 +106,23 @@ tr:nth-child(even) {
   #colData_column_6 {
       width: 7%;
   }
+
   #header_column_7 {
       width: 7%;
   }
   #colData_column_7 {
       width: 7%;
   }
-  #header_column_9 {
+  #header_column_8 {
+      width: 7%;
+  }
+  #colData_column_8 {
+      width: 7%;
+  }
+  #header_column_10 {
       width: 15%;
   }
-  #colData_column_9 {
+  #colData_column_10 {
       width: 15%;
   }
   .whitebg{

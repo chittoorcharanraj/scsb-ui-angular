@@ -16,7 +16,7 @@ var moment = require('moment-timezone');
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  constructor(private router: Router, private reportsService: ReportsService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService,private datePipe: DatePipe) { }
+  constructor(private reportsService: ReportsService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService,private datePipe: DatePipe) { }
   @ViewChild('dt') dt: Table;
   ngOnInit(): void {
     this.dashBoardService.setApiPath('reports');
@@ -511,7 +511,6 @@ export class ReportsComponent implements OnInit {
   }
 
   titleMatchReports(titleMatch){
-    this.spinner.show();
     this.titleMatch = titleMatch;
     if(!this.validateTitleDateRange()){
       this.postDataTitle = {
@@ -528,6 +527,7 @@ export class ReportsComponent implements OnInit {
         "titleMatchedReports": null,
         "titleMatchCounts": null
       }
+      this.spinner.show();
       this.reportsService.getTitleMatchReport(this.postDataTitle,this.dateFromTransaction,this.dateToTransaction).subscribe(
         (res) => {
           this.titleMatchRecordReportResponse = res;
@@ -536,12 +536,13 @@ export class ReportsComponent implements OnInit {
             this.paginationTitleMatchReport();
             this.titleHideDivs();
           }
+          this.spinner.hide();
         },
         (error) => {
           this.dashBoardService.errorNavigation();
+          this.spinner.hide();
         });
     }
-    this.spinner.hide();
   }
 
   titleMatchReportsExport() {
@@ -2733,7 +2734,6 @@ export class ReportsComponent implements OnInit {
     $('#barcodeModal').modal({ show: true });
   }
   titleMatchReportsPreview(titleMatch) {
-    this.spinner.show();
     this.pageNumber = 0;
     this.tempMatch = titleMatch;
     this.titleMatchReports(titleMatch);
@@ -2742,7 +2742,6 @@ export class ReportsComponent implements OnInit {
     } else if (this.tempMatch == 'Not Matched') {
       this.titleCount = this.totalTitleNotMatchedCount;
     }
-    this.spinner.hide();
   }
   messageDisplay(message) {
     this.messageData = message;
