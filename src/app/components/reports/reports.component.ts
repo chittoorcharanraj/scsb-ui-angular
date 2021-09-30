@@ -115,6 +115,8 @@ export class ReportsComponent implements OnInit {
     { field: 'cgd', header: 'CGD' },
     { field: 'chronologyAndEnum', header: 'Chronology And Enum' }
   ];
+  exportCount: number;
+  exportMessage: string;
   messageData : string;
   inst_name : string;
   cols: any[];
@@ -531,6 +533,8 @@ export class ReportsComponent implements OnInit {
       this.reportsService.getTitleMatchReport(this.postDataTitle,this.dateFromTransaction,this.dateToTransaction).subscribe(
         (res) => {
           this.titleMatchRecordReportResponse = res;
+          this.exportCount = this.titleMatchRecordReportResponse['exportLimit'];
+          this.exportMessage = this.titleMatchRecordReportResponse['reportMessage'];
           if (this.titleMatchRecordReportResponse['message']) {
           } else {
             this.paginationTitleMatchReport();
@@ -546,7 +550,7 @@ export class ReportsComponent implements OnInit {
   }
 
   titleMatchReportsExport() {
-    this.spinner.show();
+    
     if (!this.validateTitleDateRange()) {
       this.postDataTitle = {
         "totalRecordsCount": this.titleCount,
@@ -562,13 +566,17 @@ export class ReportsComponent implements OnInit {
         "titleMatchedReports": null,
         "titleMatchCounts": null
       }
+      if(this.titleCount<=this.exportCount){
+        this.spinner.show();
+      }
       this.reportsService.getTitleMatchReportExport(this.postDataTitle, this.dateFromTransaction, this.dateToTransaction).subscribe(
         (res) => {
           this.titleMatchRecordReportResponseExport = res;
-          if(this.titleMatchRecordReportResponseExport['message'] != null){
-            this.spinner.hide();
+          if (this.titleMatchRecordReportResponseExport['message'] != null) {
             this.messageDisplay(this.titleMatchRecordReportResponseExport['message']);
-          }else{
+          } else if (this.titleMatchRecordReportResponseExport['reportMessage'] != null) {
+            this.messageDisplay(this.titleMatchRecordReportResponseExport['reportMessage']);
+          } else {
           this.itemListTransaction = [];
           this.transactionReportRecordsExport = res;
           var fileNmae = this.incompleteShowBy + '_' + 'Title_Match'+'_'+
