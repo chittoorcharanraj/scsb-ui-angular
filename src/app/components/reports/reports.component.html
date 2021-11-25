@@ -2054,7 +2054,7 @@
                                     <div class="clk-count" *ngIf="matchedTableDiv">
                                         <a class="rec-count" (click)="titleMatchReportsPreview('Matched')"><span
                                                 style="cursor: pointer;"> Preview
-                                                <span>{{totalTitleMatchedCount | number}}</span><span> </span> <span> {{this.incompleteShowBy}}</span> items (matched)</span></a>
+                                                <span>{{totalTitleMatchedCount | number}}</span><span> </span> <span> {{this.incompleteShowBy}}</span> Titles (Matched)</span></a>
                                     </div>
                                     <div class="table-wrapper " *ngIf="notMatchedTableDiv">
                                         <table class="table table-striped text-center margin-btm-0 "
@@ -2093,7 +2093,7 @@
                                 </div>
                                 <div class="clk-count" *ngIf="notMatchedTableDiv">
                                     <a class="rec-count" (click)="titleMatchReportsPreview('Not Matched')"><span
-                                            style="cursor: pointer;"> Preview <span>{{totalTitleNotMatchedCount | number}}</span><span> {{ this.incompleteShowBy}}</span> items (not matched)
+                                            style="cursor: pointer;"> Preview <span>{{totalTitleNotMatchedCount | number}}</span><span> {{ this.incompleteShowBy}}</span> Titles (Not Matched)
                                             </span></a>
                                 </div>
                             </div>
@@ -2114,7 +2114,7 @@
                             <div class="col-sm-2 margin-top-05 show-entries-section "></div>
                             <div class="col-sm-9 col-md-10 col-lg-7 margin-top-10"></div>
                             <div class="col-sm-12 col-md-12 col-lg-3 text-right">
-                                <h4>Found <span>{{titleCount | number}}</span><span> </span><span> {{this.incompleteShowBy}}</span> items <span>(</span><span>{{this.titleMatch | lowercase}}</span><span>)</span>
+                                <h4>Found <span>{{titleCount | number}}</span><span> </span><span> {{this.incompleteShowBy}}</span> Titles <span>(</span><span>{{this.titleMatch}}</span><span>)</span>
                                 </h4>
                             </div>
                         </div>

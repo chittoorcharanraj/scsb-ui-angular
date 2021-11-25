@@ -99,6 +99,7 @@ export class RequestComponent implements OnInit,OnDestroy {
   storageLocation: string;
   disableStorageLocation = false;
   refreshCount: number = 0;
+  tempBarcode: string = '';
   ngOnInit(): void {
     this.dashBoardService.setApiPath('request');
     this.rolesRes = this.rolesService.getRes();
@@ -308,122 +309,134 @@ export class RequestComponent implements OnInit,OnDestroy {
   }
 
   populateItemDetails(itemBarcodeId) {
-    this.postData = {
-      "requestId": null,
-      "patronBarcode": null,
-      "itemBarcode": null,
-      "status": null,
-      "deliveryLocation": null,
-      "patronBarcodeInRequest": null,
-      "itemBarcodeInRequest": itemBarcodeId,
-      "deliveryLocationInRequest": null,
-      "itemTitle": null,
-      "itemOwningInstitution": this.itemOwningInstitutionId,
-      "storageLocation": null,
-      "patronEmailAddress": null,
-      "requestingInstitution": this.requestingInstitutionId,
-      "requestType": null,
-      "requestNotes": null,
-      "startPage": null,
-      "endPage": null,
-      "volumeNumber": null,
-      "issue": null,
-      "articleAuthor": null,
-      "articleTitle": null,
-      "message": null,
-      "errorMessage": null,
-      "totalRecordsCount": "0",
-      "pageNumber": 0,
-      "pageSize": this.showentries,
-      "totalPageCount": 0,
-      "submitted": false,
-      "showResults": false,
-      "requestingInstitutions": [
-
-      ],
-      "requestTypes": [
-      ],
-      "deliveryLocations": [
-
-      ],
-      "searchResultRows": [
-
-      ],
-      "requestStatuses": [
-
-      ],
-      "institutionList": [
-
-      ],
-      "disableRequestingInstitution": false,
-      "onChange": true,
-      "institution": null,
-      "showRequestErrorMsg": null,
-      "requestingInstituionHidden": null,
-      "itemBarcodeHidden": null,
-      "disableSearchInstitution": false,
-      "searchInstitutionHdn": null
+    var barcode = itemBarcodeId;
+    if (!(itemBarcodeId == undefined || itemBarcodeId == null || itemBarcodeId == '')) {
+      barcode = itemBarcodeId.trim();
     }
-    if(!(itemBarcodeId == undefined || itemBarcodeId == null || itemBarcodeId == '')){
-    this.requestService.populateItemtDetails(this.postData).subscribe(
-      (res) => {
-        this.itembarcodeVal = res;
-        if (this.itembarcodeVal['errorMessage'] != null) {
-          this.itemBarcodeNotFoundErrorMessage = true;
-          this.itemBarcodeNotAvailableErrorMessage = false;
-          this.itemBarcodeNoPermissionErrorMessage = false;
-          this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
-          this.itemTitleId = '';
-          this.itemOwningInstitutionId = '';
-        } else if (this.itembarcodeVal['notAvailableFrozenItemsErrorMessage'] != null) {
-          this.itemBarcodeNotAvailableFrozenItemsErrorMessage = true;
-          this.itemBarcodeNotFoundErrorMessage = false;
-          this.itemBarcodeNotAvailableErrorMessage = false;
-          this.itemBarcodeNoPermissionErrorMessage = false;
-          this.itemTitleId = this.itembarcodeVal['itemTitle'];
-          this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
-          this.storageLocation = this.itembarcodeVal['storageLocation'];
-        } else if (this.itembarcodeVal['notAvailableErrorMessage'] != null) {
-          this.itemBarcodeNotAvailableErrorMessage = true;
-          this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
-          this.itemBarcodeNotFoundErrorMessage = false;
-          this.itemBarcodeNoPermissionErrorMessage = false;
-          this.itemTitleId = this.itembarcodeVal['itemTitle'];
-          this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
-          this.storageLocation = this.itembarcodeVal['storageLocation'];
-        } else if (this.itembarcodeVal['noPermissionErrorMessage'] != null) {
-          this.itemBarcodeNoPermissionErrorMessage = true;
-          this.itemBarcodeNotFoundErrorMessage = false;
-          this.itemBarcodeNotAvailableErrorMessage = false;
-          this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
-          this.itemTitleId = this.itembarcodeVal['itemTitle'];
-          this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
-          this.storageLocation = this.itembarcodeVal['storageLocation'];
-        } else {
-          this.itemBarcodeNotFoundErrorMessage = false;
-          this.itemBarcodeNotAvailableErrorMessage = false;
-          this.itemBarcodeNoPermissionErrorMessage = false;
-          this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
-          this.itemTitleId = this.itembarcodeVal['itemTitle'];
-          this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
-          this.storageLocation = this.itembarcodeVal['storageLocation'];
-        }
-        this.requestTypes = [];
-        for (var j = 0; j < this.itembarcodeVal['requestTypes'].length; j++) {
-          this.requestTypes.push(this.itembarcodeVal['requestTypes'][j]);
-        }
-        this.requestTypeId = this.itembarcodeVal['requestType'];
-        var del = this.itembarcodeVal['deliveryLocation'];
-        if (del != null) {
-          this.deliveryLocVal = ['', ''];
-          this.deliveryLocVal = Object.keys(del).map(function (data) {
-            return [data, del[data]];
+    if (this.tempBarcode == '' || (this.tempBarcode != barcode)) {
+      this.tempBarcode = barcode;
+      this.postData = {
+        "requestId": null,
+        "patronBarcode": null,
+        "itemBarcode": null,
+        "status": null,
+        "deliveryLocation": null,
+        "patronBarcodeInRequest": null,
+        "itemBarcodeInRequest": itemBarcodeId,
+        "deliveryLocationInRequest": null,
+        "itemTitle": null,
+        "itemOwningInstitution": this.itemOwningInstitutionId,
+        "storageLocation": null,
+        "patronEmailAddress": null,
+        "requestingInstitution": this.requestingInstitutionId,
+        "requestType": null,
+        "requestNotes": null,
+        "startPage": null,
+        "endPage": null,
+        "volumeNumber": null,
+        "issue": null,
+        "articleAuthor": null,
+        "articleTitle": null,
+        "message": null,
+        "errorMessage": null,
+        "totalRecordsCount": "0",
+        "pageNumber": 0,
+        "pageSize": this.showentries,
+        "totalPageCount": 0,
+        "submitted": false,
+        "showResults": false,
+        "requestingInstitutions": [
+
+        ],
+        "requestTypes": [
+        ],
+        "deliveryLocations": [
+
+        ],
+        "searchResultRows": [
+
+        ],
+        "requestStatuses": [
+
+        ],
+        "institutionList": [
+
+        ],
+        "disableRequestingInstitution": false,
+        "onChange": true,
+        "institution": null,
+        "showRequestErrorMsg": null,
+        "requestingInstituionHidden": null,
+        "itemBarcodeHidden": null,
+        "disableSearchInstitution": false,
+        "searchInstitutionHdn": null
+      }
+      if (!(itemBarcodeId == undefined || itemBarcodeId == null || itemBarcodeId == '')) {
+        this.requestService.populateItemtDetails(this.postData).subscribe(
+          (res) => {
+            this.itembarcodeVal = res;
+            if (this.itembarcodeVal['errorMessage'] != null) {
+              this.itemBarcodeNotFoundErrorMessage = true;
+              this.itemBarcodeNotAvailableErrorMessage = false;
+              this.itemBarcodeNoPermissionErrorMessage = false;
+              this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
+              this.itemTitleId = '';
+              this.itemOwningInstitutionId = '';
+            } else if (this.itembarcodeVal['notAvailableFrozenItemsErrorMessage'] != null) {
+              this.itemBarcodeNotAvailableFrozenItemsErrorMessage = true;
+              this.itemBarcodeNotFoundErrorMessage = false;
+              this.itemBarcodeNotAvailableErrorMessage = false;
+              this.itemBarcodeNoPermissionErrorMessage = false;
+              this.itemTitleId = this.itembarcodeVal['itemTitle'];
+              this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
+              this.storageLocation = this.itembarcodeVal['storageLocation'];
+            } else if (this.itembarcodeVal['notAvailableErrorMessage'] != null) {
+              this.itemBarcodeNotAvailableErrorMessage = true;
+              this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
+              this.itemBarcodeNotFoundErrorMessage = false;
+              this.itemBarcodeNoPermissionErrorMessage = false;
+              this.itemTitleId = this.itembarcodeVal['itemTitle'];
+              this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
+              this.storageLocation = this.itembarcodeVal['storageLocation'];
+            } else if (this.itembarcodeVal['noPermissionErrorMessage'] != null) {
+              this.itemBarcodeNoPermissionErrorMessage = true;
+              this.itemBarcodeNotFoundErrorMessage = false;
+              this.itemBarcodeNotAvailableErrorMessage = false;
+              this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
+              this.itemTitleId = this.itembarcodeVal['itemTitle'];
+              this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
+              this.storageLocation = this.itembarcodeVal['storageLocation'];
+            } else {
+              this.itemBarcodeNotFoundErrorMessage = false;
+              this.itemBarcodeNotAvailableErrorMessage = false;
+              this.itemBarcodeNoPermissionErrorMessage = false;
+              this.itemBarcodeNotAvailableFrozenItemsErrorMessage = false;
+              this.itemTitleId = this.itembarcodeVal['itemTitle'];
+              this.itemOwningInstitutionId = this.itembarcodeVal['itemOwningInstitution'];
+              this.storageLocation = this.itembarcodeVal['storageLocation'];
+            }
+            this.requestTypes = [];
+            for (var j = 0; j < this.itembarcodeVal['requestTypes'].length; j++) {
+              this.requestTypes.push(this.itembarcodeVal['requestTypes'][j]);
+            }
+            this.requestTypeId = this.itembarcodeVal['requestType'];
+            if(this.requestTypeId == 'EDD'){
+              this.eddshow = true;
+            } else {
+              this.eddshow = false;
+            }
+            var del = this.itembarcodeVal['deliveryLocation'];
+            if (del != null) {
+              this.deliveryLocVal = ['', ''];
+              this.deliveryLocVal = Object.keys(del).map(function (data) {
+                return [data, del[data]];
+              });
+            }
+          },
+          (error) => {
+            this.dashBoardService.errorNavigation();
           });
-        }
-      },
-      (error) => {
-        this.dashBoardService.errorNavigation();
-      });
+      }
     }
   }
 
