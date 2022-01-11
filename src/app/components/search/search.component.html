@@ -399,7 +399,7 @@
                                                 <p-tableHeaderCheckbox id="hdr_checkbox"></p-tableHeaderCheckbox>
                                             </th>
                                             <th id="header_column_{{ i }}" *ngFor="let col of columns; let i = index"
-                                                [pSortableColumn]="col.field">
+                                                [pSortableColumn]="col.field" pTooltip="Sort this page's results">
                                                 {{ col.header }}
                                                 <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
                                                     ariaLabelDesc="Activate to sort in descending order"
