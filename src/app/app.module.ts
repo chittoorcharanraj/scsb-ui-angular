@@ -14,6 +14,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
+import { TooltipModule } from "primeng/tooltip";
 import { ToastModule } from 'primeng/toast';
 import { TreeTableModule } from 'primeng/treetable';
 import { AppRoutingModule } from './app-routing.module';
@@ -83,6 +84,7 @@ import { InterceptorService } from '@service/interceptor.service';
     InputTextModule,
     ContextMenuModule,
     FormsModule,
+    TooltipModule,
     ReactiveFormsModule,
   ],
   providers: [CookieService, AuthGuard,
