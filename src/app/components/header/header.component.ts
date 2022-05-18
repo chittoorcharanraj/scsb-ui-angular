@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { RolesPermissionsService } from '@service/rolesPermissions/roles-permissions.service';
 enum CONSTANTS {
   USER_DESC = 'userDesc',
-  CSRF_TOKEN = 'CSRF-TOKEN'
+  CSRF_TOKEN = 'CSRF-TOKEN',
+  USER_NAME = 'userName'
 }
 @Component({
   selector: 'app-header',
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
     this.rolesRes = this.rolesService.getRes();
     if (this.rolesRes[CONSTANTS.USER_DESC]) {
       localStorage.setItem(CONSTANTS.USER_DESC, this.rolesRes[CONSTANTS.USER_DESC]);
+      localStorage.setItem(CONSTANTS.USER_NAME, this.rolesRes[CONSTANTS.USER_NAME]);
       this.userDesc = localStorage.getItem(CONSTANTS.USER_DESC);
     }
   }
