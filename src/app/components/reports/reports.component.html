@@ -485,6 +485,22 @@
                                                             </td>
 
                                                         </tr>
+                                                        <tr class="results "></tr>
+                                                            <td class="results ">Committed</td>
+                                                            <td class="results "
+                                                                *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openAccCount.accessionOpenCount}}</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr class="results "></tr>
+                                                            <td class="results ">Uncommittable</td>
+                                                            <td class="results "
+                                                                *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openAccCount.accessionOpenCount}}</span>
+                                                            </td>
+
+                                                        </tr>
                                                         <tr
                                                             class="border-style-bottom bgcolored large-font fontcolor-dark border-style-top-white results ">
                                                             <td class="fontcolor-dark large-font text-right results ">
@@ -515,6 +531,20 @@
                                                         </tr>
                                                         <tr class="results ">
                                                             <td class="results ">Open</td>
+                                                            <td class="results "
+                                                                *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openDeaccCount.deaccessionOpenCount}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="results ">
+                                                            <td class="results ">Committed</td>
+                                                            <td class="results "
+                                                                *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openDeaccCount.deaccessionOpenCount}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="results "></tr>
+                                                            <td class="results ">Uncommitable</td>
                                                             <td class="results "
                                                                 *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
                                                                 <span>{{openDeaccCount.deaccessionOpenCount}}</span>
