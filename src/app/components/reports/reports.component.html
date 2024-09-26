@@ -489,7 +489,7 @@
                                                             <td class="results ">Committed</td>
                                                             <td class="results "
                                                                 *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{openAccCount.accessionOpenCount}}</span>
+                                                                <span>{{openAccCount.accessionCommittedCount}}</span>
                                                             </td>
 
                                                         </tr>
@@ -497,7 +497,7 @@
                                                             <td class="results ">Uncommittable</td>
                                                             <td class="results "
                                                                 *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{openAccCount.accessionOpenCount}}</span>
+                                                                <span>{{openAccCount.accessionUncommittableCount}}</span>
                                                             </td>
 
                                                         </tr>
@@ -507,7 +507,7 @@
                                                                 Subtotal</td>
                                                             <td class="results "
                                                                 *ngFor="let subTotalAccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{subTotalAccCount['accessionPrivateCount']+subTotalAccCount['accessionSharedCount']+subTotalAccCount['accessionOpenCount']}}</span>
+                                                                <span>{{subTotalAccCount['accessionPrivateCount']+subTotalAccCount['accessionSharedCount']+subTotalAccCount['accessionOpenCount']+subTotalAccCount['accessionCommittedCount']+subTotalAccCount['accessionUncommittableCount']}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -540,14 +540,14 @@
                                                             <td class="results ">Committed</td>
                                                             <td class="results "
                                                                 *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{openDeaccCount.deaccessionOpenCount}}</span>
+                                                                <span>{{openDeaccCount.deaccessionCommittedCount}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr class="results ">
                                                             <td class="results ">Uncommitable</td>
                                                             <td class="results "
                                                                 *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{openDeaccCount.deaccessionOpenCount}}</span>
+                                                                <span>{{openDeaccCount.deaccessionUncommittableCount}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr
