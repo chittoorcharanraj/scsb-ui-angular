@@ -460,7 +460,7 @@
                                                         </thead>
                                                         <tr class="results ">
                                                             <td class="v-middle-data gray-light fontcolor-white large-font "
-                                                                rowspan="4 " style="font-family:sans-serif; ">
+                                                                rowspan="6 " style="font-family:sans-serif; ">
                                                                 Accessioned
                                                             </td>
                                                             <td class="results ">Private</td>
@@ -485,18 +485,34 @@
                                                             </td>
 
                                                         </tr>
+                                                        <tr class="results ">
+                                                            <td class="results ">Committed</td>
+                                                            <td class="results "
+                                                                *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openAccCount.accessionCommittedCount}}</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr class="results ">
+                                                            <td class="results ">Uncommittable</td>
+                                                            <td class="results "
+                                                                *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openAccCount.accessionUncommittableCount}}</span>
+                                                            </td>
+
+                                                        </tr>
                                                         <tr
                                                             class="border-style-bottom bgcolored large-font fontcolor-dark border-style-top-white results ">
                                                             <td class="fontcolor-dark large-font text-right results ">
                                                                 Subtotal</td>
                                                             <td class="results "
                                                                 *ngFor="let subTotalAccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{subTotalAccCount['accessionPrivateCount']+subTotalAccCount['accessionSharedCount']+subTotalAccCount['accessionOpenCount']}}</span>
+                                                                <span>{{subTotalAccCount['accessionPrivateCount']+subTotalAccCount['accessionSharedCount']+subTotalAccCount['accessionOpenCount']+subTotalAccCount['accessionCommittedCount']+subTotalAccCount['accessionUncommittableCount']}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="v-middle-data gray-dark fontcolor-white large-font "
-                                                                rowspan="4 " style="font-family:sans-serif; ">
+                                                                rowspan="6 " style="font-family:sans-serif; ">
                                                                 Deaccessioned
                                                             </td>
                                                             <td class="results ">Private</td>
@@ -518,6 +534,20 @@
                                                             <td class="results "
                                                                 *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
                                                                 <span>{{openDeaccCount.deaccessionOpenCount}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="results ">
+                                                            <td class="results ">Committed</td>
+                                                            <td class="results "
+                                                                *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openDeaccCount.deaccessionCommittedCount}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="results ">
+                                                            <td class="results ">Uncommitable</td>
+                                                            <td class="results "
+                                                                *ngFor="let openDeaccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{openDeaccCount.deaccessionUncommittableCount}}</span>
                                                             </td>
                                                         </tr>
                                                         <tr
