@@ -15,67 +15,67 @@
                                             class="error-color">*</span>
                                         <div class="form-group" style="padding-left: 40px;">
                                             <label class="radio-inline report-hide-shadow" for="ReportRequestclick"
-                                                accesskey="R" style="padding-right: 30px;" tabindex="0">
+                                                   accesskey="R" style="padding-right: 30px;" tabindex="0">
                                                 <input id="ReportRequestclick" name="ReportTypeoption" type="radio"
-                                                    value="Request" (click)="enableRequestPage()">
+                                                       value="Request" (click)="enableRequestPage()">
                                                 Requests
                                             </label>
                                             <label class="radio-inline report-hide-shadow"
-                                                for="ReportAccessionDeaccessionclick" accesskey="A"
-                                                style="padding-right: 30px;" tabindex="0">
+                                                   for="ReportAccessionDeaccessionclick" accesskey="A"
+                                                   style="padding-right: 30px;" tabindex="0">
                                                 <input id="ReportAccessionDeaccessionclick" name="ReportTypeoption"
-                                                    type="radio" value="Accession/Deaccesion"
-                                                    (click)="enableAccessionPage()" [checked]="isChecked">
+                                                       type="radio" value="Accession/Deaccesion"
+                                                       (click)="enableAccessionPage()" [checked]="isChecked">
                                                 Accession/Deaccession
                                             </label>
                                             <label class="radio-inline report-hide-shadow"
-                                                for="ReportCollectionGroupDesignationclick" accesskey="C"
-                                                style="padding-right: 30px" tabindex="0">
+                                                   for="ReportCollectionGroupDesignationclick" accesskey="C"
+                                                   style="padding-right: 30px" tabindex="0">
                                                 <input id="ReportCollectionGroupDesignationclick"
-                                                    name="ReportTypeoption" type="radio"
-                                                    value="CollectionGroupDesignation" (click)="enableCGDPage()">
+                                                       name="ReportTypeoption" type="radio"
+                                                       value="CollectionGroupDesignation" (click)="enableCGDPage()">
                                                 Collection Group Designation
                                             </label>
                                             <label class="radio-inline report-hide-shadow" for="ReportIncompleteRadio"
-                                                accesskey="I" style="padding-right: 30px" tabindex="0">
+                                                   accesskey="I" style="padding-right: 30px" tabindex="0">
                                                 <input id="ReportIncompleteRadio" name="ReportTypeoption" type="radio"
-                                                    value="IncompleteRecordsReport" (click)="enableincompletePage()">
+                                                       value="IncompleteRecordsReport" (click)="enableincompletePage()">
                                                 Incomplete Records
                                             </label>
                                             <label class="radio-inline report-hide-shadow"
-                                                for="RequestExceptionReportRadio" accesskey="E"
-                                                style="padding-right: 30px" tabindex="0">
+                                                   for="RequestExceptionReportRadio" accesskey="E"
+                                                   style="padding-right: 30px" tabindex="0">
                                                 <input id="RequestExceptionReportRadio" name="ReportTypeoption"
-                                                    type="radio" value="RequestExceptionReport"
-                                                    (click)="enableRequestExceptionPage()">
+                                                       type="radio" value="RequestExceptionReport"
+                                                       (click)="enableRequestExceptionPage()">
                                                 Request Exceptions
                                             </label>
                                             <label class="radio-inline report-hide-shadow" for="TransactionReportRadio"
-                                                accesskey="T" style="padding-right: 30px" tabindex="0">
+                                                   accesskey="T" style="padding-right: 30px" tabindex="0">
                                                 <input id="TransactionReportRadio" name="ReportTypeoption" type="radio"
-                                                    value="TransactionReport" (click)="enableTransactionReportPage()"
-                                                    [checked]="isTransactionChecked">
+                                                       value="TransactionReport" (click)="enableTransactionReportPage()"
+                                                       [checked]="isTransactionChecked">
                                                 Transactions
                                             </label>
                                             <label class="radio-inline report-hide-shadow" accesskey="T"
-                                                style="padding-right: 30px" tabindex="0">
+                                                   style="padding-right: 30px" tabindex="0">
                                                 <input id="submitCollection" name="ReportTypeoption" type="radio"
-                                                    value="submitCollection" (click)="enableSubmitCollection()"
-                                                    [checked]="isSubmitCollection">
+                                                       value="submitCollection" (click)="enableSubmitCollection()"
+                                                       [checked]="isSubmitCollection">
                                                 Submit Collection Exceptions
                                             </label>
                                             <label class="radio-inline report-hide-shadow" accesskey="T"
-                                                style="padding-right: 30px" tabindex="0">
+                                                   style="padding-right: 30px" tabindex="0">
                                                 <input id="accession" name="ReportTypeoption" type="radio"
-                                                    value="accession" (click)="enableAccession()"
-                                                    [checked]="isAccession">
+                                                       value="accession" (click)="enableAccession()"
+                                                       [checked]="isAccession">
                                                 Accession Exceptions
                                             </label>
                                             <label class="radio-inline report-hide-shadow" accesskey="T"
-                                                style="padding-right: 30px" tabindex="0">
+                                                   style="padding-right: 30px" tabindex="0">
                                                 <input id="titleMatch" name="ReportTypeoption" type="radio"
-                                                    value="titleMatch" (click)="enableTitleMatch()"
-                                                    [checked]="isTitleMatch">
+                                                       value="titleMatch" (click)="enableTitleMatch()"
+                                                       [checked]="isTitleMatch">
                                                 Title Match Report
                                             </label>
                                         </div>
@@ -88,7 +88,7 @@
                                             <div id="ReportRequestsection" style="margin-top: -20px;">
                                                 <div class="row" style="padding-left: 20px">
                                                     <div class="col-md-3 col-sm-3 padding-right-50"
-                                                        style="margin-top:26px">
+                                                         style="margin-top:26px">
                                                         <div class="form-group">
                                                             <div>
                                                                 <label for="ReportShowBy">Show By <span
@@ -96,17 +96,17 @@
                                                             </div>
                                                             <div class="select-holder">
                                                                 <select class="form-control themed-input themed-select"
-                                                                    id="ReportShowBy" name="ReportShowBy"
-                                                                    [ngModelOptions]="{standalone: true}"
-                                                                    [(ngModel)]="ReportShowBy"
-                                                                    (change)="reportShowBy()">
+                                                                        id="ReportShowBy" name="ReportShowBy"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        [(ngModel)]="ReportShowBy"
+                                                                        (change)="reportShowBy()">
                                                                     <option value="Partners" selected>Owning
                                                                         Institution</option>
                                                                     <option value="RequestType">Request Type</option>
                                                                 </select>
                                                             </div>
                                                             <p id="showByErrorText" *ngIf="showByErrorText"
-                                                                style="color: red">
+                                                               style="color: red">
                                                                 This Field is Required</p>
                                                         </div>
                                                     </div>
@@ -116,49 +116,49 @@
                                                                     class="error-color">*</span> </label><br>
                                                             <label>From</label>
                                                             <div class="input-group date"
-                                                                id="reportrequesdatepickerfrom">
+                                                                 id="reportrequesdatepickerfrom">
                                                                 <input class="form-control themed-input"
-                                                                    id="RequestDateRangefrom"
-                                                                    name="RequestDateRangefrom" type="date"
-                                                                    placeholder="MM/DD/YYYY"
-                                                                    [ngModelOptions]="{standalone: true}"
-                                                                    [(ngModel)]="RequestDateRangefrom">
+                                                                       id="RequestDateRangefrom"
+                                                                       name="RequestDateRangefrom" type="date"
+                                                                       placeholder="MM/DD/YYYY"
+                                                                       [ngModelOptions]="{standalone: true}"
+                                                                       [(ngModel)]="RequestDateRangefrom">
                                                                 <span class="input-group-addon">
                                                                 </span>
                                                             </div>
                                                             <p id="requestFromDateErrorText"
-                                                                *ngIf="requestFromDateErrorText" style="color: red">This
+                                                               *ngIf="requestFromDateErrorText" style="color: red">This
                                                                 Field is Required
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3 col-sm-3 col-lg-2 padding-right-50"
-                                                        style="margin-top: 3px;">
+                                                         style="margin-top: 3px;">
                                                         <div class="form-group">
                                                             <br>
                                                             <label>To</label>
                                                             <div class="input-group date" id="reportrequesdatepickerto">
                                                                 <input class="form-control themed-input"
-                                                                    id="RequestDateRangeto" name="RequestDateRangeto"
-                                                                    type="date" placeholder="MM/DD/YYYY"
-                                                                    [ngModelOptions]="{standalone: true}"
-                                                                    [(ngModel)]="RequestDateRangeto">
+                                                                       id="RequestDateRangeto" name="RequestDateRangeto"
+                                                                       type="date" placeholder="MM/DD/YYYY"
+                                                                       [ngModelOptions]="{standalone: true}"
+                                                                       [(ngModel)]="RequestDateRangeto">
                                                                 <span class="input-group-addon">
                                                                 </span>
                                                             </div>
                                                             <p id="requestToDateErrorText"
-                                                                *ngIf="requestToDateErrorText" style="color: red;">This
+                                                               *ngIf="requestToDateErrorText" style="color: red;">This
                                                                 Field is Required
                                                             </p>
                                                             <p id="requestFromToError" *ngIf="requestFromToError"
-                                                                style="color: red">To Date must be greater than or
+                                                               style="color: red">To Date must be greater than or
                                                                 <br>equal to the From Date
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-1 col-md-3 col-sm-3" style="margin-top: 18px;">
                                                         <button class="btn themed-button themed-button-search"
-                                                            id="searchButton" (click)="submitRequest()">Generate Report
+                                                                id="searchButton" (click)="submitRequest()">Generate Report
                                                         </button>
                                                     </div>
                                                 </div>
@@ -182,7 +182,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class id="note-requesttype"
-                                                    style="padding-left:5px;margin-top:4px;">
+                                                     style="padding-left:5px;margin-top:4px;">
                                                     <strong>Note:</strong> Count of retrievals and/or recalls for each
                                                     partner institution.
                                                 </div>
@@ -200,16 +200,16 @@
                                             <div id="partners-tableview" *ngIf="partnersResults">
                                                 <div class="table-wrapper">
                                                     <table class="table table-striped text-center margin-btm-0"
-                                                        id="partners-request-table">
+                                                           id="partners-request-table">
                                                         <thead class="tablesorter-headerRow results">
-                                                            <tr class="results">
-                                                                <th width="20%"></th>
-                                                                <th width="20%"></th>
-                                                                <th width="15%"
-                                                                    style="font-family:sans-serif;font-size: 120%"
-                                                                    *ngFor="let inst of reportstVal['reportsInstitutionFormList']">
-                                                                    {{inst.institution}}</th>
-                                                            </tr>
+                                                        <tr class="results">
+                                                            <th width="20%"></th>
+                                                            <th width="20%"></th>
+                                                            <th width="15%"
+                                                                style="font-family:sans-serif;font-size: 120%"
+                                                                *ngFor="let inst of reportstVal['reportsInstitutionFormList']">
+                                                                {{inst.institution}}</th>
+                                                        </tr>
                                                         </thead>
                                                         <tr class=" results ">
                                                             <td class="v-middle-data gray-light fontcolor-white large-font "
@@ -295,13 +295,13 @@
                                                 <div class="table-wrapper ">
                                                     <table class="table table-striped text-center margin-btm-0 ">
                                                         <thead class="tablesorter-headerRow ">
-                                                            <tr>
-                                                                <th width="25% "></th>
-                                                                <th width="15% "
-                                                                    style="font-family:sans-serif;font-size: 120% "
-                                                                    *ngFor="let inst of reportstVal['reportsInstitutionFormList']">
-                                                                    {{inst.institution}}</th>
-                                                            </tr>
+                                                        <tr>
+                                                            <th width="25% "></th>
+                                                            <th width="15% "
+                                                                style="font-family:sans-serif;font-size: 120% "
+                                                                *ngFor="let inst of reportstVal['reportsInstitutionFormList']">
+                                                                {{inst.institution}}</th>
+                                                        </tr>
                                                         </thead>
                                                         <tr class="border-style-top-white ">
                                                             <td class="gray-dark fontcolor-white large-font results "
@@ -355,49 +355,49 @@
                                                                 <span class="error-color ">*</span> </label>
                                                             <br><label>From</label>
                                                             <div class="input-group date"
-                                                                id="reportaccessiondeaccessionsectiondatepickerfrom ">
+                                                                 id="reportaccessiondeaccessionsectiondatepickerfrom ">
                                                                 <input class="form-control themed-input "
-                                                                    id="AccessionDeaccessionDateRangefrom "
-                                                                    name="AccessionDeaccessionDateRangefrom "
-                                                                    type="date" placeholder="MM/DD/YYYY "
-                                                                    [ngModelOptions]="{standalone: true} " [(ngModel)]="AccessionDeaccessionDateRangefrom
+                                                                       id="AccessionDeaccessionDateRangefrom "
+                                                                       name="AccessionDeaccessionDateRangefrom "
+                                                                       type="date" placeholder="MM/DD/YYYY "
+                                                                       [ngModelOptions]="{standalone: true} " [(ngModel)]="AccessionDeaccessionDateRangefrom
                                                                     ">
                                                                 <span class="input-group-addon ">
                                                                 </span>
                                                             </div>
                                                             <p id="accessionErrorText " *ngIf="accessionErrorText "
-                                                                style="color: red ">This Field is Required
+                                                               style="color: red ">This Field is Required
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5 col-sm-5 padding-right-50 "
-                                                        style="margin-top: 5px; ">
+                                                         style="margin-top: 5px; ">
                                                         <div class="form-group ">
                                                             <br><label>To</label>
                                                             <div class="input-group date"
-                                                                id="reportaccessiondeaccessionsectiondatepickerto ">
+                                                                 id="reportaccessiondeaccessionsectiondatepickerto ">
                                                                 <input class="form-control themed-input "
-                                                                    id="AccessionDeaccessionDateRangeto "
-                                                                    name="AccessionDeaccessionDateRangeto " type="date"
-                                                                    placeholder="MM/DD/YYYY "
-                                                                    [ngModelOptions]="{standalone: true} " [(ngModel)]="AccessionDeaccessionDateRangeto
+                                                                       id="AccessionDeaccessionDateRangeto "
+                                                                       name="AccessionDeaccessionDateRangeto " type="date"
+                                                                       placeholder="MM/DD/YYYY "
+                                                                       [ngModelOptions]="{standalone: true} " [(ngModel)]="AccessionDeaccessionDateRangeto
                                                                     ">
                                                                 <span class="input-group-addon ">
                                                                 </span>
                                                             </div>
                                                             <p id="deaccessionErrorText " *ngIf="deaccessionErrorText "
-                                                                style="color: red; ">This Field is Required
+                                                               style="color: red; ">This Field is Required
                                                             </p>
                                                             <p id="accessionFromToError " *ngIf="accessionFromToError "
-                                                                style="color: red ">To Date must be greater than or
+                                                               style="color: red ">To Date must be greater than or
                                                                 <br> equal to the From Date
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2 col-sm-2 " style="margin-top: 20px; ">
                                                         <button class="btn themed-button themed-button-search "
-                                                            id="accessionSearchButton "
-                                                            (click)="submitAccession() ">Generate Report
+                                                                id="accessionSearchButton "
+                                                                (click)="submitAccession() ">Generate Report
                                                         </button>
                                                     </div>
                                                 </div>
@@ -405,7 +405,7 @@
 
                                             <div class="row ">
                                                 <div class="col-xs-12 margin-top-less-10 "
-                                                    style="margin-top: 5px;padding-left: 20px; ">Fields marked with
+                                                     style="margin-top: 5px;padding-left: 20px; ">Fields marked with
                                                     asterisk(
                                                     <span class="error-color ">*</span>) are mandatory.
                                                 </div>
@@ -429,13 +429,13 @@
                                     </div>
                                     <!--Report Table Section-->
                                     <div class="row margin-top-20 " id="showAccessionDeaccessionTable "
-                                        data-th-if="${reportsForm.showAccessionDeaccessionTable} "
-                                        *ngIf="accessionPageResponse">
+                                         data-th-if="${reportsForm.showAccessionDeaccessionTable} "
+                                         *ngIf="accessionPageResponse">
 
                                         <div class="row margin-btm-10 " id="accessionErrorMessageId"
-                                            *ngIf="accessionErrorMessageDiv">
+                                             *ngIf="accessionErrorMessageDiv">
                                             <div class="col-sm-12 "
-                                                style="padding-left:45px;padding-right:45px;margin-top:10px; ">
+                                                 style="padding-left:45px;padding-right:45px;margin-top:10px; ">
                                                 <div class="bg-danger text-danger padding-10 "><span
                                                         class="margin-right-05 glyphicon glyphicon-warning-sign "></span><span
                                                         id="accessionErrorMessageSpanId">{{reportstVal['errorMessage']}}</span>
@@ -448,15 +448,15 @@
                                             <div id="Accession_Deaccession-tableview ">
                                                 <div class="table-wrapper ">
                                                     <table class="table table-striped text-center margin-btm-0 "
-                                                        id="acessionDeaccessionTable ">
+                                                           id="acessionDeaccessionTable ">
                                                         <thead class="tablesorter-headerRow ">
-                                                            <tr>
-                                                                <th width="15% "></th>
-                                                                <th width="15% "></th>
-                                                                <th style="font-family:sans-serif;font-size: 122% "
-                                                                    *ngFor="let inst of reportstVal['reportsInstitutionFormList']">
-                                                                    {{inst.institution}}</th>
-                                                            </tr>
+                                                        <tr>
+                                                            <th width="15% "></th>
+                                                            <th width="15% "></th>
+                                                            <th style="font-family:sans-serif;font-size: 122% "
+                                                                *ngFor="let inst of reportstVal['reportsInstitutionFormList']">
+                                                                {{inst.institution}}</th>
+                                                        </tr>
                                                         </thead>
                                                         <tr class="results ">
                                                             <td class="v-middle-data gray-light fontcolor-white large-font "
@@ -502,7 +502,7 @@
 
                                                         </tr>
                                                         <tr
-                                                            class="border-style-bottom bgcolored large-font fontcolor-dark border-style-top-white results ">
+                                                                class="border-style-bottom bgcolored large-font fontcolor-dark border-style-top-white results ">
                                                             <td class="fontcolor-dark large-font text-right results ">
                                                                 Subtotal</td>
                                                             <td class="results "
@@ -551,20 +551,30 @@
                                                             </td>
                                                         </tr>
                                                         <tr
-                                                            class="bgcolored large-font fontcolor-dark border-style-top-white ">
+                                                                class="border-style-bottom bgcolored large-font fontcolor-dark border-style-top-white results ">
                                                             <td class="fontcolor-dark large-font text-right results ">
                                                                 Subtotal</td>
-                                                            <td id="deacessionCount "
-                                                                *ngFor="let subToatlDeaccCount of subtotalEDDDeaccession">
-                                                                <a class="Deaccession-tableshow " name="deacessionCount"
-                                                                    href="# "
-                                                                    (click)="deaccession(subToatlDeaccCount.institution)">
-                                                                    <button id="btn_{{subToatlDeaccCount.institution}}"
-                                                                        *ngIf="subToatlDeaccCount.count !=0 ">{{subToatlDeaccCount.count}}</button></a>
-                                                                <span
-                                                                    *ngIf="subToatlDeaccCount.count==0 ">{{subToatlDeaccCount.count}}</span>
+                                                            <td class="results "
+                                                                *ngFor="let subToatlDeaccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{subToatlDeaccCount['deaccessionPrivateCount']+subToatlDeaccCount['deaccessionSharedCount']+subToatlDeaccCount['deaccessionOpenCount']+subToatlDeaccCount['deaccessionCommittedCount']+subToatlDeaccCount['deaccessionUncommittableCount']}}</span>
                                                             </td>
                                                         </tr>
+                                                        <!--              <tr
+                                                                          class="bgcolored large-font fontcolor-dark border-style-top-white ">
+                                                                          <td class="fontcolor-dark large-font text-right results ">
+                                                                              Subtotal</td>
+                                                                          <td id="deacessionCount "
+                                                                              *ngFor="let subToatlDeaccCount of subtotalEDDDeaccession">
+                                                                              <a class="Deaccession-tableshow " name="deacessionCount"
+                                                                                  href="# "
+                                                                                  (click)="deaccession(subToatlDeaccCount.institution)">
+                                                                                  <button id="btn_{{subToatlDeaccCount.institution}}"
+                                                                                      *ngIf="subToatlDeaccCount.count !=0 ">{{subToatlDeaccCount.count}}</button></a>
+                                                                              <span
+                                                                                  *ngIf="subToatlDeaccCount.count==0 ">{{subToatlDeaccCount.count}}</span>
+                                                                          </td>
+                                                                      </tr>
+                                                        -->
                                                     </table>
                                                 </div>
                                             </div>
@@ -584,9 +594,9 @@
                                         </div>
                                     </div>
                                     <div class="row margin-btm-10" id="cgdErrorMessageId" *ngIf="cgdErrorMessageDiv"
-                                        style="margin-top: 15px;">
+                                         style="margin-top: 15px;">
                                         <div class="col-sm-12 "
-                                            style="padding-left:45px;padding-right:45px;margin-top:10px; ">
+                                             style="padding-left:45px;padding-right:45px;margin-top:10px; ">
                                             <div class="bg-danger text-danger padding-10 "><span
                                                     class="margin-right-05 glyphicon glyphicon-warning-sign "></span><span
                                                     id="cgdErrorMessageSpanId">{{reportstVal['errorMessage']}}</span>
@@ -601,15 +611,15 @@
                                             <div id="CollectionGroupDesignation-tableview ">
                                                 <div class="table-wrapper ">
                                                     <table class="table table-striped text-center margin-btm-0 "
-                                                        id="cgdTable ">
+                                                           id="cgdTable ">
                                                         <thead class="tablesorter-headerRow ">
-                                                            <tr>
-                                                                <th width="20% "></th>
-                                                                <th width="20% "
-                                                                    style="font-family:sans-serif;font-size: 120% "
-                                                                    *ngFor=" let key of reportstVal[ 'reportsInstitutionFormList'] ">
-                                                                    {{key.institution}}</th>
-                                                            </tr>
+                                                        <tr>
+                                                            <th width="20% "></th>
+                                                            <th width="20% "
+                                                                style="font-family:sans-serif;font-size: 120% "
+                                                                *ngFor=" let key of reportstVal[ 'reportsInstitutionFormList'] ">
+                                                                {{key.institution}}</th>
+                                                        </tr>
                                                         </thead>
                                                         <tr class="border-style-top-white results ">
                                                             <td class="v-middle-data gray-dark fontcolor-white large-font results "
@@ -664,7 +674,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr
-                                                            class="bgcolored large-font fontcolor-dark border-style-top-white results ">
+                                                                class="bgcolored large-font fontcolor-dark border-style-top-white results ">
                                                             <td class="v-middle-data gray-dark fontcolor-white results "
                                                                 style="font-family:sans-serif; ">TOTAL
                                                             </td>
@@ -689,7 +699,7 @@
                     <div class="reports-detail-table " id="Deaccession-tableview " *ngIf="Deaccessiontableshow ">
                         <!-- <input type="hidden" id="ownInst " /> -->
                         <button id="pageSizeChangeButtonId " name="action " type="submit " value="pageSizeChange "
-                            hidden="hidden "></button>
+                                hidden="hidden "></button>
                         <div class="row ">
                             <h4 class="col-sm-9 margin-top-05 margin-btm-0 ">Report Results</h4>
                             <div class="col-sm-3 text-right Deaccessionbacklink ">
@@ -703,9 +713,9 @@
                                 <div class=" ">
                                     <span class="show-title ">Show Entries</span>
                                     <select class="themed-input " id="numOfRecordsId " name="numOfRecordsName "
-                                        [(ngModel)]="showentries" [ngModelOptions]="{standalone: true} "
-                                        style="margin-left: 5px; "
-                                        (change)="deaccessionInformationOnChange(showentries) ">
+                                            [(ngModel)]="showentries" [ngModelOptions]="{standalone: true} "
+                                            style="margin-left: 5px; "
+                                            (change)="deaccessionInformationOnChange(showentries) ">
                                         <option value="10" selected>10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -723,64 +733,64 @@
                                 Found:<span>{{deaccessionRes['totalRecordsCount']}}</span></label>
                             <div>
                                 <table class="table table-striped text-center margin-btm-0"
-                                    id="deaccessionResultsTable">
+                                       id="deaccessionResultsTable">
                                     <thead class="tablesorter-headerRow ">
-                                        <tr>
-                                            <th width="15% " style="font-family:sans-serif; ">DATE</th>
-                                            <th width="20% " style="font-family:sans-serif; ">TITLE</th>
-                                            <th width="10% " style="font-family:sans-serif; ">OI</th>
-                                            <th width="10% " style="font-family:sans-serif; ">ITEM BARCODE</th>
-                                            <th width="10% " style="font-family:sans-serif; ">CGD</th>
-                                            <th width="25% " style="font-family:sans-serif; ">DEACCESSION NOTES</th>
-                                            <th width="15% " style="font-family:sans-serif; ">DEACCESSION BY</th>
-                                        </tr>
+                                    <tr>
+                                        <th width="15% " style="font-family:sans-serif; ">DATE</th>
+                                        <th width="20% " style="font-family:sans-serif; ">TITLE</th>
+                                        <th width="10% " style="font-family:sans-serif; ">OI</th>
+                                        <th width="10% " style="font-family:sans-serif; ">ITEM BARCODE</th>
+                                        <th width="10% " style="font-family:sans-serif; ">CGD</th>
+                                        <th width="25% " style="font-family:sans-serif; ">DEACCESSION NOTES</th>
+                                        <th width="15% " style="font-family:sans-serif; ">DEACCESSION BY</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr id="rowData_results_de_{{i}} "
-                                            *ngFor="let deaccessionRow of deaccessionRes[ 'deaccessionItemResultsRows']; let i=index ">
-                                            <td id="colData_dd_de_{{i}} ">
-                                                <span>{{deaccessionRow.deaccessionDate}}</span>
-                                            </td>
-                                            <td id="colData_dt_de_{{i}} "><span>{{deaccessionRow.title}}</span></td>
-                                            <td id="colData_di_de_{{i}} "><span
-                                                    id="ownInstDeacc_{{i}} ">{{deaccessionRow.deaccessionOwnInst}}</span>
-                                            </td>
-                                            <td id="colData_ib_de_{{i}} "><span>{{deaccessionRow.itemBarcode}}</span>
-                                            </td>
-                                            <td id="colData_cgd_de_{{i}} "><span>{{deaccessionRow.cgd}}</span></td>
-                                            <td id="colData_dn_de_{{i}} ">
-                                                <span>{{deaccessionRow.deaccessionNotes}}</span>
-                                            </td>
-                                            <td id="colData_dcb_de_{{i}} ">
-                                                <span>{{deaccessionRow.deaccessionCreatedBy}}</span>
-                                            </td>
-                                        </tr>
+                                    <tr id="rowData_results_de_{{i}} "
+                                        *ngFor="let deaccessionRow of deaccessionRes[ 'deaccessionItemResultsRows']; let i=index ">
+                                        <td id="colData_dd_de_{{i}} ">
+                                            <span>{{deaccessionRow.deaccessionDate}}</span>
+                                        </td>
+                                        <td id="colData_dt_de_{{i}} "><span>{{deaccessionRow.title}}</span></td>
+                                        <td id="colData_di_de_{{i}} "><span
+                                                id="ownInstDeacc_{{i}} ">{{deaccessionRow.deaccessionOwnInst}}</span>
+                                        </td>
+                                        <td id="colData_ib_de_{{i}} "><span>{{deaccessionRow.itemBarcode}}</span>
+                                        </td>
+                                        <td id="colData_cgd_de_{{i}} "><span>{{deaccessionRow.cgd}}</span></td>
+                                        <td id="colData_dn_de_{{i}} ">
+                                            <span>{{deaccessionRow.deaccessionNotes}}</span>
+                                        </td>
+                                        <td id="colData_dcb_de_{{i}} ">
+                                            <span>{{deaccessionRow.deaccessionCreatedBy}}</span>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <input id="reportsPageNumber " name="reportsPageNumber " type="text "
-                                th:field="${reportsForm.pageNumber} " hidden="hidden ">
+                                   th:field="${reportsForm.pageNumber} " hidden="hidden ">
                             <input id="reportstotalPageCount " name="reportstotalPageCount " type="text "
-                                th:field="${reportsForm.totalPageCount} " hidden="hidden ">
+                                   th:field="${reportsForm.totalPageCount} " hidden="hidden ">
                             <div class="pull-right " id="reportPaginationId " name="reportPaginationName "
-                                style="margin-top: -10px; ">
+                                 style="margin-top: -10px; ">
                                 <ul class="pagination " id="reportPaginationUl ">
                                     <li [ngClass]="(firstbutton==true)? 'disabled': '' ">
                                         <span id="btn_first " (click)="deaccessionfirstCall() "
-                                            style="cursor: pointer ">First</span>
+                                              style="cursor: pointer ">First</span>
                                     </li>
                                     <li [ngClass]=" (previousbutton==true)? 'disabled': '' ">
                                         <span id="btn_previous " (click)="deaccessionpreviousCall() "
-                                            style="cursor: pointer ">Previous</span>
+                                              style="cursor: pointer ">Previous</span>
                                     </li>
                                     <li [ngClass]="(nextbutton==true)? 'disabled': '' ">
                                         <span id="btn_next " (click)="deaccessionnextCall() "
-                                            style="cursor: pointer ">Next</span>
+                                              style="cursor: pointer ">Next</span>
 
                                     </li>
                                     <li [ngClass]="(lastbutton==true)? 'disabled': '' ">
                                         <span id="btn_last " (click)="deaccessionlastCall() "
-                                            style="cursor: pointer ">Last</span>
+                                              style="cursor: pointer ">Last</span>
                                     </li>
                                 </ul>
                             </div>
@@ -801,17 +811,17 @@
                                                         <span class="error-color ">*</span> </label>
                                                     <div class="select-holder ">
                                                         <select class="themed-input themed-select "
-                                                            id="incompleteShowBy " name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
+                                                                id="incompleteShowBy " name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
                                                                     " [ngModelOptions]="{standalone: true} "
-                                                            [(ngModel)]="incompleteShowBy ">
+                                                                [(ngModel)]="incompleteShowBy ">
                                                             <option *ngFor="let inst of instVal[ 'institutionList'] "
-                                                                [ngValue]="inst ">
+                                                                    [ngValue]="inst ">
                                                                 {{inst}}
                                                             </option>
                                                         </select>
                                                     </div>
                                                     <p id="incompleteErrorText " *ngIf="incompleteErrorText "
-                                                        style="color: red ">This Field is Required
+                                                       style="color: red ">This Field is Required
                                                     </p>
                                                 </div>
                                             </div>
@@ -819,15 +829,15 @@
                                     </div>
                                     <div class="col-md-3 col-sm-3 ">
                                         <button class="btn themed-button themed-button-search "
-                                            id="incompleteSubmitBtn " type="button "
-                                            (click)="incompleteRecords() ">Generate Report
+                                                id="incompleteSubmitBtn " type="button "
+                                                (click)="incompleteRecords() ">Generate Report
                                         </button>
                                     </div>
                                 </div>
 
                                 <div class="row ">
                                     <div class="col-xs-12 margin-top-less-10 "
-                                        style="margin-top: 5px;padding-left: 20px; ">Fields marked with asterisk(
+                                         style="margin-top: 5px;padding-left: 20px; ">Fields marked with asterisk(
                                         <span class="error-color ">*</span>) are mandatory.
                                     </div>
                                 </div>
@@ -856,7 +866,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 " *ngIf="incompleteResultsDiv"
-                                style="padding-left:30px;padding-right:30px; ">
+                                 style="padding-left:30px;padding-right:30px; ">
                                 <h4>Report Results</h4>
                                 <h4 class="pull-right " style="margin-top: -20px; ">Total Records Found:
                                     <span>{{reportstVal['incompleteTotalRecordsCount']}}</span>
@@ -865,9 +875,9 @@
                                     <div class=" ">
                                         <span class="show-title ">Show Entries</span>
                                         <select class="themed-input " id="incompleteShowRecords "
-                                            name="numOfRecordsName " [(ngModel)]="incompletePageSize " (change)="incompleteReportPageSizeChange(incompletePageSize)
+                                                name="numOfRecordsName " [(ngModel)]="incompletePageSize " (change)="incompleteReportPageSizeChange(incompletePageSize)
                                                                     " [ngModelOptions]="{standalone: true} "
-                                            style="margin-left: 5px; ">
+                                                style="margin-left: 5px; ">
                                             <option value="10" selected>10</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
@@ -879,41 +889,41 @@
                                 <div>
                                     <div class="table-wrapper ">
                                         <table class="table table-striped text-center margin-btm-0 "
-                                            id="IncompleteRecordsReportTable">
+                                               id="IncompleteRecordsReportTable">
                                             <thead class="tablesorter-headerRow ">
-                                                <tr>
-                                                    <th width="30% " style="font-family:sans-serif;font-size: 120% ">
-                                                        Title
-                                                    </th>
-                                                    <th width="20% " style="font-family:sans-serif;font-size: 120% ">
-                                                        Author</th>
-                                                    <th width="10% " style="font-family:sans-serif;font-size: 120% ">
-                                                        Customer code</th>
-                                                    <th width="20% " style="font-family:sans-serif;font-size: 120% ">
-                                                        Barcode</th>
-                                                    <th width="20% " style="font-family:sans-serif;font-size: 120% ">
-                                                        Accession Date</th>
-                                                </tr>
+                                            <tr>
+                                                <th width="30% " style="font-family:sans-serif;font-size: 120% ">
+                                                    Title
+                                                </th>
+                                                <th width="20% " style="font-family:sans-serif;font-size: 120% ">
+                                                    Author</th>
+                                                <th width="10% " style="font-family:sans-serif;font-size: 120% ">
+                                                    Customer code</th>
+                                                <th width="20% " style="font-family:sans-serif;font-size: 120% ">
+                                                    Barcode</th>
+                                                <th width="20% " style="font-family:sans-serif;font-size: 120% ">
+                                                    Accession Date</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="parentRow " id="rowData_results_{{i}} "
-                                                    *ngFor="let incompleteResult of reportstVal[ 'incompleteReportResultsRows']; let i=index ">
-                                                    <td id="colData_title_{{i}} ">
-                                                        <span>{{incompleteResult.title}}</span>
-                                                    </td>
-                                                    <td id="colData_author_{{i}} ">
-                                                        <span>{{incompleteResult.author}}</span>
-                                                    </td>
-                                                    <td id="colData_cd_{{i}} ">
-                                                        <span>{{incompleteResult.customerCode}}</span>
-                                                    </td>
-                                                    <td id="colData_bd_{{i}} ">
-                                                        <span>{{incompleteResult.barcode}}</span>
-                                                    </td>
-                                                    <td id="colData_cd_{{i}} ">
-                                                        <span>{{incompleteResult.createdDate}}</span>
-                                                    </td>
-                                                </tr>
+                                            <tr class="parentRow " id="rowData_results_{{i}} "
+                                                *ngFor="let incompleteResult of reportstVal[ 'incompleteReportResultsRows']; let i=index ">
+                                                <td id="colData_title_{{i}} ">
+                                                    <span>{{incompleteResult.title}}</span>
+                                                </td>
+                                                <td id="colData_author_{{i}} ">
+                                                    <span>{{incompleteResult.author}}</span>
+                                                </td>
+                                                <td id="colData_cd_{{i}} ">
+                                                    <span>{{incompleteResult.customerCode}}</span>
+                                                </td>
+                                                <td id="colData_bd_{{i}} ">
+                                                    <span>{{incompleteResult.barcode}}</span>
+                                                </td>
+                                                <td id="colData_cd_{{i}} ">
+                                                    <span>{{incompleteResult.createdDate}}</span>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -922,35 +932,35 @@
                             <!--IncompleteRecordsReport Pagination-->
 
                             <input id="incompletePageNumber " name="incompletePageNumber " type="text "
-                                th:field="${reportsForm.incompletePageNumber} " hidden="hidden ">
+                                   th:field="${reportsForm.incompletePageNumber} " hidden="hidden ">
                             <input id="incompletetotalPageCount " name="incompletetotalPageCount " type="text "
-                                th:field="${reportsForm.incompleteTotalPageCount} " hidden="hidden ">
+                                   th:field="${reportsForm.incompleteTotalPageCount} " hidden="hidden ">
                             <div class="pull-left " id="incompletePaginationId " name="reportPaginationName "
-                                data-th-if="${reportsForm.showIncompletePagination} "
-                                *ngIf="incompletetotalPaginationDiv" style="margin-top: -10px;padding-left:35px; ">
+                                 data-th-if="${reportsForm.showIncompletePagination} "
+                                 *ngIf="incompletetotalPaginationDiv" style="margin-top: -10px;padding-left:35px; ">
                                 <ul class="pagination " id="incompletePaginationUl ">
                                     <li [ngClass]="(firstbutton==true)? 'disabled': '' ">
                                         <span id="btn_first_in " (click)="firstCall() "
-                                            style="cursor: pointer ">First</span>
+                                              style="cursor: pointer ">First</span>
                                     </li>
                                     <li [ngClass]="(previousbutton==true)? 'disabled': '' ">
                                         <span id="btn_pre_in " (click)="previousCall() "
-                                            style="cursor: pointer ">Previous</span>
+                                              style="cursor: pointer ">Previous</span>
                                     </li>
                                     <li [ngClass]="(nextbutton==true)? 'disabled': '' ">
                                         <span id="btn_next_in " (click)="nextCall() "
-                                            style="cursor: pointer ">Next</span>
+                                              style="cursor: pointer ">Next</span>
                                     </li>
                                     <li [ngClass]="(lastbutton==true)? 'disabled': '' ">
                                         <span id="btn_last_in " (click)="lastCall() "
-                                            style="cursor: pointer ">Last</span>
+                                              style="cursor: pointer ">Last</span>
                                     </li>
                                 </ul>
                             </div>
                             <!--IncompletePagination Ends-->
                             <div *ngIf="exportRecorsButtonDiv" style="padding-right:35px; ">
                                 <button class="btn btn-md btn-danger pull-right " id="export " style="margin-top: 10px "
-                                    (click)="exportRecords() ">Export Records
+                                        (click)="exportRecords() ">Export Records
                                 </button>
                             </div>
                         </div>
@@ -963,7 +973,7 @@
                                 <div id="ReportRequestsection" style="margin-top: -20px;">
                                     <div class="row" style="padding-left: 20px">
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">Show By <span class="error-color">*</span>
@@ -971,11 +981,11 @@
                                                 </div>
                                                 <div class="select-holder ">
                                                     <select class="themed-input themed-select " id="incompleteShowBy "
-                                                        name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
+                                                            name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
                                                                     " [ngModelOptions]="{standalone: true} "
-                                                        [(ngModel)]="incompleteShowBy ">
+                                                            [(ngModel)]="incompleteShowBy ">
                                                         <option *ngFor="let inst of instVal[ 'institutionList'] "
-                                                            [ngValue]="inst ">
+                                                                [ngValue]="inst ">
                                                             {{inst}}
                                                         </option>
                                                     </select>
@@ -991,46 +1001,46 @@
                                                 <label>From</label>
                                                 <div class="input-group date" id="reportrequeExceptionsdatepickerfrom">
                                                     <input class="form-control themed-input"
-                                                        id="RequestExceptionDateRangefrom"
-                                                        name="RequestExceptionDateRangefrom" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="RequestExceptionDateRangefrom">
+                                                           id="RequestExceptionDateRangefrom"
+                                                           name="RequestExceptionDateRangefrom" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="RequestExceptionDateRangefrom">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="requestExceptionFromDateErrorText"
-                                                    *ngIf="requestExceptionFromDateErrorText" style="color: red">This
+                                                   *ngIf="requestExceptionFromDateErrorText" style="color: red">This
                                                     Field is Required
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-lg-2 padding-right-50"
-                                            style="margin-top: 3px;">
+                                             style="margin-top: 3px;">
                                             <div class="form-group">
                                                 <br>
                                                 <label>To</label>
                                                 <div class="input-group date" id="reportExceptionrequesdatepickerto">
                                                     <input class="form-control themed-input"
-                                                        id="RequestExceptionDateRangeto"
-                                                        name="RequestExceptionDateRangeto" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="RequestExceptionDateRangeto">
+                                                           id="RequestExceptionDateRangeto"
+                                                           name="RequestExceptionDateRangeto" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="RequestExceptionDateRangeto">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="requestExceptionToDateErrorText"
-                                                    *ngIf="requestExceptionToDateErrorText" style="color: red;">This
+                                                   *ngIf="requestExceptionToDateErrorText" style="color: red;">This
                                                     Field is Required
                                                 </p>
                                                 <p id="requestExceptionFromToError" *ngIf="requestExceptionFromToError"
-                                                    style="color: red">To Date must be greater than or
+                                                   style="color: red">To Date must be greater than or
                                                     <br>equal to the From Date
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-3 col-sm-3" style="margin-top: 18px;">
                                             <button class="btn themed-button themed-button-search" id="searchButton"
-                                                (click)="submitRequestException()">Generate Report
+                                                    (click)="submitRequestException()">Generate Report
                                             </button>
                                         </div>
                                     </div>
@@ -1055,9 +1065,9 @@
                                     <div class="">
                                         <span class="show-title margin-right-05">Show Entries</span>
                                         <select class="themed-input" id="numOfRecordsId" name="numOfRecordsName"
-                                            [(ngModel)]="showentries"
-                                            (change)="requestExceptionPageSizeChange(showentries)"
-                                            [ngModelOptions]="{standalone: true}">
+                                                [(ngModel)]="showentries"
+                                                (change)="requestExceptionPageSizeChange(showentries)"
+                                                [ngModelOptions]="{standalone: true}">
                                             <option value="10" selected="selected">10</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
@@ -1079,78 +1089,78 @@
                                 <div class="col-xs-12">
                                     <table class="table table-striped margin-btm-0" id="request-result-table">
                                         <thead class="tablesorter-headerRow">
-                                            <tr name="results_rowhdrs">
-                                                <th>Patron Barcode</th>
-                                                <th title="'Request Institution'">RI</th>
-                                                <th>Item Barcode</th>
-                                                <th title="'Item Owning Institution'">Item OI</th>
-                                                <th title="'Delivery Location'">DL</th>
-                                                <th title="'Request Type'">RT</th>
-                                                <th>Request Created By</th>
-                                                <th>Patron Email Address</th>
-                                                <th>Created Date</th>
-                                                <th>Last Updated Date</th>
-                                                <th>Request Notes</th>
-                                            </tr>
+                                        <tr name="results_rowhdrs">
+                                            <th>Patron Barcode</th>
+                                            <th title="'Request Institution'">RI</th>
+                                            <th>Item Barcode</th>
+                                            <th title="'Item Owning Institution'">Item OI</th>
+                                            <th title="'Delivery Location'">DL</th>
+                                            <th title="'Request Type'">RT</th>
+                                            <th>Request Created By</th>
+                                            <th>Patron Email Address</th>
+                                            <th>Created Date</th>
+                                            <th>Last Updated Date</th>
+                                            <th>Request Notes</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="requestRow" id="rowData_results_{{i}}"
-                                                *ngFor="let item of searchreqExceptionResultVal['searchResultRows']; let i=index">
-                                                <input id="requestRowRequestId-{{i}}"
-                                                    name="requestRowRequestId-index-{{i}}" type="hidden"
-                                                    value="{{item.requestId}}">
-                                                <th class="center-text" id="data_pb_{{i}}">{{ item.patronBarcode }}</th>
-                                                <td class="center-text" id="data_ri_{{i}}">
-                                                    {{ item.requestingInstitution }}</td>
-                                                <td class="center-text"><a id="data_br_{{i}}" target="_blank"
-                                                        routerLink="/openMarcRecord"
-                                                        [queryParams]="{bibId: item['bibId']}">{{ item.barcode }}</a>
-                                                </td>
-                                                <td class="center-text" id="data_oi_{{i}}">{{ item.owningInstitution }}
-                                                </td>
-                                                <td class="center-text" id="data_dl_{{i}}">{{ item.deliveryLocation }}
-                                                </td>
-                                                <td class="center-text" id="data_rt_{{i}}">{{ item.requestType }}</td>
-                                                <td class="center-text" id="data_rcb_{{i}}">{{ item.requestCreatedBy }}
-                                                </td>
-                                                <td class="center-text" id="data_pe_{{i}}">{{ item.patronEmailId }}</td>
-                                                <td class="center-text" id="data_cd_{{i}}">
-                                                    {{ item.createdDate | date:'yyyy-MM-dd
-                                                    HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss':
-                                                    'UTC')}}
-                                                </td>
-                                                <td class="center-text" id="data_ld_{{i}}">
-                                                    {{ item.lastUpdatedDate | date:'yyyy-MM-dd
-                                                    HH:mm:ss':timezone(item.lastUpdatedDate | date:'yyyy-MM-dd
-                                                    HH:mm:ss': 'UTC')}}
-                                                </td>
-                                                <td class="center-text" id="data_rn_{{i}}" width="20%">
-                                                    {{item.requestNotes}}</td>
-                                            </tr>
+                                        <tr class="requestRow" id="rowData_results_{{i}}"
+                                            *ngFor="let item of searchreqExceptionResultVal['searchResultRows']; let i=index">
+                                            <input id="requestRowRequestId-{{i}}"
+                                                   name="requestRowRequestId-index-{{i}}" type="hidden"
+                                                   value="{{item.requestId}}">
+                                            <th class="center-text" id="data_pb_{{i}}">{{ item.patronBarcode }}</th>
+                                            <td class="center-text" id="data_ri_{{i}}">
+                                                {{ item.requestingInstitution }}</td>
+                                            <td class="center-text"><a id="data_br_{{i}}" target="_blank"
+                                                                       routerLink="/openMarcRecord"
+                                                                       [queryParams]="{bibId: item['bibId']}">{{ item.barcode }}</a>
+                                            </td>
+                                            <td class="center-text" id="data_oi_{{i}}">{{ item.owningInstitution }}
+                                            </td>
+                                            <td class="center-text" id="data_dl_{{i}}">{{ item.deliveryLocation }}
+                                            </td>
+                                            <td class="center-text" id="data_rt_{{i}}">{{ item.requestType }}</td>
+                                            <td class="center-text" id="data_rcb_{{i}}">{{ item.requestCreatedBy }}
+                                            </td>
+                                            <td class="center-text" id="data_pe_{{i}}">{{ item.patronEmailId }}</td>
+                                            <td class="center-text" id="data_cd_{{i}}">
+                                                {{ item.createdDate | date:'yyyy-MM-dd
+                                                HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss':
+                                                'UTC')}}
+                                            </td>
+                                            <td class="center-text" id="data_ld_{{i}}">
+                                                {{ item.lastUpdatedDate | date:'yyyy-MM-dd
+                                                HH:mm:ss':timezone(item.lastUpdatedDate | date:'yyyy-MM-dd
+                                                HH:mm:ss': 'UTC')}}
+                                            </td>
+                                            <td class="center-text" id="data_rn_{{i}}" width="20%">
+                                                {{item.requestNotes}}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="col-md-12" id="requestPaginationDivId" name="requestPaginationDivName"
-                                    style="margin-bottom: -20px;">
+                                     style="margin-bottom: -20px;">
                                     <div class="pull-right">
                                         <div id="requestPaginationId" name="requestPaginationName">
                                             <ul class="pagination">
                                                 <li [ngClass]="(firstbuttonException==true)?'disabled':''">
                                                     <span id="first" (click)="firstCallException()"
-                                                        style="cursor: pointer;">First</span>
+                                                          style="cursor: pointer;">First</span>
                                                 </li>
                                                 <li [ngClass]="(previousbuttonException==true)?'disabled':''">
                                                     <span id="previous" (click)="previousCallException()"
-                                                        style="cursor: pointer;">Previous</span>
+                                                          style="cursor: pointer;">Previous</span>
                                                 </li>
                                                 <li [ngClass]="(nextbuttonException==true)?'disabled':''">
                                                     <span id="next" (click)="nextCallException()"
-                                                        style="cursor: pointer;">Next</span>
+                                                          style="cursor: pointer;">Next</span>
 
                                                 </li>
                                                 <li [ngClass]="(lastbuttonException==true)?'disabled':''">
                                                     <span id="last" (click)="lastCallException()"
-                                                        style="cursor: pointer;">Last</span>
+                                                          style="cursor: pointer;">Last</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1159,7 +1169,7 @@
                             </div>
                             <div style="margin-top: 20px;">
                                 <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-                                    (click)="exportExceptionRecords()" value="export" style="margin-right: 10px;">Export
+                                        (click)="exportExceptionRecords()" value="export" style="margin-right: 10px;">Export
                                     Report to csv
                                 </button>
                             </div>
@@ -1172,7 +1182,7 @@
                                 <div id="ReportRequestsection" style="margin-top: -20px;">
                                     <div class="row" style="padding-left: 20px">
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">Borrowing Institution<span
@@ -1180,27 +1190,27 @@
                                                 </div>
                                                 <div class="">
                                                     <ng-select id="borrowingInstitutionList"
-                                                        [items]="instVal['institutionList']" [multiple]="true"
-                                                        bindLabel="name" [selectableGroup]="true"
-                                                        [selectableGroupAsModel]="false" [closeOnSelect]="false"
-                                                        bindValue="id" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="borrowingInstitutionList"
-                                                        placeholder="Select One or More">
+                                                               [items]="instVal['institutionList']" [multiple]="true"
+                                                               bindLabel="name" [selectableGroup]="true"
+                                                               [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                               bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                               [(ngModel)]="borrowingInstitutionList"
+                                                               placeholder="Select One or More">
                                                         <ng-template ng-option-tmp let-item="item" let-item$="item$"
-                                                            let-index="index">
+                                                                     let-index="index">
                                                             <input id="item-{{index}}" type="checkbox"
-                                                                [ngModelOptions]="{standalone: true}"
-                                                                [ngModel]="item$.selected"> {{item}}
+                                                                   [ngModelOptions]="{standalone: true}"
+                                                                   [ngModel]="item$.selected"> {{item}}
                                                         </ng-template>
                                                     </ng-select>
                                                 </div>
                                                 <p id="borrowingErrorText" *ngIf="borrowingErrorText"
-                                                    style="color: red">
+                                                   style="color: red">
                                                     This Field is Required</p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">Owning Institution<span
@@ -1208,17 +1218,17 @@
                                                 </div>
                                                 <div class="">
                                                     <ng-select id="owningInstitutionList"
-                                                        [items]="instVal['institutionList']" [multiple]="true"
-                                                        bindLabel="name" [selectableGroup]="true"
-                                                        [selectableGroupAsModel]="false" [closeOnSelect]="false"
-                                                        bindValue="id" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="owningInstitutionList"
-                                                        placeholder="Select One or More">
+                                                               [items]="instVal['institutionList']" [multiple]="true"
+                                                               bindLabel="name" [selectableGroup]="true"
+                                                               [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                               bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                               [(ngModel)]="owningInstitutionList"
+                                                               placeholder="Select One or More">
                                                         <ng-template ng-option-tmp let-item="item" let-item$="item$"
-                                                            let-index="index">
+                                                                     let-index="index">
                                                             <input id="item-{{index}}" type="checkbox"
-                                                                [ngModelOptions]="{standalone: true}"
-                                                                [ngModel]="item$.selected"> {{item}}
+                                                                   [ngModelOptions]="{standalone: true}"
+                                                                   [ngModel]="item$.selected"> {{item}}
                                                         </ng-template>
                                                     </ng-select>
                                                 </div>
@@ -1227,22 +1237,22 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label>Type of Use <span class="error-color">*</span> </label>
                                                 </div>
                                                 <div class="">
                                                     <ng-select id="typeOptions" [items]="TYPE_LIST_USE"
-                                                        [multiple]="true" bindLabel="name" [selectableGroup]="true"
-                                                        [selectableGroupAsModel]="false" [closeOnSelect]="false"
-                                                        bindValue="id" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="typeOptions" placeholder="Select One or More">
+                                                               [multiple]="true" bindLabel="name" [selectableGroup]="true"
+                                                               [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                               bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                               [(ngModel)]="typeOptions" placeholder="Select One or More">
                                                         <ng-template ng-option-tmp let-item="item" let-item$="item$"
-                                                            let-index="index">
+                                                                     let-index="index">
                                                             <input id="item-{{index}}" type="checkbox"
-                                                                [ngModelOptions]="{standalone: true}"
-                                                                [ngModel]="item$.selected"> {{item}}
+                                                                   [ngModelOptions]="{standalone: true}"
+                                                                   [ngModel]="item$.selected"> {{item}}
                                                         </ng-template>
                                                     </ng-select>
                                                 </div>
@@ -1256,44 +1266,44 @@
                                                 <label>From</label>
                                                 <div class="input-group date" id="transactionDateRangetodatepickerfrom">
                                                     <input class="form-control themed-input"
-                                                        id="transactionDateRangefrom" name="transactionDateRangefrom"
-                                                        type="date" placeholder="MM/DD/YYYY"
-                                                        [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="transactionDateRangefrom">
+                                                           id="transactionDateRangefrom" name="transactionDateRangefrom"
+                                                           type="date" placeholder="MM/DD/YYYY"
+                                                           [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="transactionDateRangefrom">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="transactionDateRangefromDateErrorText"
-                                                    *ngIf="transactionDateRangefromDateErrorText" style="color: red">
+                                                   *ngIf="transactionDateRangefromDateErrorText" style="color: red">
                                                     This Field is Required
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-lg-2 padding-right-50"
-                                            style="margin-top: 3px;">
+                                             style="margin-top: 3px;">
                                             <div class="form-group">
                                                 <br>
                                                 <label>To</label>
                                                 <div class="input-group date" id="transactionrequesdatepickerto">
                                                     <input class="form-control themed-input" id="transactionDateRangeto"
-                                                        name="transactionDateRangeto" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="transactionDateRangeto">
+                                                           name="transactionDateRangeto" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="transactionDateRangeto">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="transactionToDateErrorText" *ngIf="transactionToDateErrorText"
-                                                    style="color: red;">This Field is Required
+                                                   style="color: red;">This Field is Required
                                                 </p>
                                                 <p id="transactionFromToError" *ngIf="transactionFromToError"
-                                                    style="color: red">To Date must be greater than or
+                                                   style="color: red">To Date must be greater than or
                                                     <br>equal to the From Date
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-3 col-sm-3" style="margin-top: 18px;">
                                             <button class="btn themed-button themed-button-search" id="searchButton"
-                                                (click)="transactionReprtCount()">Generate Report
+                                                    (click)="transactionReprtCount()">Generate Report
                                             </button>
                                         </div>
                                     </div>
@@ -1316,120 +1326,120 @@
                                 <div id="Accession_Deaccession-tableview ">
                                     <div class="table-wrapper ">
                                         <table class="table table-striped text-center margin-btm-0 "
-                                            id="acessionDeaccessionTable " style="border: 1px solid;">
+                                               id="acessionDeaccessionTable " style="border: 1px solid;">
                                             <thead class="tablesorter-headerRow ">
-                                                <tr>
-                                                    <th rowspan="3" width="3%" class="inst_row"
-                                                        style="border: 1px solid;"></th>
-                                                    <th rowspan="3" width="3%" class="inst_row"
-                                                        style="border: 1px solid;"></th>
-                                                    <th rowspan="3" width="9%" class="inst_row"
-                                                        style="border: 1px solid;">CGD</th>
-                                                    <th colspan="8" class="b_inst" style="border: 1px solid;">
-                                                        Borrowing Institution</th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="inst_row td_tr_border" width="40%" colspan="4">
-                                                        Retrieval/Recall</th>
-                                                    <th class="inst_row td_tr_border" width="35%" colspan="4">EDD</th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="inst_row td_tr_border" width="9.5625%"
-                                                        *ngFor="let inst_h of instList_transactons">
-                                                        {{inst_h.name}}</th>
-                                                    <th class="inst_row td_tr_border" width="8.5%"
-                                                        *ngFor="let inst_h of instList_transactons">
-                                                        {{inst_h.name}}</th>
-                                                </tr>
+                                            <tr>
+                                                <th rowspan="3" width="3%" class="inst_row"
+                                                    style="border: 1px solid;"></th>
+                                                <th rowspan="3" width="3%" class="inst_row"
+                                                    style="border: 1px solid;"></th>
+                                                <th rowspan="3" width="9%" class="inst_row"
+                                                    style="border: 1px solid;">CGD</th>
+                                                <th colspan="8" class="b_inst" style="border: 1px solid;">
+                                                    Borrowing Institution</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="inst_row td_tr_border" width="40%" colspan="4">
+                                                    Retrieval/Recall</th>
+                                                <th class="inst_row td_tr_border" width="35%" colspan="4">EDD</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="inst_row td_tr_border" width="9.5625%"
+                                                    *ngFor="let inst_h of instList_transactons">
+                                                    {{inst_h.name}}</th>
+                                                <th class="inst_row td_tr_border" width="8.5%"
+                                                    *ngFor="let inst_h of instList_transactons">
+                                                    {{inst_h.name}}</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <td rowspan="24" class="b_inst td_tr_border"
-                                                    style="white-space: nowrap;"><span class="rotate"> Owning
+                                            <td rowspan="24" class="b_inst td_tr_border"
+                                                style="white-space: nowrap;"><span class="rotate"> Owning
                                                         Institution</span></td>
-                                                <ng-container *ngFor="let inst of instList_transactons; let i = index">
-                                                    <td rowspan="6" class="inst_row" id="inst_{{inst.name}}"
-                                                        style="border: 1px solid;">
-                                                        <span class="rotate"> {{inst.name}}</span>
-                                                    </td>
-                                                    <tr>
-                                                        <td class="inst_col_td1 td_tr_border">Committed</td>
-                                                        <td class="td_tr_border" id="committed_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                            <ng-container *ngFor="let inst of instList_transactons; let i = index">
+                                                <td rowspan="6" class="inst_row" id="inst_{{inst.name}}"
+                                                    style="border: 1px solid;">
+                                                    <span class="rotate"> {{inst.name}}</span>
+                                                </td>
+                                                <tr>
+                                                    <td class="inst_col_td1 td_tr_border">Committed</td>
+                                                    <td class="td_tr_border" id="committed_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReports('Physical',i,j,'Committed')">{{findCount('Physical',j,i,'Committed') | number}}</a></span>
-                                                        </td>
-                                                        <td class="td_tr_border" id="committed_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                    <td class="td_tr_border" id="committed_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReportsEDD('EDD',i,j,'Committed')">{{findCount('EDD',j,i,'Committed') | number}}</a></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="inst_col_td1 td_tr_border">Shared</td>
-                                                        <td class="td_tr_border" id="sahred{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="inst_col_td1 td_tr_border">Shared</td>
+                                                    <td class="td_tr_border" id="sahred{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReports('Physical',i,j,'Shared')">{{findCount('Physical',j,i,'Shared') | number}}</a></span>
-                                                        </td>
-                                                        <td class="td_tr_border" id="sahred{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                    <td class="td_tr_border" id="sahred{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReportsEDD('EDD',i,j,'Shared')">{{findCount('EDD',j,i,'Shared') | number}}</a></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="inst_col_td1 td_tr_border">Open</td>
-                                                        <td class="td_tr_border" id="open_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="inst_col_td1 td_tr_border">Open</td>
+                                                    <td class="td_tr_border" id="open_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReports('Physical',i,j,'Open')">{{findCount('Physical',j,i,'Open') | number}}</a></span>
-                                                        </td>
-                                                        <td class="td_tr_border" id="open_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                    <td class="td_tr_border" id="open_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReportsEDD('EDD',i,j,'Open')">{{findCount('EDD',j,i,'Open') | number}}</a></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="inst_col_td1 td_tr_border">Uncommittable</td>
-                                                        <td class="td_tr_border" id="uncommit_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="inst_col_td1 td_tr_border">Uncommittable</td>
+                                                    <td class="td_tr_border" id="uncommit_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReports('Physical',i,j,'Uncommittable')">{{findCount('Physical',j,i,'Uncommittable') | number}}</a></span>
-                                                        </td>
-                                                        <td class="td_tr_border" id="uncommit_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                    <td class="td_tr_border" id="uncommit_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReportsEDD('EDD',i,j,'Uncommittable')">{{findCount('EDD',j,i,'Uncommittable') | number}}</a></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="inst_col_td1 td_tr_border">Private</td>
-                                                        <td class="td_tr_border" id="private_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="inst_col_td1 td_tr_border">Private</td>
+                                                    <td class="td_tr_border" id="private_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReports('Physical',i,j,'Private')">{{findCount('Physical',j,i,'Private') | number}}</a></span>
-                                                        </td>
-                                                        <td class="td_tr_border" id="private_{{inst.name}}_j"
-                                                            *ngFor="let inst of instList_transactons;let j=index">
+                                                    </td>
+                                                    <td class="td_tr_border" id="private_{{inst.name}}_j"
+                                                        *ngFor="let inst of instList_transactons;let j=index">
                                                             <span class="cnt_dec_a"><a
                                                                     (click)="pullReportsEDD('EDD',i,j,'Private')">{{findCount('EDD',j,i,'Private') | number}}</a></span>
-                                                        </td>
-                                                    </tr>
-                                                </ng-container>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-                                        (click)="exportTransactionFullReport()" value="export"
-                                        style="margin-right: 10px;">Export
+                                            (click)="exportTransactionFullReport()" value="export"
+                                            style="margin-right: 10px;">Export
                                         full detailed results(csv)
                                     </button>
                                     <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-                                        (click)="exportTransactionCount()" value="export"
-                                        style="margin-right: 10px;">Export
+                                            (click)="exportTransactionCount()" value="export"
+                                            style="margin-right: 10px;">Export
                                         summary report(csv)
                                     </button>
                                 </div>
@@ -1440,7 +1450,7 @@
                     <div class="reports-detail-table " id="Transaction-tableview " *ngIf="Transactiontableshow ">
                         <!-- <input type="hidden" id="ownInst " /> -->
                         <button id="pageSizeChangeButtonId " name="action " type="submit " value="pageSizeChange "
-                            hidden="hidden "></button>
+                                hidden="hidden "></button>
                         <div class="row ">
                             <h4 class="col-sm-9 margin-top-05 margin-btm-0 ">Report Results</h4>
                             <div class="col-sm-3 text-right Deaccessionbacklink ">
@@ -1454,8 +1464,8 @@
                                 <div class=" ">
                                     <span class="show-title ">Show Entries</span>
                                     <select class="themed-input " id="numOfRecordsId " name="numOfRecordsName "
-                                        [(ngModel)]="showentriesTransaction" [ngModelOptions]="{standalone: true} "
-                                        style="margin-left: 5px; " (change)="transactionReportsOnChange()">
+                                            [(ngModel)]="showentriesTransaction" [ngModelOptions]="{standalone: true} "
+                                            style="margin-left: 5px; " (change)="transactionReportsOnChange()">
                                         <option value="10" selected>10</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
@@ -1473,68 +1483,68 @@
                         <div id="transactionInformation ">
                             <div>
                                 <table class="table table-striped text-center margin-btm-0" id="deaccessionResultsTable"
-                                    style=" margin-top: 5px;">
+                                       style=" margin-top: 5px;">
                                     <thead class="tablesorter-headerRow ">
-                                        <tr>
-                                            <th style="font-family:sans-serif; ">Requesting Institution</th>
-                                            <th style="font-family:sans-serif; ">Delivery Location</th>
-                                            <th style="font-family:sans-serif; ">Owning Institution</th>
-                                            <th style="font-family:sans-serif; ">Customer Code</th>
-                                            <th style="font-family:sans-serif; ">Type of Use</th>
-                                            <th style="font-family:sans-serif; ">Call Number</th>
-                                            <th style="font-family:sans-serif; ">Storage Location</th>
-                                            <th style="font-family:sans-serif; ">Item Barcode</th>
-                                            <th style="font-family:sans-serif; ">Request Date</th>
-                                            <th style="font-family:sans-serif; ">CGD</th>
-                                            <th style="font-family:sans-serif; ">Current Status</th>
-                                        </tr>
+                                    <tr>
+                                        <th style="font-family:sans-serif; ">Requesting Institution</th>
+                                        <th style="font-family:sans-serif; ">Delivery Location</th>
+                                        <th style="font-family:sans-serif; ">Owning Institution</th>
+                                        <th style="font-family:sans-serif; ">Customer Code</th>
+                                        <th style="font-family:sans-serif; ">Type of Use</th>
+                                        <th style="font-family:sans-serif; ">Call Number</th>
+                                        <th style="font-family:sans-serif; ">Storage Location</th>
+                                        <th style="font-family:sans-serif; ">Item Barcode</th>
+                                        <th style="font-family:sans-serif; ">Request Date</th>
+                                        <th style="font-family:sans-serif; ">CGD</th>
+                                        <th style="font-family:sans-serif; ">Current Status</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr id="rowData_results_de_{{i}} "
-                                            *ngFor="let records of transactionReportRecords['transactionReportList']; let i=index ">
-                                            <td id="colData_dt_de_{{i}} "><span>{{records.requestingInst}}</span></td>
-                                            <td id="colData_dt_de_{{i}} "><span>{{records.stopCode}}</span></td>
-                                            <td id="colData_dd_de_{{i}} "><span>{{records.owningInst}}</span></td>
-                                            <td id="colData_dt_de_{{i}} "><span>{{records.customerCode}}</span></td>
-                                            <td id="colData_di_de_{{i}} "><span
-                                                    id="ownInstDeacc_{{i}} ">{{records.requestType}}</span></td>
-                                            <td id="colData_ib_de_{{i}} "><span>{{records.callNumber}}</span></td>
-                                            <td id="colData_ib_de_{{i}} "><span>{{records.imsLocation}}</span></td>
-                                            <td id="colData_ib_de_{{i}} "><span>{{records.itemBarcode}}</span></td>
-                                            <td id="colData_cgd_de_{{i}} ">
+                                    <tr id="rowData_results_de_{{i}} "
+                                        *ngFor="let records of transactionReportRecords['transactionReportList']; let i=index ">
+                                        <td id="colData_dt_de_{{i}} "><span>{{records.requestingInst}}</span></td>
+                                        <td id="colData_dt_de_{{i}} "><span>{{records.stopCode}}</span></td>
+                                        <td id="colData_dd_de_{{i}} "><span>{{records.owningInst}}</span></td>
+                                        <td id="colData_dt_de_{{i}} "><span>{{records.customerCode}}</span></td>
+                                        <td id="colData_di_de_{{i}} "><span
+                                                id="ownInstDeacc_{{i}} ">{{records.requestType}}</span></td>
+                                        <td id="colData_ib_de_{{i}} "><span>{{records.callNumber}}</span></td>
+                                        <td id="colData_ib_de_{{i}} "><span>{{records.imsLocation}}</span></td>
+                                        <td id="colData_ib_de_{{i}} "><span>{{records.itemBarcode}}</span></td>
+                                        <td id="colData_cgd_de_{{i}} ">
                                                 <span>{{records.createdDate | date:'yyyy-MM-dd
                                                     HH:mm:ss':timezone(records.createdDate | date:'yyyy-MM-dd HH:mm:ss':
                                                     'UTC') }}</span>
-                                            </td>
-                                            <td id="colData_dn_de_{{i}} "><span>{{records.cgd}}</span></td>
-                                            <td id="colData_dcb_de_{{i}} "><span>{{records.requestStatus}}</span></td>
-                                        </tr>
+                                        </td>
+                                        <td id="colData_dn_de_{{i}} "><span>{{records.cgd}}</span></td>
+                                        <td id="colData_dcb_de_{{i}} "><span>{{records.requestStatus}}</span></td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <input id="reportsPageNumber " name="reportsPageNumber " type="text "
-                                th:field="${reportsForm.pageNumber} " hidden="hidden ">
+                                   th:field="${reportsForm.pageNumber} " hidden="hidden ">
                             <input id="reportstotalPageCount " name="reportstotalPageCount " type="text "
-                                th:field="${reportsForm.totalPageCount} " hidden="hidden ">
+                                   th:field="${reportsForm.totalPageCount} " hidden="hidden ">
                             <div class="pull-right " id="reportPaginationId " name="reportPaginationName "
-                                style="margin-top: -10px; ">
+                                 style="margin-top: -10px; ">
                                 <ul class="pagination " id="reportPaginationUl ">
                                     <li [ngClass]="(firstbuttonTransaction==true)? 'disabled': '' ">
                                         <span id="btn_first " (click)="transactionfirstCall() "
-                                            style="cursor: pointer ">First</span>
+                                              style="cursor: pointer ">First</span>
                                     </li>
                                     <li [ngClass]=" (previousbuttonTransaction==true)? 'disabled': '' ">
                                         <span id="btn_previous " (click)="transactionpreviousCall() "
-                                            style="cursor: pointer ">Previous</span>
+                                              style="cursor: pointer ">Previous</span>
                                     </li>
                                     <li [ngClass]="(nextbuttonTransaction==true)? 'disabled': '' ">
                                         <span id="btn_next " (click)="transactionnextCall() "
-                                            style="cursor: pointer ">Next</span>
+                                              style="cursor: pointer ">Next</span>
 
                                     </li>
                                     <li [ngClass]="(lastbuttonTransaction==true)? 'disabled': '' ">
                                         <span id="btn_last " (click)="transactionlastCall() "
-                                            style="cursor: pointer ">Last</span>
+                                              style="cursor: pointer ">Last</span>
                                     </li>
                                 </ul>
                             </div>
@@ -1542,7 +1552,7 @@
                     </div>
                     <div style="margin-top: 70px;" *ngIf="transactionReportButtonDiv">
                         <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-                            (click)="transactionReportsExport()" value="export" style="margin-right: 10px;">Export
+                                (click)="transactionReportsExport()" value="export" style="margin-right: 10px;">Export
                             Report to
                             csv
                         </button>
@@ -1553,7 +1563,7 @@
                                 <div id="submitException" style="margin-top: -20px;">
                                     <div class="row" style="padding-left: 20px">
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">Show By <span class="error-color">*</span>
@@ -1561,11 +1571,11 @@
                                                 </div>
                                                 <div class="select-holder ">
                                                     <select class="themed-input themed-select " id="incompleteShowBy "
-                                                        name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
+                                                            name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
                                                                     " [ngModelOptions]="{standalone: true} "
-                                                        [(ngModel)]="incompleteShowBy ">
+                                                            [(ngModel)]="incompleteShowBy ">
                                                         <option *ngFor="let inst of instVal[ 'institutionList'] "
-                                                            [ngValue]="inst ">
+                                                                [ngValue]="inst ">
                                                             {{inst}}
                                                         </option>
                                                     </select>
@@ -1581,46 +1591,46 @@
                                                 <label>From</label>
                                                 <div class="input-group date" id="reportrequeExceptionsdatepickerfrom">
                                                     <input class="form-control themed-input"
-                                                        id="RequestExceptionDateRangefrom"
-                                                        name="RequestExceptionDateRangefrom" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="RequestExceptionDateRangefrom">
+                                                           id="RequestExceptionDateRangefrom"
+                                                           name="RequestExceptionDateRangefrom" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="RequestExceptionDateRangefrom">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="requestExceptionFromDateErrorText"
-                                                    *ngIf="requestExceptionFromDateErrorText" style="color: red">This
+                                                   *ngIf="requestExceptionFromDateErrorText" style="color: red">This
                                                     Field is Required
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-lg-2 padding-right-50"
-                                            style="margin-top: 3px;">
+                                             style="margin-top: 3px;">
                                             <div class="form-group">
                                                 <br>
                                                 <label>To</label>
                                                 <div class="input-group date" id="reportExceptionrequesdatepickerto">
                                                     <input class="form-control themed-input"
-                                                        id="RequestExceptionDateRangeto"
-                                                        name="RequestExceptionDateRangeto" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="RequestExceptionDateRangeto">
+                                                           id="RequestExceptionDateRangeto"
+                                                           name="RequestExceptionDateRangeto" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="RequestExceptionDateRangeto">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="requestExceptionToDateErrorText"
-                                                    *ngIf="requestExceptionToDateErrorText" style="color: red;">This
+                                                   *ngIf="requestExceptionToDateErrorText" style="color: red;">This
                                                     Field is Required
                                                 </p>
                                                 <p id="requestExceptionFromToError" *ngIf="requestExceptionFromToError"
-                                                    style="color: red">To Date must be greater than or
+                                                   style="color: red">To Date must be greater than or
                                                     <br>equal to the From Date
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-3 col-sm-3" style="margin-top: 18px;">
                                             <button class="btn themed-button themed-button-search" id="searchButton"
-                                                (click)="submitCollectionGenerate()">Generate Report
+                                                    (click)="submitCollectionGenerate()">Generate Report
                                             </button>
                                         </div>
                                     </div>
@@ -1645,8 +1655,8 @@
                                     <div class="">
                                         <span class="show-title margin-right-05">Show Entries</span>
                                         <select class="themed-input" id="numOfRecordsId" name="numOfRecordsName"
-                                            [(ngModel)]="showentries" (change)="scPageSizeChange(showentries)"
-                                            [ngModelOptions]="{standalone: true}">
+                                                [(ngModel)]="showentries" (change)="scPageSizeChange(showentries)"
+                                                [ngModelOptions]="{standalone: true}">
                                             <option value="10" selected="selected">10</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
@@ -1666,56 +1676,56 @@
                                 <div class="col-xs-12">
                                     <table class="table table-striped margin-btm-0" id="request-result-table">
                                         <thead class="tablesorter-headerRow">
-                                            <tr name="results_rowhdrs">
-                                                <th>Item Barcode</th>
-                                                <th>Customer Code</th>
-                                                <th>Owning Institution</th>
-                                                <th>Report Type</th>
-                                                <th>Submit Date</th>
-                                                <th width="30%">Message</th>
-                                            </tr>
+                                        <tr name="results_rowhdrs">
+                                            <th>Item Barcode</th>
+                                            <th>Customer Code</th>
+                                            <th>Owning Institution</th>
+                                            <th>Report Type</th>
+                                            <th>Submit Date</th>
+                                            <th width="30%">Message</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="requestRow" id="rowData_results_{{i}}"
-                                                *ngFor="let item of submitCollectionResultVal['submitCollectionResultsRows']; let i=index">
-                                                <td class="center-text" id="data_pb_{{i}}">{{ item.itemBarcode }}</td>
-                                                <td class="center-text" id="data_br_{{i}}">{{ item.customerCode }}
-                                                </td>
-                                                <td class="center-text" id="data_oi_{{i}}">{{ item.owningInstitution }}
-                                                </td>
-                                                <td class="center-text" id="data_dl_{{i}}">{{ item.reportType }}
-                                                </td>
-                                                <td class="center-text" id="data_dl_{{i}}">
-                                                    {{ item.createdDate | date:'yyyy-MM-dd
-                                                    HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss':
-                                                    'UTC') }}
-                                                </td>
-                                                <td class="center-text" id="data_rt_{{i}}">{{ item.message }}</td>
-                                            </tr>
+                                        <tr class="requestRow" id="rowData_results_{{i}}"
+                                            *ngFor="let item of submitCollectionResultVal['submitCollectionResultsRows']; let i=index">
+                                            <td class="center-text" id="data_pb_{{i}}">{{ item.itemBarcode }}</td>
+                                            <td class="center-text" id="data_br_{{i}}">{{ item.customerCode }}
+                                            </td>
+                                            <td class="center-text" id="data_oi_{{i}}">{{ item.owningInstitution }}
+                                            </td>
+                                            <td class="center-text" id="data_dl_{{i}}">{{ item.reportType }}
+                                            </td>
+                                            <td class="center-text" id="data_dl_{{i}}">
+                                                {{ item.createdDate | date:'yyyy-MM-dd
+                                                HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss':
+                                                'UTC') }}
+                                            </td>
+                                            <td class="center-text" id="data_rt_{{i}}">{{ item.message }}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="col-md-12" id="requestPaginationDivId" name="requestPaginationDivName"
-                                    style="margin-bottom: -20px;">
+                                     style="margin-bottom: -20px;">
                                     <div class="pull-right">
                                         <div id="requestPaginationId" name="requestPaginationName">
                                             <ul class="pagination">
                                                 <li [ngClass]="(firstbuttonException==true)?'disabled':''">
                                                     <span id="first" (click)="firstCallSC()"
-                                                        style="cursor: pointer;">First</span>
+                                                          style="cursor: pointer;">First</span>
                                                 </li>
                                                 <li [ngClass]="(previousbuttonException==true)?'disabled':''">
                                                     <span id="previous" (click)="previousCallSC()"
-                                                        style="cursor: pointer;">Previous</span>
+                                                          style="cursor: pointer;">Previous</span>
                                                 </li>
                                                 <li [ngClass]="(nextbuttonException==true)?'disabled':''">
                                                     <span id="next" (click)="nextCallSC()"
-                                                        style="cursor: pointer;">Next</span>
+                                                          style="cursor: pointer;">Next</span>
 
                                                 </li>
                                                 <li [ngClass]="(lastbuttonException==true)?'disabled':''">
                                                     <span id="last" (click)="lastCallSC()"
-                                                        style="cursor: pointer;">Last</span>
+                                                          style="cursor: pointer;">Last</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1723,8 +1733,8 @@
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-                                        (click)="exportSubmitCollectionReport()" value="export"
-                                        style="margin-right: 20px;margin-top: 10px;cursor: pointer;">Export
+                                            (click)="exportSubmitCollectionReport()" value="export"
+                                            style="margin-right: 20px;margin-top: 10px;cursor: pointer;">Export
                                         Report to csv
                                     </button>
                                 </div>
@@ -1737,7 +1747,7 @@
                                 <div id="submitException" style="margin-top: -20px;">
                                     <div class="row" style="padding-left: 20px">
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">Show By <span class="error-color">*</span>
@@ -1745,11 +1755,11 @@
                                                 </div>
                                                 <div class="select-holder ">
                                                     <select class="themed-input themed-select " id="incompleteShowBy "
-                                                        name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
+                                                            name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
                                                                     " [ngModelOptions]="{standalone: true} "
-                                                        [(ngModel)]="incompleteShowBy ">
+                                                            [(ngModel)]="incompleteShowBy ">
                                                         <option *ngFor="let inst of instVal[ 'institutionList'] "
-                                                            [ngValue]="inst ">
+                                                                [ngValue]="inst ">
                                                             {{inst}}
                                                         </option>
                                                     </select>
@@ -1765,46 +1775,46 @@
                                                 <label>From</label>
                                                 <div class="input-group date" id="reportrequeExceptionsdatepickerfrom">
                                                     <input class="form-control themed-input"
-                                                        id="RequestExceptionDateRangefrom"
-                                                        name="RequestExceptionDateRangefrom" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="RequestExceptionDateRangefrom">
+                                                           id="RequestExceptionDateRangefrom"
+                                                           name="RequestExceptionDateRangefrom" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="RequestExceptionDateRangefrom">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="requestExceptionFromDateErrorText"
-                                                    *ngIf="requestExceptionFromDateErrorText" style="color: red">This
+                                                   *ngIf="requestExceptionFromDateErrorText" style="color: red">This
                                                     Field is Required
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-lg-2 padding-right-50"
-                                            style="margin-top: 3px;">
+                                             style="margin-top: 3px;">
                                             <div class="form-group">
                                                 <br>
                                                 <label>To</label>
                                                 <div class="input-group date" id="reportExceptionrequesdatepickerto">
                                                     <input class="form-control themed-input"
-                                                        id="RequestExceptionDateRangeto"
-                                                        name="RequestExceptionDateRangeto" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="RequestExceptionDateRangeto">
+                                                           id="RequestExceptionDateRangeto"
+                                                           name="RequestExceptionDateRangeto" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="RequestExceptionDateRangeto">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="requestExceptionToDateErrorText"
-                                                    *ngIf="requestExceptionToDateErrorText" style="color: red;">This
+                                                   *ngIf="requestExceptionToDateErrorText" style="color: red;">This
                                                     Field is Required
                                                 </p>
                                                 <p id="requestExceptionFromToError" *ngIf="requestExceptionFromToError"
-                                                    style="color: red">To Date must be greater than or
+                                                   style="color: red">To Date must be greater than or
                                                     <br>equal to the From Date
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-3 col-sm-3" style="margin-top: 18px;">
                                             <button class="btn themed-button themed-button-search" id="searchButton"
-                                                (click)="accessionExceptionsGenerate()">Generate Report
+                                                    (click)="accessionExceptionsGenerate()">Generate Report
                                             </button>
                                         </div>
                                     </div>
@@ -1830,8 +1840,8 @@
                                     <div class="">
                                         <span class="show-title margin-right-05">Show Entries</span>
                                         <select class="themed-input" id="numOfRecordsId" name="numOfRecordsName"
-                                            [(ngModel)]="showentries" (change)="acPageSizeChange(showentries)"
-                                            [ngModelOptions]="{standalone: true}">
+                                                [(ngModel)]="showentries" (change)="acPageSizeChange(showentries)"
+                                                [ngModelOptions]="{standalone: true}">
                                             <option value="10" selected="selected">10</option>
                                             <option value="25">25</option>
                                             <option value="50">50</option>
@@ -1851,51 +1861,51 @@
                                 <div class="col-xs-12">
                                     <table class="table table-striped margin-btm-0" id="request-result-table">
                                         <thead class="tablesorter-headerRow">
-                                            <tr name="results_rowhdrs">
-                                                <th>Item Barcode</th>
-                                                <th>Customer Code</th>
-                                                <th>Accession Date</th>
-                                                <th width="40%">Message</th>
-                                            </tr>
+                                        <tr name="results_rowhdrs">
+                                            <th>Item Barcode</th>
+                                            <th>Customer Code</th>
+                                            <th>Accession Date</th>
+                                            <th width="40%">Message</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="requestRow" id="rowData_results_{{i}}"
-                                                *ngFor="let item of accessionExceptionResultVal['submitCollectionResultsRows']; let i=index">
-                                                <td class="center-text" id="data_pb_{{i}}">{{ item.itemBarcode }}</td>
-                                                <td class="center-text" id="data_br_{{i}}">{{ item.customerCode }}
-                                                </td>
-                                                <td class="center-text" id="data_dl_{{i}}">
-                                                    {{ item.createdDate | date:'yyyy-MM-dd
-                                                    HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss':
-                                                    'UTC') }}
-                                                </td>
-                                                <td class="center-text" id="data_rt_{{i}}" style="text-align: left;">
-                                                    {{ item.message }}</td>
-                                            </tr>
+                                        <tr class="requestRow" id="rowData_results_{{i}}"
+                                            *ngFor="let item of accessionExceptionResultVal['submitCollectionResultsRows']; let i=index">
+                                            <td class="center-text" id="data_pb_{{i}}">{{ item.itemBarcode }}</td>
+                                            <td class="center-text" id="data_br_{{i}}">{{ item.customerCode }}
+                                            </td>
+                                            <td class="center-text" id="data_dl_{{i}}">
+                                                {{ item.createdDate | date:'yyyy-MM-dd
+                                                HH:mm:ss':timezone(item.createdDate | date:'yyyy-MM-dd HH:mm:ss':
+                                                'UTC') }}
+                                            </td>
+                                            <td class="center-text" id="data_rt_{{i}}" style="text-align: left;">
+                                                {{ item.message }}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="col-md-12" id="requestPaginationDivId" name="requestPaginationDivName"
-                                    style="margin-bottom: -20px;">
+                                     style="margin-bottom: -20px;">
                                     <div class="pull-right">
                                         <div id="requestPaginationId" name="requestPaginationName">
                                             <ul class="pagination">
                                                 <li [ngClass]="(firstbuttonException==true)?'disabled':''">
                                                     <span id="first" (click)="firstCallAC()"
-                                                        style="cursor: pointer;">First</span>
+                                                          style="cursor: pointer;">First</span>
                                                 </li>
                                                 <li [ngClass]="(previousbuttonException==true)?'disabled':''">
                                                     <span id="previous" (click)="previousCallAC()"
-                                                        style="cursor: pointer;">Previous</span>
+                                                          style="cursor: pointer;">Previous</span>
                                                 </li>
                                                 <li [ngClass]="(nextbuttonException==true)?'disabled':''">
                                                     <span id="next" (click)="nextCallAC()"
-                                                        style="cursor: pointer;">Next</span>
+                                                          style="cursor: pointer;">Next</span>
 
                                                 </li>
                                                 <li [ngClass]="(lastbuttonException==true)?'disabled':''">
                                                     <span id="last" (click)="lastCallAC()"
-                                                        style="cursor: pointer;">Last</span>
+                                                          style="cursor: pointer;">Last</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1903,8 +1913,8 @@
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-                                        (click)="exportAccessionReport()" value="export"
-                                        style="margin-right: 20px;margin-top: 10px;cursor: pointer;">Export
+                                            (click)="exportAccessionReport()" value="export"
+                                            style="margin-right: 20px;margin-top: 10px;cursor: pointer;">Export
                                         Report to csv
                                     </button>
                                 </div>
@@ -1917,7 +1927,7 @@
                                 <div id="ReportRequestsection" style="margin-top: -20px;">
                                     <div class="row" style="padding-left: 20px">
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">Show By<span class="error-color">*</span>
@@ -1925,22 +1935,22 @@
                                                 </div>
                                                 <div class="select-holder ">
                                                     <select class="themed-input themed-select " id="incompleteShowBy "
-                                                        name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
+                                                            name="incompleteShowBy " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
                                                                     " [ngModelOptions]="{standalone: true} "
-                                                        [(ngModel)]="incompleteShowBy">
+                                                            [(ngModel)]="incompleteShowBy">
                                                         <option *ngFor="let inst of instVal[ 'institutionList'] "
-                                                            [ngValue]="inst ">
+                                                                [ngValue]="inst ">
                                                             {{inst}}
                                                         </option>
                                                     </select>
                                                 </div>
                                                 <p id="borrowingErrorText" *ngIf="borrowingErrorText"
-                                                    style="color: red">
+                                                   style="color: red">
                                                     This Field is Required</p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label for="ReportShowBy">CGD Status<span
@@ -1948,15 +1958,15 @@
                                                 </div>
                                                 <div class="">
                                                     <ng-select id="cgdlist" [items]="CGDList" [multiple]="true"
-                                                        bindLabel="name" [selectableGroup]="true"
-                                                        [selectableGroupAsModel]="false" [closeOnSelect]="false"
-                                                        bindValue="id" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="cgdlist" placeholder="Select One or More">
+                                                               bindLabel="name" [selectableGroup]="true"
+                                                               [selectableGroupAsModel]="false" [closeOnSelect]="false"
+                                                               bindValue="id" [ngModelOptions]="{standalone: true}"
+                                                               [(ngModel)]="cgdlist" placeholder="Select One or More">
                                                         <ng-template ng-option-tmp let-item="item" let-item$="item$"
-                                                            let-index="index">
+                                                                     let-index="index">
                                                             <input id="item-{{index}}" type="checkbox"
-                                                                [ngModelOptions]="{standalone: true}"
-                                                                [ngModel]="item$.selected"> {{item}}
+                                                                   [ngModelOptions]="{standalone: true}"
+                                                                   [ngModel]="item$.selected"> {{item}}
                                                         </ng-template>
                                                     </ng-select>
                                                 </div>
@@ -1965,16 +1975,16 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 padding-right-50"
-                                            style="margin-top:26px;width:15%;">
+                                             style="margin-top:26px;width:15%;">
                                             <div class="form-group">
                                                 <div>
                                                     <label>Title <span class="error-color">*</span> </label>
                                                 </div>
                                                 <div class="select-holder ">
                                                     <select class="themed-input themed-select " id="typeOptions "
-                                                        name="typeOptions " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
+                                                            name="typeOptions " style="border: 1px solid #888988;color: #555555;outline: none;height: 50px;box-shadow: none;
                                                                     " [ngModelOptions]="{standalone: true} "
-                                                        [(ngModel)]="typeOptions ">
+                                                            [(ngModel)]="typeOptions ">
                                                         <option *ngFor="let match of TYPE_LIST_TITLE" [ngValue]="match">
                                                             {{match}}
                                                         </option>
@@ -1990,44 +2000,44 @@
                                                 <label>From</label>
                                                 <div class="input-group date" id="transactionDateRangetodatepickerfrom">
                                                     <input class="form-control themed-input"
-                                                        id="transactionDateRangefrom" name="transactionDateRangefrom"
-                                                        type="date" placeholder="MM/DD/YYYY"
-                                                        [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="transactionDateRangefrom">
+                                                           id="transactionDateRangefrom" name="transactionDateRangefrom"
+                                                           type="date" placeholder="MM/DD/YYYY"
+                                                           [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="transactionDateRangefrom">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="transactionDateRangefromDateErrorText"
-                                                    *ngIf="transactionDateRangefromDateErrorText" style="color: red">
+                                                   *ngIf="transactionDateRangefromDateErrorText" style="color: red">
                                                     This Field is Required
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-lg-2 padding-right-50"
-                                            style="margin-top: 3px;">
+                                             style="margin-top: 3px;">
                                             <div class="form-group">
                                                 <br>
                                                 <label>To</label>
                                                 <div class="input-group date" id="transactionrequesdatepickerto">
                                                     <input class="form-control themed-input" id="transactionDateRangeto"
-                                                        name="transactionDateRangeto" type="date"
-                                                        placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
-                                                        [(ngModel)]="transactionDateRangeto">
+                                                           name="transactionDateRangeto" type="date"
+                                                           placeholder="MM/DD/YYYY" [ngModelOptions]="{standalone: true}"
+                                                           [(ngModel)]="transactionDateRangeto">
                                                     <span class="input-group-addon">
                                                     </span>
                                                 </div>
                                                 <p id="transactionToDateErrorText" *ngIf="transactionToDateErrorText"
-                                                    style="color: red;">This Field is Required
+                                                   style="color: red;">This Field is Required
                                                 </p>
                                                 <p id="transactionFromToError" *ngIf="transactionFromToError"
-                                                    style="color: red">To Date must be greater than or
+                                                   style="color: red">To Date must be greater than or
                                                     <br>equal to the From Date
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-3 col-sm-3" style="margin-top: 18px;">
                                             <button class="btn themed-button themed-button-search" id="searchButton"
-                                                (click)="titleMatchRecordCount()">Generate Report
+                                                    (click)="titleMatchRecordCount()">Generate Report
                                             </button>
                                         </div>
                                     </div>
@@ -2068,39 +2078,39 @@
                                 <div id="Accession_Deaccession-tableview ">
                                     <div class="table-wrapper " *ngIf="matchedTableDiv">
                                         <table class="table table-striped text-center margin-btm-0 "
-                                            id="acessionDeaccessionTable " style="border: 1px solid;">
+                                               id="acessionDeaccessionTable " style="border: 1px solid;">
                                             <thead class="tablesorter-headerRow ">
-                                                <tr>
-                                                    <th class="inst_row td_tr_border bg-clr" width="100%" colspan="8">
-                                                        Matched Titles</th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="inst_row td_tr_border" width="16.6667%">
-                                                        Owning Institution</th>
-                                                    <th class="inst_row td_tr_border" width="16.6667%"
-                                                        *ngFor="let cgd of CGDList">
-                                                        {{cgd}}</th>
-                                                </tr>
+                                            <tr>
+                                                <th class="inst_row td_tr_border bg-clr" width="100%" colspan="8">
+                                                    Matched Titles</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="inst_row td_tr_border" width="16.6667%">
+                                                    Owning Institution</th>
+                                                <th class="inst_row td_tr_border" width="16.6667%"
+                                                    *ngFor="let cgd of CGDList">
+                                                    {{cgd}}</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th class="td_tr_border txt-cntr">{{this.inst_name}}</th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Shared',this.inst_name,'Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Open',this.inst_name,'Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Private',this.inst_name,'Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Committed',this.inst_name,'Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Uncommittable',this.inst_name,'Matched') | number}}
-                                                    </th>
-                                                </tr>
+                                            <tr>
+                                                <th class="td_tr_border txt-cntr">{{this.inst_name}}</th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Shared',this.inst_name,'Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Open',this.inst_name,'Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Private',this.inst_name,'Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Committed',this.inst_name,'Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Uncommittable',this.inst_name,'Matched') | number}}
+                                                </th>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -2112,39 +2122,39 @@
                                     </div>
                                     <div class="table-wrapper " *ngIf="notMatchedTableDiv">
                                         <table class="table table-striped text-center margin-btm-0 "
-                                            id="acessionDeaccessionTable " style="border: 1px solid;">
+                                               id="acessionDeaccessionTable " style="border: 1px solid;">
                                             <thead class="tablesorter-headerRow ">
-                                                <tr>
-                                                    <th class="inst_row td_tr_border bg-clr" width="100%" colspan="8">
-                                                        Not Matched Titles</th>
-                                                </tr>
-                                                <tr>
-                                                    <th class="inst_row td_tr_border" width="16.6667%">
-                                                        Owning Institution</th>
-                                                    <th class="inst_row td_tr_border" width="16.6667%"
-                                                        *ngFor="let cgd of CGDList">
-                                                        {{cgd}}</th>
-                                                </tr>
+                                            <tr>
+                                                <th class="inst_row td_tr_border bg-clr" width="100%" colspan="8">
+                                                    Not Matched Titles</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="inst_row td_tr_border" width="16.6667%">
+                                                    Owning Institution</th>
+                                                <th class="inst_row td_tr_border" width="16.6667%"
+                                                    *ngFor="let cgd of CGDList">
+                                                    {{cgd}}</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th class="td_tr_border txt-cntr">{{this.inst_name}}</th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Shared',this.inst_name,'Not Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Open',this.inst_name,'Not Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Private',this.inst_name,'Not Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Committed',this.inst_name,'Not Matched') | number}}
-                                                    </th>
-                                                    <th class="td_tr_border txt-cntr">
-                                                        {{findMatchedCount('Uncommittable',this.inst_name,'Not Matched') | number}}
-                                                    </th>
-                                                </tr>
+                                            <tr>
+                                                <th class="td_tr_border txt-cntr">{{this.inst_name}}</th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Shared',this.inst_name,'Not Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Open',this.inst_name,'Not Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Private',this.inst_name,'Not Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Committed',this.inst_name,'Not Matched') | number}}
+                                                </th>
+                                                <th class="td_tr_border txt-cntr">
+                                                    {{findMatchedCount('Uncommittable',this.inst_name,'Not Matched') | number}}
+                                                </th>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -2161,7 +2171,7 @@
                     </div>
                     <div class="reports-detail-table " id="Transaction-tableview " *ngIf="titleTableRecordsShowDiv">
                         <button id="pageSizeChangeButtonId " name="action " type="submit " value="pageSizeChange "
-                            hidden="hidden "></button>
+                                hidden="hidden "></button>
                         <div class="row ">
                             <h4 class="col-sm-9 margin-top-05 margin-btm-0 ">Report Results</h4>
                             <div class="col-sm-3 text-right Deaccessionbacklink ">
@@ -2183,9 +2193,9 @@
                         <div id="transactionInformation ">
                             <div>
                                 <p-table name="p_table" #dt [columns]="validateCols1" rowExpandMode="single"
-                                    [autoLayout]="true" [value]="titleMatchRecordReportResponse['titleMatchedReports']"
-                                    dataKey="bibId" sortMode="multiple"
-                                    [multiSortMeta]="[{field: 'duplicateCode', order: -1}]">
+                                         [autoLayout]="true" [value]="titleMatchRecordReportResponse['titleMatchedReports']"
+                                         dataKey="bibId" sortMode="multiple"
+                                         [multiSortMeta]="[{field: 'duplicateCode', order: -1}]">
                                     <ng-template pTemplate="header" let-columns>
                                         <tr id="headers_main">
                                             <th style="width:3em"></th>
@@ -2195,7 +2205,7 @@
                                         </tr>
                                     </ng-template>
                                     <ng-template pTemplate="body" let-rowData let-expanded="expanded"
-                                        let-columns="columns" let-rowIndex="rowIndex">
+                                                 let-columns="columns" let-rowIndex="rowIndex">
                                         <tr id="rowData_results_{{ rowIndex }}" [pSelectableRow]="rowData"
                                             [ngClass]="rowData.id%2 == 0 ? 'whitebg' : 'greybg'">
                                             <td id="colData_main_{{ rowIndex }}" *ngIf="rowData.itemDetails == ''"></td>
@@ -2220,11 +2230,11 @@
                                         <tr>
                                             <td name="column_len" [attr.colspan]="columns.length + 1">
                                                 <div class="p-grid ui-fluid" style="font-size: 16px; padding: 20px"
-                                                    [@rowExpansionTrigger]="'active'">
+                                                     [@rowExpansionTrigger]="'active'">
                                                     <div class="p-col-12 p-md-9">
                                                         <div class="p-grid">
                                                             <p-table name="p_tablesub" #dt [columns]="validateCols2"
-                                                                rowExpandMode="single" [value]="rowData.itemDetails">
+                                                                     rowExpandMode="single" [value]="rowData.itemDetails">
                                                                 <ng-template pTemplate="header" let-columns>
                                         <tr id="subRow_header">
                                             <th *ngFor="let col of columns" style="text-align: center;">
@@ -2233,7 +2243,7 @@
                                         </tr>
                                     </ng-template>
                                     <ng-template pTemplate="body" let-rowData let-columns="columns"
-                                        let-rowIndex="rowIndex">
+                                                 let-rowIndex="rowIndex">
                                         <tr id="rowData_subResults_{{ rowIndex }}">
                                             <td id="dataResult_sub_col_{{ i }}"
                                                 *ngFor="let col of columns; let i = index" style="text-align: center;">{{
@@ -2253,18 +2263,18 @@
                     </p-table>
                 </div>
                 <input id="reportsPageNumber " name="reportsPageNumber " type="text "
-                    th:field="${reportsForm.pageNumber} " hidden="hidden ">
+                       th:field="${reportsForm.pageNumber} " hidden="hidden ">
                 <input id="reportstotalPageCount " name="reportstotalPageCount " type="text "
-                    th:field="${reportsForm.totalPageCount} " hidden="hidden ">
+                       th:field="${reportsForm.totalPageCount} " hidden="hidden ">
                 <div class="pull-right " id="reportPaginationId " name="reportPaginationName "
-                    style="margin-top: -10px; ">
+                     style="margin-top: -10px; ">
                     <ul class="pagination " id="reportPaginationUl ">
                         <li [ngClass]="(firstbuttonTitleMatch==true)? 'disabled': '' ">
                             <span id="btn_first " (click)="titlefirstCall()" style="cursor: pointer ">First</span>
                         </li>
                         <li [ngClass]=" (previousbuttonTitleMatch==true)? 'disabled': '' ">
                             <span id="btn_previous " (click)="titlepreviousCall() "
-                                style="cursor: pointer ">Previous</span>
+                                  style="cursor: pointer ">Previous</span>
                         </li>
                         <li [ngClass]="(nextbuttonTitleMatch==true)? 'disabled': '' ">
                             <span id="btn_next " (click)="titlenextCall() " style="cursor: pointer ">Next</span>
@@ -2279,7 +2289,7 @@
 </div>
 <div style="margin-top: 70px;" *ngIf="titleMatchExportButtonDiv">
     <button class="btn btn-primary pull-right" id="export" name="action" type="button"
-        (click)="titleMatchReportsExport()" value="export" style="margin-right: 10px;">Export
+            (click)="titleMatchReportsExport()" value="export" style="margin-right: 10px;">Export
         Report to
         csv
     </button>
@@ -2291,7 +2301,7 @@
 </div>
 <!-- MODAL FOR MESSAGE -->
 <div class="modal fade create-request-details" id="messageDisplay" data-backdrop="static" data-keyboard="false"
-    role="dialog" aria-labelledby="requestNotesLargeModalLabel" tabindex="-2">
+     role="dialog" aria-labelledby="requestNotesLargeModalLabel" tabindex="-2">
     <div class="modal-dialog" role="document">
         <div class="modal-content" id="requestNotesModalContent">
             <div class="modal-header bg-success">
