@@ -1485,7 +1485,7 @@ export class ReportsComponent implements OnInit {
 
             for (var i = 0; i < this.reportstVal['reportsInstitutionFormList'].length; i++) {
               var institutionAccession = this.reportstVal['reportsInstitutionFormList'][i].institution;
-              totalCountDeacc = this.reportstVal['reportsInstitutionFormList'][i].deaccessionPrivateCount + this.reportstVal['reportsInstitutionFormList'][i].deaccessionSharedCount + this.reportstVal['reportsInstitutionFormList'][i].deaccessionOpenCount;
+              totalCountDeacc = this.reportstVal['reportsInstitutionFormList'][i].deaccessionPrivateCount + this.reportstVal['reportsInstitutionFormList'][i].deaccessionSharedCount + this.reportstVal['reportsInstitutionFormList'][i].deaccessionOpenCount + this.reportstVal['reportsInstitutionFormList'][i].deaccessionCommittedCount + this.reportstVal['reportsInstitutionFormList'][i].deaccessionUncommittableCount;
               var myMap = { institution: institutionAccession, count: totalCountDeacc };
               this.subtotalEDDDeaccession.push(myMap);
             }
