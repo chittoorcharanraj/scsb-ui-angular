@@ -2,14 +2,19 @@
     <div class="tab-content">
         <div class="search-bar" *ngIf="dataExport_panel">
             <div class="buscador-principal">
-                <h4 class="margin-top-0 margin-btm-10 inline-box">Data Dump Details</h4> <span class="error-color">*</span>
+                <h4 class="margin-top-0 margin-btm-10 inline-box">Data Dump Details</h4> <span
+                    class="error-color">*</span>
                 <div class="form-group" style="padding-left: 40px;">
-                    <label class="radio-inline report-hide-shadow" for="dataDumpDetails" accesskey="A" style="padding-right: 30px;" tabindex="0">
-                        <input id="dataDumpDetails" name="dataTypeoption" type="radio" value="dataDumpDetails" (click)="enableDataDumpDetails()" [checked]="isChecked">
+                    <label class="radio-inline report-hide-shadow" for="dataDumpDetails" accesskey="A"
+                           style="padding-right: 30px;" tabindex="0">
+                        <input id="dataDumpDetails" name="dataTypeoption" type="radio" value="dataDumpDetails"
+                               (click)="enableDataDumpDetails()" [checked]="isChecked">
                         Data Dump Details
                     </label>
-                    <label class="radio-inline report-hide-shadow" for="exportDataDump" accesskey="R" style="padding-right: 30px;" tabindex="0">
-                        <input id="exportDataDump" name="dataTypeoption" type="radio" value="exportDataDump" (click)="enabledDataExport()">
+                    <label class="radio-inline report-hide-shadow" for="exportDataDump" accesskey="R"
+                           style="padding-right: 30px;" tabindex="0">
+                        <input id="exportDataDump" name="dataTypeoption" type="radio" value="exportDataDump"
+                               (click)="enabledDataExport()">
                         Export Data Dump
                     </label>
                 </div>
@@ -21,13 +26,15 @@
             <div class="wrapper">
                 <div class="row margin-btm-10" id="successMessageDiv" *ngIf="successMessageDiv">
                     <div class="col-sm-12 text-left">
-                        <div class="alert alert-success" role="alert"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{resValExport['message']}}</span>
+                        <div class="alert alert-success" role="alert"><span
+                                class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{resValExport['message']}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="row margin-btm-10" id="errorMessageDiv" *ngIf="errorMessageDiv">
                     <div class="col-sm-12">
-                        <div class="alert alert-danger"><span class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{resValExport['errorMessage']}}</span>
+                        <div class="alert alert-danger"><span
+                                class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span>{{resValExport['errorMessage']}}</span>
                         </div>
                     </div>
                 </div>
@@ -36,7 +43,8 @@
                             <div class="opblock-tag-section is-open">
                                 <div style="height: auto; border: none; margin: 0px; padding: 0px;">
                                     <span>
-                                        <div class="opblock opblock-get is-open" id="operations-data-dump-rest-controller-exportDataDump">
+                                        <div class="opblock opblock-get is-open"
+                                             id="operations-data-dump-rest-controller-exportDataDump">
                                             <div style="height: auto; border: none; margin: 0px; padding: 0px;">
                                                 <div class="opblock-body">
                                                     <div class="opblock-section">
@@ -45,11 +53,16 @@
                                                                 <tbody>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name" id="collectionGroupIds_param">
+                                                                            <div class="parameter__name"
+                                                                                 id="collectionGroupIds_param">
                                                                                 Collection Group Ids</div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="collectionGroupIds" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="collectionGroupIds">
+                                                                            <input class id="collectionGroupIds"
+                                                                                   type="text" title
+                                                                                   *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="collectionGroupIds">
                                                                             <div class="markdown">
                                                                                 <p>Data can be requested by Collection
                                                                                     Group ID, either Shared (use 1) or
@@ -61,10 +74,14 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name" id="date_param">Date</div>
+                                                                            <div class="parameter__name"
+                                                                                 id="date_param">Date</div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="date" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="date">
+                                                                            <input class id="date" type="text" title
+                                                                                   *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="date">
                                                                             <div class="markdown">
                                                                                 <p>Get updates to middleware collection
                                                                                     since the date provided. Date format
@@ -75,11 +92,15 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name" id="emailToAddress_param">Email To Address
+                                                                            <div class="parameter__name"
+                                                                                 id="emailToAddress_param">Email To Address
                                                                             </div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="emailToAddress" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="emailToAddress">
+                                                                            <input class id="emailToAddress" type="text"
+                                                                                   title *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="emailToAddress">
                                                                             <div class="markdown">
                                                                                 <p>Email address to whom email will be
                                                                                     sent upon completion</p>
@@ -88,14 +109,20 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name required" id="fetchType_param">
+                                                                            <div class="parameter__name required"
+                                                                                 id="fetchType_param">
                                                                                 Fetch Type<span style="color: red;">&nbsp;*</span>
                                                                             </div>
                                                                             
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="fetchType" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchType">
-                                                                            <div class="error-color error-man" id="textField" *ngIf="fetchTypeErrorMessageDiv">
+                                                                            <input class id="fetchType" type="text"
+                                                                                   title *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="fetchType">
+                                                                            <div class="error-color error-man"
+                                                                                 id="textField"
+                                                                                 *ngIf="fetchTypeErrorMessageDiv">
                                                                                 This field is mandatory.
                                                                             </div> 
                                                                             <div class="markdown">
@@ -108,12 +135,17 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name" id="imsDepositoryCodes_param">
+                                                                            <div class="parameter__name"
+                                                                                 id="imsDepositoryCodes_param">
                                                                                 IMS Depository Codes
                                                                             </div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="imsDepositoryCodes" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="imsDepositoryCodes">
+                                                                            <input class id="imsDepositoryCodes"
+                                                                                   type="text" title
+                                                                                   *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="imsDepositoryCodes">
                                                                             <div class="markdown">
                                                                                 <p>Ims depository - RECAP (use RECAP) or
                                                                                     Harvard depository (use HD).Default
@@ -124,13 +156,21 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name required" id="institutionCodes_param">
-                                                                                Institution Codes<span style="color: red;">&nbsp;*</span>
+                                                                            <div class="parameter__name required"
+                                                                                 id="institutionCodes_param">
+                                                                                Institution Codes<span
+                                                                                    style="color: red;">&nbsp;*</span>
                                                                             </div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="institutionCodes" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="institutionCodes">
-                                                                            <div class="error-man error-color" id="textField" *ngIf="institutionCodesErrorMessageDiv">
+                                                                            <input class id="institutionCodes"
+                                                                                   type="text" title
+                                                                                   *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="institutionCodes">
+                                                                            <div class="error-man error-color"
+                                                                                 id="textField"
+                                                                                 *ngIf="institutionCodesErrorMessageDiv">
                                                                                 This field is mandatory.
                                                                             </div>
                                                                             <div class="markdown">
@@ -140,13 +180,19 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name required" id="outputFormat_param">
+                                                                            <div class="parameter__name required"
+                                                                                 id="outputFormat_param">
                                                                                 Output Format<span style="color: red;">&nbsp;*</span>
                                                                             </div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="outputFormat" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="outputFormat">
-                                                                            <div class="error-man error-color" id="textField" *ngIf="outputFormatErrorMessageDiv">
+                                                                            <input class id="outputFormat" type="text"
+                                                                                   title *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="outputFormat">
+                                                                            <div class="error-man error-color"
+                                                                                 id="textField"
+                                                                                 *ngIf="outputFormatErrorMessageDiv">
                                                                                 This field is mandatory.
                                                                             </div>
                                                                             <div class="markdown">
@@ -158,13 +204,21 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name required" id="requestingInstitutionCode_param">
-                                                                                Requesting Institution Code<span style="color: red;">&nbsp;*</span>
+                                                                            <div class="parameter__name required"
+                                                                                 id="requestingInstitutionCode_param">
+                                                                                Requesting Institution Code<span
+                                                                                    style="color: red;">&nbsp;*</span>
                                                                             </div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="requestingInstitutionCode" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="requestingInstitutionCode">
-                                                                            <div class="error-man error-color" id="textField" *ngIf="requestingInstitutionCodeErrorMessageDiv">
+                                                                            <input class id="requestingInstitutionCode"
+                                                                                   type="text" title
+                                                                                   *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="requestingInstitutionCode">
+                                                                            <div class="error-man error-color"
+                                                                                 id="textField"
+                                                                                 *ngIf="requestingInstitutionCodeErrorMessageDiv">
                                                                                 This field is mandatory.
                                                                             </div>
                                                                             <div class="markdown">
@@ -175,12 +229,17 @@
                                                                     </tr>
                                                                     <tr class="parameters row-bg">
                                                                         <td class="col parameters-col_name">
-                                                                            <div class="parameter__name" id="transmissionType_param">
+                                                                            <div class="parameter__name"
+                                                                                 id="transmissionType_param">
                                                                                 Transmission Type
                                                                             </div>
                                                                         </td>
                                                                         <td class="col parameters-col_description">
-                                                                            <input class id="transmissionType" type="text" title *ngIf="!try_out_toggle" [ngModelOptions]="{standalone: true}" [(ngModel)]="transmissionType">
+                                                                            <input class id="transmissionType"
+                                                                                   type="text" title
+                                                                                   *ngIf="!try_out_toggle"
+                                                                                   [ngModelOptions]="{standalone: true}"
+                                                                                   [(ngModel)]="transmissionType">
                                                                             <div class="markdown">
                                                                                 <p>Type of transmission - for S3 use 0,
                                                                                     for HTTP response use 1. Default is
@@ -193,10 +252,16 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="execute-wrapper"><button class="btn execute opblock-control__btn" id="dataBumpBtn" name="dataBumpBtn" (click)="startDataDump(collectionGroupIds,date,emailToAddress,fetchType,imsDepositoryCodes,institutionCodes,outputFormat,requestingInstitutionCode,transmissionType)">
+                                                    <div class="execute-wrapper"><button
+                                                            class="btn execute opblock-control__btn" id="dataBumpBtn"
+                                                            name="dataBumpBtn"
+                                                            (click)="startDataDump(collectionGroupIds,date,emailToAddress,fetchType,imsDepositoryCodes,institutionCodes,outputFormat,requestingInstitutionCode,transmissionType)">
                                                             Start Export Data
                                                             Dump</button>
-                                                            <button class="btn execute opblock-control__btn btn-clear" id="dataBumpBtn" name="dataBumpBtn" (click)="resetFields(); clearDivs()" style="background-color: gray;">
+                                                            <button class="btn execute opblock-control__btn btn-clear"
+                                                                    id="dataBumpBtn" name="dataBumpBtn"
+                                                                    (click)="resetFields(); clearDivs()"
+                                                                    style="background-color: gray;">
                                                                Clear</button>
                                                     </div>
                                                 </div>
@@ -214,7 +279,9 @@
     <div class="row margin-top-20 swagger-dump" id="dataDumpId" *ngIf="dataDumpDiv">
         <div class="row margin-btm-10 " id="dataDumpErrorMessageId" *ngIf="dataDumpErrorMessageDiv">
             <div class="col-sm-12 " style="padding-left:45px;padding-right:45px;margin-top:10px; ">
-                <div class="bg-danger text-danger padding-10 "><span class="margin-right-05 glyphicon glyphicon-warning-sign "></span><span id="dataDumpErrorMessageSpanId">{{errorMessage}}</span></div>
+                <div class="bg-danger text-danger padding-10 "><span
+                        class="margin-right-05 glyphicon glyphicon-warning-sign "></span><span
+                        id="dataDumpErrorMessageSpanId">{{errorMessage}}</span></div>
             </div>
         </div>
         <div class="col-xs-12 " *ngIf="dataDumpResultsDiv">
@@ -225,30 +292,34 @@
             </div>
             <div id="Accession_Deaccession-tableview ">
                 <div class="table-wrapper ">
-                    <table class="table text-center margin-btm-0" id="acessionDeaccessionTable " style="border-collapse:collapse;">
+                    <table class="table text-center margin-btm-0" id="acessionDeaccessionTable "
+                           style="border-collapse:collapse;">
                         <thead class="tablesorter-headerRow">
-                            <tr>
-                                <th class="text-center" width="10%">Institution</th>
-                                <th class="text-center" width="10%">Format</th>
-                                <th class="text-center" width="20%">File</th>
-                                <th class="text-center" width="10%">CGDs</th>
-                                <th class="text-center" width="10%">No. Of Bibs</th>
-                                <th class="text-center" width="10%">No. of Items</th>
-                                <th class="text-center" width="10%">Exported Date</th>
-                                <th class="text-center" width="15%">Size (Bytes) </th>
-                            </tr>
+                        <tr>
+                            <th class="text-center" width="10%">Institution</th>
+                            <th class="text-center" width="10%">Format</th>
+                            <th class="text-center" width="20%">File</th>
+                            <th class="text-center" width="10%">CGDs</th>
+                            <th class="text-center" width="10%">No. Of Bibs</th>
+                            <th class="text-center" width="10%">No. of Items</th>
+                            <th class="text-center" width="10%">Exported Date</th>
+                            <th class="text-center" width="15%">Size (Bytes)</th>
+                        </tr>
                         </thead>
                         <ng-container *ngFor="let data of result">
                             <tr>
-                                <td class="v-middle-data gray-light fontcolor-white large-font inst-border" [attr.rowspan]="data.length" style="font-family:sans-serif;">
-                                    {{data.name}}</td>
+                                <td class="v-middle-data gray-light fontcolor-white large-font inst-border"
+                                    [attr.rowspan]="data.length" style="font-family:sans-serif;">
+                                    {{data.name}}
+                                </td>
                                 <td class="results ">{{data.values[0].bibDataFormat}}</td>
                                 <td class="results ">{{data.values[0].keyName}}</td>
                                 <td class="results ">{{data.values[0].gcd}}</td>
                                 <td class="results ">{{data.values[0].bibCount}}</td>
                                 <td class="results ">{{data.values[0].itemCount}}</td>
                                 <td class="results ">{{data.values[0].keyLastModified | date:'yyyy-MM-dd
-                                    HH:mm:ss':timezone(data.values[0].keyLastModified | date:'yyyy-MM-dd HH:mm:ss': 'UTC')}}
+                                    HH:mm:ss':timezone(data.values[0].keyLastModified | date:'yyyy-MM-dd HH:mm:ss':
+                                    'UTC')}}
                                 </td>
                                 <td class="results ">{{data.values[0].keySize}}</td>
                             </tr>
@@ -260,7 +331,8 @@
                                     <td class="results ">{{instData.bibCount}}</td>
                                     <td class="results ">{{instData.itemCount}}</td>
                                     <td class="results ">{{instData.keyLastModified | date:'yyyy-MM-dd
-                                        HH:mm:ss':timezone(instData.keyLastModified | date:'yyyy-MM-dd HH:mm:ss': 'UTC')}}
+                                        HH:mm:ss':timezone(instData.keyLastModified | date:'yyyy-MM-dd HH:mm:ss':
+                                        'UTC')}}
                                     </td>
                                     <td class="results ">{{instData.keySize}}</td>
                                 </tr>

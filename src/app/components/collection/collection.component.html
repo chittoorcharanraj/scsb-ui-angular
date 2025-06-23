@@ -26,20 +26,20 @@
                                             <input id="showModal" type="hidden">
                                             <div>
                                                 <input class="form-control" id="barcodeFieldId" name="barcodeFieldName"
-                                                    type="text" [(ngModel)]="barcodeFieldName"
-                                                    placeholder="Type Text Here.....">
+                                                       type="text" [(ngModel)]="barcodeFieldName"
+                                                       placeholder="Type Text Here.....">
 
                                             </div>
                                             <div class="input-group-btn search-panel padding-right-10">
                                                 <button class="btn themed-button themed-button-collection"
-                                                    id="displayRecords" name="action" type="button"
-                                                    (click)="displayRecords()" value="displayRecords">Display
+                                                        id="displayRecords" name="action" type="button"
+                                                        (click)="displayRecords()" value="displayRecords">Display
                                                     Records
                                                 </button>
                                             </div>
                                             <div class="input-group-btn">
                                                 <button class="btn themed-button themed-button-cancel" id="clearSearch"
-                                                    name="clearSearch" type="button" (click)="clearsearch()">Clear
+                                                        name="clearSearch" type="button" (click)="clearsearch()">Clear
                                                     Search
                                                 </button>
                                             </div>
@@ -51,7 +51,8 @@
                                 <strong>NOTE:</strong>
                                 <ul id="notesListId" style="list-style-type:disc;">
                                     <li>Multiple item barcodes separated by commas(,) can be added to retrieve the
-                                        records.</li>
+                                        records.
+                                    </li>
                                     <li>A maximum of only 10 items can be retrieved.</li>
                                 </ul>
                             </div>
@@ -70,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="row margin-btm-10" id="barcodesNotFoundErrorMessageId"
-                                *ngIf="barcodesNotFoundErrorMessageId">
+                                 *ngIf="barcodesNotFoundErrorMessageId">
                                 <div class="col-sm-12">
                                     <div class="bg-danger text-danger padding-10"><span
                                             class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span
@@ -84,12 +85,12 @@
                                             <div class="recap-status">
                                                 <div class="inline-box margin-right-10">
                                                     <img class="status" src="../../../../assets/images/inRecap.png"
-                                                        alt="In ReCAP" style="width:20px;height:25px;"><span
+                                                         alt="In ReCAP" style="width:20px;height:25px;"><span
                                                         class="align-middle padding-5">In</span>
                                                 </div>
                                                 <div class="inline-box">
                                                     <img class="status" src="../../../../assets/images/out.png"
-                                                        alt="Out" style="width:20px;height:25px;"><span
+                                                         alt="Out" style="width:20px;height:25px;"><span
                                                         class="align-middle padding-5">OUT</span>
                                                 </div>
                                             </div>
@@ -100,38 +101,41 @@
                                 <div class="col-xs-12">
                                     <table class="table table-striped margin-btm-0" id="collection-result-table">
                                         <thead class="tablesorter-headerRow">
-                                            <tr name="results_rowData_headers">
-                                                <th width="30%" height="40">
-                                                    <div>Barcode</div>
-                                                </th>
-                                                <th width="50%">
-                                                    <div>Title</div>
-                                                </th>
-                                                <th title="'Collection Group Designation'">
-                                                    <div>CGD</div>
-                                                </th>
-                                                <th title="'Storage Location'">
-                                                    <div>SL</div>
-                                                </th>
-                                            </tr>
+                                        <tr name="results_rowData_headers">
+                                            <th width="30%" height="40">
+                                                <div>Barcode</div>
+                                            </th>
+                                            <th width="50%">
+                                                <div>Title</div>
+                                            </th>
+                                            <th title="'Collection Group Designation'">
+                                                <div>CGD</div>
+                                            </th>
+                                            <th title="'Storage Location'">
+                                                <div>SL</div>
+                                            </th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr id="results_rowData_{{i}}"
-                                                *ngFor="let item of collectionVal['searchResultRows'];  let i = index">
-                                                <th id="rowData_barcode_{{i}}"><img class="status"
-                                                        src="../../../../assets/images/inRecap.png" alt="In ReCAP"
-                                                        *ngIf="item.availability =='Available'"
-                                                        style="width:20px;height:25px;margin-bottom: 3px;"> <img
+                                        <tr id="results_rowData_{{i}}"
+                                            *ngFor="let item of collectionVal['searchResultRows'];  let i = index">
+                                            <th id="rowData_barcode_{{i}}"><img class="status"
+                                                                                src="../../../../assets/images/inRecap.png"
+                                                                                alt="In ReCAP"
+                                                                                *ngIf="item.availability =='Available'"
+                                                                                style="width:20px;height:25px;margin-bottom: 3px;">
+                                                <img
                                                         class="status" src="../../../../assets/images/out.png"
                                                         alt="In ReCAP" *ngIf="item.availability =='Not Available'"
                                                         style="width:20px;height:25px;margin-bottom: 3px;">
-                                                    &nbsp;&nbsp;{{ item.barcode }}</th>
-                                                <td (click)="openMarcView(item.bibId,item.barcode,item.itemId)"
-                                                    style="cursor: pointer;color:#337ab7"><a
-                                                        id="rowData_title_{{i}}">{{ item.title }}</a></td>
-                                                <td id="rowData_desc_{{i}}">{{ item.collectionGroupDesignation }}</td>
-                                                <td id="rowData_sl_{{i}}">{{ item.imsLocation }}</td>
-                                            </tr>
+                                                &nbsp;&nbsp;{{ item.barcode }}
+                                            </th>
+                                            <td (click)="openMarcView(item.bibId,item.barcode,item.itemId)"
+                                                style="cursor: pointer;color:#337ab7"><a
+                                                    id="rowData_title_{{i}}">{{ item.title }}</a></td>
+                                            <td id="rowData_desc_{{i}}">{{ item.collectionGroupDesignation }}</td>
+                                            <td id="rowData_sl_{{i}}">{{ item.imsLocation }}</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -142,7 +146,7 @@
 
                 <div id="collectionUpdateModal" *ngIf="openmarcVal">
                     <div class="modal fade collection-result-inner-table" id="collection-result-inner" role="dialog"
-                        aria-labelledby="myLargeModalLabel" tabindex="-1">
+                         aria-labelledby="myLargeModalLabel" tabindex="-1">
                         <div class="modal-dialog modal-lg" role="document" style="width: 1200px;">
                             <div class="modal-content" id="collectionModalContent">
                                 <div class="modal-header">
@@ -207,7 +211,7 @@
                                             <div class="col-sm-7">
                                                 <div class="contentdetail">
                                                     <h4
-                                                        class="border-style-bottom padding-10 margin-top-05 margin-btm-0">
+                                                            class="border-style-bottom padding-10 margin-top-05 margin-btm-0">
                                                         MARC Content</h4>
                                                     <div class="padding-10">
                                                         <div style="max-height:425px;overflow:auto">
@@ -242,7 +246,7 @@
                                                                         <input type="hidden">
                                                                         <input type="hidden">
                                                                         <span
-                                                                            style="margin-left: 30px;">{{item.dataFieldTag}}</span>
+                                                                                style="margin-left: 30px;">{{item.dataFieldTag}}</span>
                                                                         <span>{{item.indicator1}}{{item.indicator2}}</span>
                                                                     </td>
                                                                     <td><span>{{item.dataFieldValue}}</span></td>
@@ -255,40 +259,40 @@
                                             <div class="col-sm-5 padding-left-0">
                                                 <div class="itemdetail">
                                                     <h4
-                                                        class="border-style-bottom padding-10 margin-top-05 margin-btm-0">
+                                                            class="border-style-bottom padding-10 margin-top-05 margin-btm-0">
                                                         Item Details</h4>
                                                     <div class="padding-10" id="itemDetailsSection">
                                                         <input id="allowEdit" type="hidden">
                                                         <input id="warningMessage" type="hidden">
                                                         <div class="row form-group">
                                                             <div class="row margin-btm-10" id="collectionUpdateMessage"
-                                                                *ngIf="collectionUpdateMessage">
+                                                                 *ngIf="collectionUpdateMessage">
                                                                 <div class="col-sm-12">
                                                                     <div class="bg-success text-success padding-10">
                                                                         <span
-                                                                            class="margin-right-05 glyphicon glyphicon-saved"></span><span>{{message}}</span>
+                                                                                class="margin-right-05 glyphicon glyphicon-saved"></span><span>{{message}}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row margin-btm-10"
-                                                                id="collectionUpdateErrorMessage"
-                                                                *ngIf="collectionUpdateErrorMessage">
+                                                                 id="collectionUpdateErrorMessage"
+                                                                 *ngIf="collectionUpdateErrorMessage">
                                                                 <div class="col-sm-12">
                                                                     <div class="bg-danger text-danger padding-10">
                                                                         <span
-                                                                            class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span
+                                                                                class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span
                                                                             [innerHTML]="errorMessage"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row margin-btm-10"
-                                                                id="collectionUpdateWarningMessage"
-                                                                *ngIf="collectionUpdateWarningMessage">
+                                                                 id="collectionUpdateWarningMessage"
+                                                                 *ngIf="collectionUpdateWarningMessage">
                                                                 <div class="col-sm-12">
                                                                     <div class="bg-warning text-warning padding-10">
                                                                         <span
-                                                                            class="margin-right-05 glyphicon glyphicon-warning-sign"
-                                                                            id="warningMessageId"></span><span>{{warningMessage}}</span>
+                                                                                class="margin-right-05 glyphicon glyphicon-warning-sign"
+                                                                                id="warningMessageId"></span><span>{{warningMessage}}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -318,22 +322,25 @@
                                                             <tr>
                                                                 <input id="cgdField" type="hidden">
                                                                 <td>Collection Group Designation (CGD)</td>
-                                                                <td><span>{{openmarcVal['collectionGroupDesignation']}}</span>
+                                                                <td>
+                                                                    <span>{{openmarcVal['collectionGroupDesignation']}}</span>
                                                                 </td>
                                                             </tr>
                                                         </table>
                                                         <div *ngIf="cgdAndDeaccessionDiv">
                                                             <div class="row radio-btn-warpper" id="collectionOptionsDiv"
-                                                                *ngIf="!collectionUpdateMessage">
+                                                                 *ngIf="!collectionUpdateMessage">
                                                                 <div class="col-sm-12" align="center">
                                                                     <div class="form-group margin-btm-10">
                                                                         <div
-                                                                            class="radio-inline radio margin-0 padding-left-0">
+                                                                                class="radio-inline radio margin-0 padding-left-0">
                                                                             <label id="editCGD_lb">
                                                                                 <input id="collectionoption"
-                                                                                    name="collectionoption" type="radio"
-                                                                                    [checked]="radioSwitchEditCGD"
-                                                                                    (click)="editCgdcontrol()"> Edit CGD
+                                                                                       name="collectionoption"
+                                                                                       type="radio"
+                                                                                       [checked]="radioSwitchEditCGD"
+                                                                                       (click)="editCgdcontrol()"> Edit
+                                                                                CGD
                                                                                 <span class="cr" id="editCGD_select"><i
                                                                                         class="cr-icon radio-dot"
                                                                                         id="collectionoption_radio"></i></span>
@@ -341,16 +348,17 @@
                                                                         </div>
 
                                                                         <div
-                                                                            class="radio-inline radio padding-left-0 margin-left-15">
+                                                                                class="radio-inline radio padding-left-0 margin-left-15">
                                                                             <label id="deaccesion_lb">
                                                                                 <input id="deaccesionclick"
-                                                                                    name="collectionoption" type="radio"
-                                                                                    [checked]="radioSwitchDeaccession"
-                                                                                    value="Deaccession"
-                                                                                    (click)="deaccessioncontrol()">
+                                                                                       name="collectionoption"
+                                                                                       type="radio"
+                                                                                       [checked]="radioSwitchDeaccession"
+                                                                                       value="Deaccession"
+                                                                                       (click)="deaccessioncontrol()">
                                                                                 Deaccession
                                                                                 <span class="cr"
-                                                                                    id="deaccesion_select"><i
+                                                                                      id="deaccesion_select"><i
                                                                                         class="cr-icon radio-dot"
                                                                                         id="deaccesionclick_radio"></i></span>
                                                                             </label>
@@ -361,42 +369,47 @@
                                                             <!-- Edit CDG-->
 
                                                             <div class="padding-top-20" id="editCDG-section"
-                                                                *ngIf="editCDGsection">
+                                                                 *ngIf="editCDGsection">
                                                                 <div class="row form-group">
                                                                     <div
-                                                                        class="col-sm-4 text-right padding-right-30 margin-top-10">
+                                                                            class="col-sm-4 text-right padding-right-30 margin-top-10">
                                                                         <label class="fontcolor-dark">New CGD <span
                                                                                 class="error-color"
                                                                                 *ngIf="!collectionUpdateMessage">*</span></label>
                                                                     </div>
                                                                     <div class="col-sm-8 padding-left-0">
                                                                         <div class="select-holder" id="newCGDDiv"
-                                                                            *ngIf="!collectionUpdateMessage">
+                                                                             *ngIf="!collectionUpdateMessage">
                                                                             <select
-                                                                                class="form-control themed-input themed-select"
-                                                                                id="newCGD_select"
-                                                                                [ngModelOptions]="{standalone: true}"
-                                                                                [(ngModel)]="CGDselect">
+                                                                                    class="form-control themed-input themed-select"
+                                                                                    id="newCGD_select"
+                                                                                    [ngModelOptions]="{standalone: true}"
+                                                                                    [(ngModel)]="CGDselect">
                                                                                 <option name="select" value>Select
                                                                                 </option>
                                                                                 <option name="Shared" value="Shared">
-                                                                                    Shared</option>
+                                                                                    Shared
+                                                                                </option>
                                                                                 <option name="Private" value="Private">
-                                                                                    Private</option>
+                                                                                    Private
+                                                                                </option>
                                                                                 <option name="Open" value="Open">Open
                                                                                 </option>
-                                                                                <option name="Committed" value="Committed">Committed
+                                                                                <option name="Committed"
+                                                                                        value="Committed">Committed
                                                                                 </option>
-                                                                                <option name="Uncommittable" value="Uncommittable">Uncommittable
+                                                                                <option name="Uncommittable"
+                                                                                        value="Uncommittable">
+                                                                                    Uncommittable
                                                                                 </option>
                                                                             </select>
                                                                         </div>
                                                                         <span id="cgdErrorMessage"
-                                                                            *ngIf="cgdErrorMessage"
-                                                                            style="color: red;">Choose a new CGD.</span>
+                                                                              *ngIf="cgdErrorMessage"
+                                                                              style="color: red;">Choose a new CGD.</span>
                                                                         <div class="form-group padding-top-10">
                                                                             <span id="newCGDReadOnly"
-                                                                                *ngIf="collectionUpdateMessage">{{newCGD}}</span>
+                                                                                  *ngIf="collectionUpdateMessage">{{newCGD}}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -404,42 +417,45 @@
                                                                 <div class="row form-group">
                                                                     <div class="col-sm-4 text-right padding-right-30">
                                                                         <label class="fontcolor-dark"
-                                                                            for="CGDChangeNotes">CGD Change Notes <span
-                                                                                class="error-color"
-                                                                                *ngIf="showStar">*</span></label>
+                                                                               for="CGDChangeNotes">CGD Change Notes
+                                                                            <span
+                                                                                    class="error-color"
+                                                                                    *ngIf="showStar">*</span></label>
                                                                     </div>
                                                                     <div class="col-sm-8 padding-left-0">
                                                                         <textarea class="form-control themed-input"
-                                                                            id="CGDChangeNotes" name="CGDChangeNotes"
-                                                                            *ngIf="!collectionUpdateMessage"
-                                                                            [(ngModel)]="CGDChangeNotes"
-                                                                            (keyup)="CGDChangeNotesFunc(CGDChangeNotes)"
-                                                                            maxlength="2000"></textarea>
+                                                                                  id="CGDChangeNotes"
+                                                                                  name="CGDChangeNotes"
+                                                                                  *ngIf="!collectionUpdateMessage"
+                                                                                  [(ngModel)]="CGDChangeNotes"
+                                                                                  (keyup)="CGDChangeNotesFunc(CGDChangeNotes)"
+                                                                                  maxlength="2000"></textarea>
                                                                         <span id="cgdNotesErrorMessage"
-                                                                            *ngIf="cgdNotesErrorMessage"
-                                                                            style="color: red;">Please enter CGD change
+                                                                              *ngIf="cgdNotesErrorMessage"
+                                                                              style="color: red;">Please enter CGD change
                                                                             notes.</span>
                                                                         <p id="cgdRemainingCharacter"
-                                                                            *ngIf="!collectionUpdateMessage">Remaining
+                                                                           *ngIf="!collectionUpdateMessage">Remaining
                                                                             Characters : <span
-                                                                                id="cgdNotesRemainingCharacters">2000</span>
+                                                                                    id="cgdNotesRemainingCharacters">2000</span>
                                                                         </p>
                                                                         <div class="form-group">
                                                                             <span id="CGDNoteReadOnly"
-                                                                                *ngIf="collectionUpdateMessage">{{newCGDnote}}</span>
+                                                                                  *ngIf="collectionUpdateMessage">{{newCGDnote}}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row form-group"
-                                                                    *ngIf="!collectionUpdateMessage">
+                                                                     *ngIf="!collectionUpdateMessage">
                                                                     <div class="col-sm-6 text-right padding-right-30">
                                                                     </div>
                                                                     <div class="col-sm-6 padding-left-0">
                                                                         <button class="btn btn-primary"
-                                                                            id="collectionUpdateCgdButton" name="action"
-                                                                            type="button"
-                                                                            (click)="saveCGD(openmarcVal['bibId'],openmarcVal['collectionGroupDesignation'])">
+                                                                                id="collectionUpdateCgdButton"
+                                                                                name="action"
+                                                                                type="button"
+                                                                                (click)="saveCGD(openmarcVal['bibId'],openmarcVal['collectionGroupDesignation'])">
                                                                             Save
                                                                         </button>
                                                                     </div>
@@ -447,103 +463,106 @@
                                                             </div>
                                                             <!--Deaccession-->
                                                             <div class="padding-top-20" id="Deaccession-section"
-                                                                *ngIf="Deaccessionsection">
+                                                                 *ngIf="Deaccessionsection">
                                                                 <div class="row form-group">
                                                                     <div
-                                                                        class="col-sm-4 text-right padding-right-30 margin-top-10">
+                                                                            class="col-sm-4 text-right padding-right-30 margin-top-10">
                                                                         <label class="fontcolor-dark"
-                                                                            for="deaccessionType">Deaccession Type <span
-                                                                                class="error-color"
-                                                                                *ngIf="!collectionUpdateMessage">*</span></label>
+                                                                               for="deaccessionType">Deaccession Type
+                                                                            <span
+                                                                                    class="error-color"
+                                                                                    *ngIf="!collectionUpdateMessage">*</span></label>
                                                                     </div>
                                                                     <div class="col-sm-8 padding-left-0 padding-top-10">
                                                                         <input
-                                                                            class="form-control themed-input disable-input"
-                                                                            id="deaccessionType" name="deaccessionType"
-                                                                            type="text" *ngIf="!collectionUpdateMessage"
-                                                                            [(ngModel)]="deaccessionType"
-                                                                            readonly="readonly">
+                                                                                class="form-control themed-input disable-input"
+                                                                                id="deaccessionType"
+                                                                                name="deaccessionType"
+                                                                                type="text"
+                                                                                *ngIf="!collectionUpdateMessage"
+                                                                                [(ngModel)]="deaccessionType"
+                                                                                readonly="readonly">
                                                                         <span
-                                                                            *ngIf="collectionUpdateMessage">{{newdeaccessionType}}</span>
+                                                                                *ngIf="collectionUpdateMessage">{{newdeaccessionType}}</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row form-group">
                                                                     <div
-                                                                        class="col-sm-4 text-right padding-right-30 margin-top-10">
+                                                                            class="col-sm-4 text-right padding-right-30 margin-top-10">
                                                                         <label class="fontcolor-dark"
-                                                                            for="DeliveryLocation">Delivery Location
+                                                                               for="DeliveryLocation">Delivery Location
                                                                             <span class="error-color"
-                                                                                *ngIf="!collectionUpdateMessage">*</span></label>
+                                                                                  *ngIf="!collectionUpdateMessage">*</span></label>
                                                                     </div>
                                                                     <div class="col-sm-8 padding-left-0">
                                                                         <div class="select-holder"
-                                                                            *ngIf="!collectionUpdateMessage">
+                                                                             *ngIf="!collectionUpdateMessage">
                                                                             <input type="hidden">
                                                                             <select
-                                                                                class="form-control themed-input themed-select"
-                                                                                id="DeliveryLocation"
-                                                                                name="DeliveryLocation"
-                                                                                [(ngModel)]="DeliveryLocation"
-                                                                                [disabled]="deliveryLocationDisable"
-                                                                                [ngModelOptions]="{standalone: true}">
+                                                                                    class="form-control themed-input themed-select"
+                                                                                    id="DeliveryLocation"
+                                                                                    name="DeliveryLocation"
+                                                                                    [(ngModel)]="DeliveryLocation"
+                                                                                    [disabled]="deliveryLocationDisable"
+                                                                                    [ngModelOptions]="{standalone: true}">
                                                                                 <option value=""></option>
                                                                                 <option
-                                                                                    *ngFor="let del of crossinstitutionVal['deliveryLocations']"
-                                                                                    [ngValue]="del.deliveryCode">
+                                                                                        *ngFor="let del of crossinstitutionVal['deliveryLocations']"
+                                                                                        [ngValue]="del.deliveryCode">
                                                                                     {{del.description}}-{{del.deliveryCode}}
                                                                                 </option>
                                                                             </select>
                                                                         </div>
                                                                         <span id="locationErrorMessage"
-                                                                            *ngIf="locationErrorMessage"
-                                                                            style="color: red;">This is a mandatory
+                                                                              *ngIf="locationErrorMessage"
+                                                                              style="color: red;">This is a mandatory
                                                                             field.</span>
                                                                         <div
-                                                                            class="form-group padding-left-10 padding-top-10">
+                                                                                class="form-group padding-left-10 padding-top-10">
                                                                             <span
-                                                                                *ngIf="collectionUpdateMessage">{{newDeliveryLocation}}</span>
+                                                                                    *ngIf="collectionUpdateMessage">{{newDeliveryLocation}}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row form-group">
                                                                     <div
-                                                                        class="col-sm-4 text-right padding-right-30 margin-top-10">
+                                                                            class="col-sm-4 text-right padding-right-30 margin-top-10">
                                                                         <label class="fontcolor-dark"
-                                                                            for="DeaccessionNotes">Deaccession Notes
+                                                                               for="DeaccessionNotes">Deaccession Notes
                                                                             <span class="error-color"
-                                                                                *ngIf="!collectionUpdateMessage">*</span></label>
+                                                                                  *ngIf="!collectionUpdateMessage">*</span></label>
                                                                     </div>
                                                                     <div class="col-sm-8 padding-left-0 padding-top-10">
                                                                         <textarea class="form-control themed-input"
-                                                                            id="DeaccessionNotes"
-                                                                            name="DeaccessionNotes"
-                                                                            *ngIf="!collectionUpdateMessage"
-                                                                            [(ngModel)]="DeaccessionNotes"
-                                                                            (keyup)="DeaccessionNotesFunc(DeaccessionNotes)"
-                                                                            maxlength="2000"></textarea>
+                                                                                  id="DeaccessionNotes"
+                                                                                  name="DeaccessionNotes"
+                                                                                  *ngIf="!collectionUpdateMessage"
+                                                                                  [(ngModel)]="DeaccessionNotes"
+                                                                                  (keyup)="DeaccessionNotesFunc(DeaccessionNotes)"
+                                                                                  maxlength="2000"></textarea>
                                                                         <span id="deaccessionNotesErrorMessage"
-                                                                            *ngIf="deaccessionNotesErrorMessage"
-                                                                            style="color: red;">Please enter deaccession
+                                                                              *ngIf="deaccessionNotesErrorMessage"
+                                                                              style="color: red;">Please enter deaccession
                                                                             notes.</span>
                                                                         <p id="deaccessionRemainingCharacters"
-                                                                            *ngIf="!collectionUpdateMessage">Remaining
+                                                                           *ngIf="!collectionUpdateMessage">Remaining
                                                                             Characters : <span
-                                                                                id="deaccessionNotesRemainingCharacters">2000</span>
+                                                                                    id="deaccessionNotesRemainingCharacters">2000</span>
                                                                         </p>
                                                                         <span
-                                                                            *ngIf="collectionUpdateMessage">{{newdeaccessionnote}}</span>
+                                                                                *ngIf="collectionUpdateMessage">{{newdeaccessionnote}}</span>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="row form-group"
-                                                                    *ngIf="!collectionUpdateMessage">
+                                                                     *ngIf="!collectionUpdateMessage">
                                                                     <div class="col-sm-6 text-right padding-right-30">
                                                                     </div>
                                                                     <div class="col-sm-6 padding-left-0">
                                                                         <button class="btn btn-primary"
-                                                                            id="collectionDeaccessionButton"
-                                                                            name="action" type="button"
-                                                                            (click)="saveDeaccession(openmarcVal['bibId'],openmarcVal['deaccessionType'],openmarcVal['itemBarcodes'])">
+                                                                                id="collectionDeaccessionButton"
+                                                                                name="action" type="button"
+                                                                                (click)="saveDeaccession(openmarcVal['bibId'],openmarcVal['deaccessionType'],openmarcVal['itemBarcodes'])">
                                                                             Deaccession Item
                                                                         </button>
                                                                     </div>
@@ -563,8 +582,9 @@
                                 <div class="divider-horizontal margin-top-10 margin-btm-10"></div>
                                 <div class="modal-footer">
                                     <button
-                                        class="btn themed-button themed-button-cancel padding-left-30 padding-right-30"
-                                        id="btn_close" data-dismiss="modal" aria-label="Close">Close</button>
+                                            class="btn themed-button themed-button-cancel padding-left-30 padding-right-30"
+                                            id="btn_close" data-dismiss="modal" aria-label="Close">Close
+                                    </button>
                                 </div>
                             </div>
                         </div>

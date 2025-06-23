@@ -488,16 +488,16 @@
                                                         <tr class="results ">
                                                             <td class="results ">Committed</td>
                                                             <td class="results "
-                                                                *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{openAccCount.accessionCommittedCount}}</span>
+                                                                *ngFor="let committedAccCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{committedAccCount.accessionCommittedCount}}</span>
                                                             </td>
 
                                                         </tr>
                                                         <tr class="results ">
                                                             <td class="results ">Uncommittable</td>
                                                             <td class="results "
-                                                                *ngFor="let openAccCount of reportstVal['reportsInstitutionFormList']">
-                                                                <span>{{openAccCount.accessionUncommittableCount}}</span>
+                                                                *ngFor="let unCommittedCount of reportstVal['reportsInstitutionFormList']">
+                                                                <span>{{unCommittedCount.accessionUncommittableCount}}</span>
                                                             </td>
 
                                                         </tr>
@@ -670,7 +670,7 @@
                                                             </td>
                                                             <td class="results "
                                                                 *ngFor=" let totalRes of reportstVal[ 'reportsInstitutionFormList'] ">
-                                                                <span>{{totalRes.openCgdCount+totalRes.sharedCgdCount+totalRes.privateCgdCount
+                                                                <span>{{totalRes.openCgdCount+totalRes.sharedCgdCount+totalRes.privateCgdCount+totalRes.committedCgdCount+totalRes.uncommittableCgdCount
                                                                     | number}}</span>
                                                             </td>
                                                         </tr>
