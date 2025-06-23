@@ -15,10 +15,10 @@
                             </div>
                         </div>
                         <input id="deliveryLocationInRequestHdn" name="deliveryLocationInRequestHdn" type="text" value
-                            hidden="hidden">
+                               hidden="hidden">
                         <input id="patronEmailIdHdn" name="patronEmailIdHdn" type="text" value hidden="hidden">
                         <input id="requestingInstitutionHdn" name="requestingInstitutionHdn" type="text" value
-                            hidden="hidden">
+                               hidden="hidden">
                         <input id="requestTypesHdn" name="requestIdHdn" type="text" hidden="hidden">
                         <div class="row margin-top-0">
                             <div class="col-sm-6 margin-top-0">
@@ -34,11 +34,11 @@
                                     id="trackRquest_click" style="cursor: pointer"
                                     (click)="goToSearchRequest(this.patronBarcodeId)"><b><u>click here</u></b></a><br>
                                 To create another request for the same patron, please <a id="samePattron_click"
-                                    style="cursor: pointer"
-                                    (click)="loadCreateRequestForSamePatron(this.patronBarcodeId,this.requestingInstitutionId,this.patronEmailId,this.deliveryLocationId)"><b><u>click
-                                            here</u></b></a><br> To create another request for a different patron,
+                                                                                         style="cursor: pointer"
+                                                                                         (click)="loadCreateRequestForSamePatron(this.patronBarcodeId,this.requestingInstitutionId,this.patronEmailId,this.deliveryLocationId)"><b><u>click
+                                here</u></b></a><br> To create another request for a different patron,
                                 please <a id="differentPattron_click" style="cursor: pointer"
-                                    (click)="differentpatron()"><b><u>click here</u></b></a>
+                                          (click)="differentpatron()"><b><u>click here</u></b></a>
                             </div>
                             <div class="row margin-top-25 margin-btm-30">
                                 <div class="col-sm-12">
@@ -47,26 +47,27 @@
                                             <div class="form-group">
                                                 <div class="col-md-3 col-sm-4 text-right margin-top-15"><label
                                                         class="fontcolor-dark" for="itemBarcodeId">Item Barcode <span
-                                                            class="error-color">*</span></label></div>
+                                                        class="error-color">*</span></label></div>
                                                 <div class="col-md-9 col-sm-8">
                                                     <input class="form-control themed-input" id="itemBarcodeId"
-                                                        name="itemBarcodeName" type="text" [(ngModel)]="itemBarcodeId"
-                                                        [disabled]="createsubmit"
-                                                        (blur)="populateItemDetails(itemBarcodeId)">
+                                                           name="itemBarcodeName" type="text"
+                                                           [(ngModel)]="itemBarcodeId"
+                                                           [disabled]="createsubmit"
+                                                           (blur)="populateItemDetails(itemBarcodeId)">
                                                     <span id="itemBarcodeErrorMessage" *ngIf="itemBarcodeErrorMessage"
-                                                        style="color: red;">Item barcode is required.</span>
+                                                          style="color: red;">Item barcode is required.</span>
                                                     <span id="itemBarcodeNotFoundErrorMessage"
-                                                        *ngIf="itemBarcodeNotFoundErrorMessage"
-                                                        style="color: red;">{{itembarcodeVal['errorMessage']}}</span>
+                                                          *ngIf="itemBarcodeNotFoundErrorMessage"
+                                                          style="color: red;">{{itembarcodeVal['errorMessage']}}</span>
                                                     <span id="itemBarcodeNotAvailableFrozenItemsErrorMessage"
-                                                        *ngIf="itemBarcodeNotAvailableFrozenItemsErrorMessage"
-                                                        style="color: red;">{{itembarcodeVal['notAvailableFrozenItemsErrorMessage']}}</span>
+                                                          *ngIf="itemBarcodeNotAvailableFrozenItemsErrorMessage"
+                                                          style="color: red;">{{itembarcodeVal['notAvailableFrozenItemsErrorMessage']}}</span>
                                                     <span id="itemBarcodeNotAvailableErrorMessage"
-                                                        *ngIf="itemBarcodeNotAvailableErrorMessage"
-                                                        style="color: red;">{{itembarcodeVal['notAvailableErrorMessage']}}</span>
+                                                          *ngIf="itemBarcodeNotAvailableErrorMessage"
+                                                          style="color: red;">{{itembarcodeVal['notAvailableErrorMessage']}}</span>
                                                     <span id="itemBarcodeNoPermissionErrorMessage"
-                                                        *ngIf="itemBarcodeNoPermissionErrorMessage"
-                                                        style="color: red;">{{itembarcodeVal['noPermissionErrorMessage']}}</span>
+                                                          *ngIf="itemBarcodeNoPermissionErrorMessage"
+                                                          style="color: red;">{{itembarcodeVal['noPermissionErrorMessage']}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,24 +75,24 @@
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 text-right margin-top-15"><label
                                                         class="fontcolor-dark" for="requestingInstitutionId">Requesting
-                                                        Institution <span class="error-color">*</span></label></div>
+                                                    Institution <span class="error-color">*</span></label></div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <div class="select-holder">
                                                         <select class="form-control themed-input themed-select"
-                                                            id="requestingInstitutionId"
-                                                            name="requestingInstitutionName"
-                                                            [ngModelOptions]="{standalone: true}"
-                                                            [(ngModel)]="requestingInstitutionId"
-                                                            [disabled]="createsubmit || disableRequestingInstitution"
-                                                            (change)="populateDeliveryLocations(requestingInstitutionId)">
+                                                                id="requestingInstitutionId"
+                                                                name="requestingInstitutionName"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                [(ngModel)]="requestingInstitutionId"
+                                                                [disabled]="createsubmit || disableRequestingInstitution"
+                                                                (change)="populateDeliveryLocations(requestingInstitutionId)">
                                                             <option value=""></option>
                                                             <option *ngFor="let del2 of institutions" [ngValue]="del2">
                                                                 {{del2}}
                                                             </option>
                                                         </select>
                                                         <span id="requestingInstitutionErrorMessage"
-                                                            *ngIf="requestingInstitutionErrorMessage"
-                                                            style="color: red;">Requesting institution is
+                                                              *ngIf="requestingInstitutionErrorMessage"
+                                                              style="color: red;">Requesting institution is
                                                             required.</span>
                                                         <input id="reqInstituionHidden" type="hidden">
                                                     </div>
@@ -109,9 +110,9 @@
                                                 </div>
                                                 <div class="col-md-9 col-sm-8">
                                                     <textarea class="form-control themed-input" id="itemTitleId"
-                                                        name="itemTitleName" type="text" tabindex="-1"
-                                                        [(ngModel)]="itemTitleId" [disabled]="createsubmit"
-                                                        readonly="readonly">
+                                                              name="itemTitleName" type="text" tabindex="-1"
+                                                              [(ngModel)]="itemTitleId" [disabled]="createsubmit"
+                                                              readonly="readonly">
                                                     </textarea>
                                                 </div>
                                             </div>
@@ -120,12 +121,13 @@
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 text-right margin-top-15"><label
                                                         class="fontcolor-dark" for="itemOwningInstitutionId">Item Owning
-                                                        Institution</label></div>
+                                                    Institution</label></div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <input class="form-control themed-input"
-                                                        id="itemOwningInstitutionId" name="itemOwningInstitutionName"
-                                                        type="text" tabindex="-1" [(ngModel)]="itemOwningInstitutionId"
-                                                        [disabled]="createsubmit" readonly="readonly">
+                                                           id="itemOwningInstitutionId" name="itemOwningInstitutionName"
+                                                           type="text" tabindex="-1"
+                                                           [(ngModel)]="itemOwningInstitutionId"
+                                                           [disabled]="createsubmit" readonly="readonly">
                                                     <input id="onChangeOwnInst" type="hidden">
                                                 </div>
                                             </div>
@@ -138,15 +140,15 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-4 text-right margin-top-15"><label
                                                                 class="fontcolor-dark" for="patronBarcodeId">Patron
-                                                                Barcode <span class="error-color">*</span></label></div>
+                                                            Barcode <span class="error-color">*</span></label></div>
                                                         <div class="col-md-6 col-sm-8">
                                                             <input class="form-control themed-input"
-                                                                id="patronBarcodeId" name="patronBarcodeName"
-                                                                type="text" [(ngModel)]="patronBarcodeId"
-                                                                [disabled]="createsubmit">
+                                                                   id="patronBarcodeId" name="patronBarcodeName"
+                                                                   type="text" [(ngModel)]="patronBarcodeId"
+                                                                   [disabled]="createsubmit">
                                                             <span id="patronBarcodeErrorMessage"
-                                                                *ngIf="patronBarcodeErrorMessage"
-                                                                style="color: red;">Patron barcode is required.</span>
+                                                                  *ngIf="patronBarcodeErrorMessage"
+                                                                  style="color: red;">Patron barcode is required.</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -154,20 +156,20 @@
                                                     <div class="form-group">
                                                         <div class="col-md-4 col-sm-6 text-right margin-top-05"><label
                                                                 class="fontcolor-dark" for="patronEmailId">Patron <span
-                                                                    class="error-color" id="emailMandatory"
-                                                                    *ngIf="eddshow">*</span><br>Email Address</label>
+                                                                class="error-color" id="emailMandatory"
+                                                                *ngIf="eddshow">*</span><br>Email Address</label>
                                                         </div>
                                                         <div class="col-md-8 col-sm-6">
                                                             <input class="form-control themed-input" id="patronEmailId"
-                                                                name="patronEmailName" type="email"
-                                                                [(ngModel)]="patronEmailId" [disabled]="createsubmit"
-                                                                (blur)="validateEmailAddress(patronEmailId)">
+                                                                   name="patronEmailName" type="email"
+                                                                   [(ngModel)]="patronEmailId" [disabled]="createsubmit"
+                                                                   (blur)="validateEmailAddress(patronEmailId)">
                                                             <span id="patronEmailIdErrorMessage"
-                                                                *ngIf="patronEmailIdErrorMessage"
-                                                                style="color: red;">Email address is invalid.</span>
+                                                                  *ngIf="patronEmailIdErrorMessage"
+                                                                  style="color: red;">Email address is invalid.</span>
                                                             <span id="EmailMandatoryErrorMessage"
-                                                                *ngIf="EmailMandatoryErrorMessage"
-                                                                style="color: red;">Patron Email Address is
+                                                                  *ngIf="EmailMandatoryErrorMessage"
+                                                                  style="color: red;">Patron Email Address is
                                                                 required.</span>
                                                         </div>
                                                     </div>
@@ -176,12 +178,13 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-6 text-right margin-top-15"><label
                                                                 class="fontcolor-dark" for="storageLocation">Storage
-                                                                Location</label></div>
+                                                            Location</label></div>
                                                         <div class="col-md-6 col-sm-6">
                                                             <input class="form-control themed-input"
-                                                                id="storageLocation" name="storageLocation" type="text"
-                                                                tabindex="-1" [(ngModel)]="storageLocation"
-                                                                [disabled]="createsubmit" readonly="readonly">
+                                                                   id="storageLocation" name="storageLocation"
+                                                                   type="text"
+                                                                   tabindex="-1" [(ngModel)]="storageLocation"
+                                                                   [disabled]="createsubmit" readonly="readonly">
                                                             <input id="storageLocation" type="hidden">
                                                         </div>
                                                     </div>
@@ -197,51 +200,52 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-4 text-right margin-top-15"><label
                                                                 class="fontcolor-dark" for="requestTypeId">Request Type
-                                                                <span class="error-color">*</span></label></div>
+                                                            <span class="error-color">*</span></label></div>
                                                         <div class="col-md-6 col-sm-8">
                                                             <div class="select-holder">
                                                                 <select class="form-control themed-input themed-select"
-                                                                    id="requestTypeId" name="requestTypeName"
-                                                                    [ngModelOptions]="{standalone: true}"
-                                                                    [(ngModel)]="requestTypeId"
-                                                                    [disabled]="createsubmit"
-                                                                    (change)="reqTpeEDD(requestTypeId)">
+                                                                        id="requestTypeId" name="requestTypeName"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        [(ngModel)]="requestTypeId"
+                                                                        [disabled]="createsubmit"
+                                                                        (change)="reqTpeEDD(requestTypeId)">
                                                                     <option *ngFor="let del1 of requestTypes"
-                                                                        [ngValue]="del1">
+                                                                            [ngValue]="del1">
                                                                         {{del1}}
                                                                     </option>
                                                                 </select>
                                                                 <span id="requestTypeErrorMessage"
-                                                                    *ngIf="requestTypeErrorMessage"
-                                                                    style="color: red;">Request type is required.</span>
+                                                                      *ngIf="requestTypeErrorMessage"
+                                                                      style="color: red;">Request type is required.</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-6" id="deliverylocation_request"
-                                                    *ngIf="!eddshow">
+                                                     *ngIf="!eddshow">
                                                     <div class="form-group">
                                                         <div class="col-md-4 col-sm-6 text-right margin-top-05"><label
                                                                 class="fontcolor-dark" for="deliveryLocationId">Delivery
-                                                                <br>Location <span class="error-color">*</span></label>
+                                                            <br>Location <span class="error-color">*</span></label>
                                                         </div>
                                                         <div class="col-md-8 col-sm-6">
                                                             <div class="select-holder">
 
                                                                 <select class="form-control themed-input themed-select"
-                                                                    id="deliveryLocationId" name="deliveryLocationName"
-                                                                    [ngModelOptions]="{standalone: true}"
-                                                                    [(ngModel)]="deliveryLocationId"
-                                                                    [disabled]="createsubmit">
+                                                                        id="deliveryLocationId"
+                                                                        name="deliveryLocationName"
+                                                                        [ngModelOptions]="{standalone: true}"
+                                                                        [(ngModel)]="deliveryLocationId"
+                                                                        [disabled]="createsubmit">
                                                                     <option value=""></option>
                                                                     <option *ngFor="let del3 of deliveryLocVal"
-                                                                        [ngValue]="del3[0]">
+                                                                            [ngValue]="del3[0]">
                                                                         {{del3[1]}}-{{del3[0]}}
                                                                     </option>
                                                                 </select>
                                                                 <span id="deliveryLocationErrorMessage"
-                                                                    *ngIf="deliveryLocationErrorMessage"
-                                                                    style="color: red;">Delivery location is
+                                                                      *ngIf="deliveryLocationErrorMessage"
+                                                                      style="color: red;">Delivery location is
                                                                     required.</span>
                                                             </div>
                                                         </div>
@@ -261,13 +265,13 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-4 margin-top-15"><label
                                                                 class="fontcolor-dark" for="StartPage">Start Page <span
-                                                                    class="error-color">*</span></label></div>
+                                                                class="error-color">*</span></label></div>
                                                         <div class="col-md-6 col-sm-8">
                                                             <input class="form-control themed-input" id="StartPage"
-                                                                name="StartPage" type="text" maxlength="20"
-                                                                [disabled]="createsubmit" [(ngModel)]="StartPage">
+                                                                   name="StartPage" type="text" maxlength="20"
+                                                                   [disabled]="createsubmit" [(ngModel)]="StartPage">
                                                             <span id="startPageErrorMessage"
-                                                                *ngIf="startPageErrorMessage" style="color: red;">Start
+                                                                  *ngIf="startPageErrorMessage" style="color: red;">Start
                                                                 page is required.</span>
                                                         </div>
                                                     </div>
@@ -276,13 +280,13 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-4 text-right margin-top-15"><label
                                                                 class="fontcolor-dark" for="EndPage">End Page <span
-                                                                    class="error-color">*</span></label></div>
+                                                                class="error-color">*</span></label></div>
                                                         <div class="col-md-6 col-sm-8">
                                                             <input class="form-control themed-input" id="EndPage"
-                                                                name="EndPage" type="text" maxlength="20"
-                                                                [disabled]="createsubmit" [(ngModel)]="EndPage">
+                                                                   name="EndPage" type="text" maxlength="20"
+                                                                   [disabled]="createsubmit" [(ngModel)]="EndPage">
                                                             <span id="endPageErrorMessage" *ngIf="endPageErrorMessage"
-                                                                style="color: red;">End page is required.</span>
+                                                                  style="color: red;">End page is required.</span>
                                                         </div>
                                                     </div>
 
@@ -291,11 +295,11 @@
                                                     <div class="form-group">
                                                         <div class="col-md-6 col-sm-4 text-right margin-top-15"><label
                                                                 class="fontcolor-dark" for="VolumeNumber">Volume
-                                                                Number</label></div>
+                                                            Number</label></div>
                                                         <div class="col-md-6 col-sm-8">
                                                             <input class="form-control themed-input" id="VolumeNumber"
-                                                                name="VolumeNumber" type="text" maxlength="20"
-                                                                [disabled]="createsubmit" [(ngModel)]="VolumeNumber">
+                                                                   name="VolumeNumber" type="text" maxlength="20"
+                                                                   [disabled]="createsubmit" [(ngModel)]="VolumeNumber">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -307,8 +311,8 @@
                                                                 class="fontcolor-dark" for="Issue">Issue</label></div>
                                                         <div class="col-md-6 col-sm-8">
                                                             <input class="form-control themed-input" id="Issue"
-                                                                name="Issue" type="text" maxlength="20"
-                                                                [(ngModel)]="Issue" [disabled]="createsubmit">
+                                                                   name="Issue" type="text" maxlength="20"
+                                                                   [(ngModel)]="Issue" [disabled]="createsubmit">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -316,11 +320,12 @@
                                                     <div class="form-group">
                                                         <div class="col-md-3 col-sm-4 text-right margin-top-15"><label
                                                                 class="fontcolor-dark" for="ArticleAuthor">Article
-                                                                Author</label></div>
+                                                            Author</label></div>
                                                         <div class="col-md-9 col-sm-8">
                                                             <input class="form-control themed-input" id="ArticleAuthor"
-                                                                name="ArticleAuthor" type="text" maxlength="150"
-                                                                [disabled]="createsubmit" [(ngModel)]="ArticleAuthor">
+                                                                   name="ArticleAuthor" type="text" maxlength="150"
+                                                                   [disabled]="createsubmit"
+                                                                   [(ngModel)]="ArticleAuthor">
                                                         </div>
                                                     </div>
 
@@ -332,18 +337,18 @@
                                                     <div class="form-group">
                                                         <div class="col-md-2 col-sm-4 margin-top-15"><label
                                                                 class="fontcolor-dark" for="ArticleChapterTitle">Article
-                                                                /
-                                                                Chapter Title <span class="error-color">*</span></label>
+                                                            /
+                                                            Chapter Title <span class="error-color">*</span></label>
                                                         </div>
                                                         <div class="col-md-10 col-sm-8">
                                                             <input class="form-control themed-input"
-                                                                id="ArticleChapterTitle" type="text" maxlength="150"
-                                                                [disabled]="createsubmit"
-                                                                [ngModelOptions]="{standalone: true}"
-                                                                [(ngModel)]="ChapterTitle">
+                                                                   id="ArticleChapterTitle" type="text" maxlength="150"
+                                                                   [disabled]="createsubmit"
+                                                                   [ngModelOptions]="{standalone: true}"
+                                                                   [(ngModel)]="ChapterTitle">
                                                             <span id="articleTitleErrorMessage"
-                                                                *ngIf="articleTitleErrorMessage"
-                                                                style="color: red;">Article / Chapter title is
+                                                                  *ngIf="articleTitleErrorMessage"
+                                                                  style="color: red;">Article / Chapter title is
                                                                 required.</span>
                                                         </div>
                                                     </div>
@@ -356,17 +361,18 @@
                                             <div class="form-group">
                                                 <div class="col-md-3 col-sm-2 text-right margin-top-15"><label
                                                         class="fontcolor-dark" for="requestNotesId">Request
-                                                        Notes</label>
+                                                    Notes</label>
                                                 </div>
                                                 <div class="col-md-9 col-sm-10">
                                                     <textarea class="form-control themed-input" id="requestNotesId"
-                                                        name="requestNotesName" type="text" [(ngModel)]="requestNotesId"
-                                                        [disabled]="createsubmit"
-                                                        (keyup)="NotesLengthValidation(requestNotesId)"
-                                                        style="overflow:hidden" rows="5" maxlength="1000">
+                                                              name="requestNotesName" type="text"
+                                                              [(ngModel)]="requestNotesId"
+                                                              [disabled]="createsubmit"
+                                                              (keyup)="NotesLengthValidation(requestNotesId)"
+                                                              style="overflow:hidden" rows="5" maxlength="1000">
                                                     </textarea>
                                                     <span id="notesLengthErrMsg" *ngIf="notesLengthErrMsg"
-                                                        style="color: red;">Only 1000 characters are allowed.</span>
+                                                          style="color: red;">Only 1000 characters are allowed.</span>
                                                     <p id="requestNotesRemainingCharacters" *ngIf="!createsubmit">
                                                         Remaining Characters : <span
                                                             id="remainingCharacters">1000</span></p>
@@ -395,11 +401,13 @@
                             <div class="row">
                                 <div class="col-xs-12 text-center">
                                     <button class="btn btn-default themed-button btn-primary" id="createrequestsubmit"
-                                        type="button" *ngIf="!createsubmit" (click)="createRequest()">Create
-                                        Request</button>
+                                            type="button" *ngIf="!createsubmit" (click)="createRequest()">Create
+                                        Request
+                                    </button>
                                     <button class="pull-right btn btn-default themed-button themed-button-cancel"
-                                        id="createrequestclear" type="button" *ngIf="!createsubmit"
-                                        (click)="resetDefaults()">Clear</button>
+                                            id="createrequestclear" type="button" *ngIf="!createsubmit"
+                                            (click)="resetDefaults()">Clear
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -408,7 +416,7 @@
 
                 <!-- Cancel Modal Data-->
                 <div class="modal fade create-request-details" id="cancelRequestModal" data-backdrop="static"
-                    data-keyboard="false" role="dialog" aria-labelledby="cancelRequestLargeModalLabel" tabindex="-2">
+                     data-keyboard="false" role="dialog" aria-labelledby="cancelRequestLargeModalLabel" tabindex="-2">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content" id="cancelRequestModalContent">
                             <div class="modal-header bg-success">
@@ -433,12 +441,12 @@
 
                 <!-- Resubmit Request Modal Data-->
                 <div class="modal fade create-request-details" id="resubmitRequestModal" data-backdrop="static"
-                    data-keyboard="false" role="dialog" aria-labelledby="resubmitRequestLargeModalLabel" tabindex="-2">
+                     data-keyboard="false" role="dialog" aria-labelledby="resubmitRequestLargeModalLabel" tabindex="-2">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content" id="resubmitRequestModalContent">
                             <div class="modal-header bg-success">
                                 <button class="close" id="closeResubmitRequest" data-dismiss="modal" type="button"
-                                    aria-label="Close" onclick="resetToResubmitRequest()"><span
+                                        aria-label="Close" onclick="resetToResubmitRequest()"><span
                                         aria-hidden="true">&times;</span></button>
                                 <h2 class="modal-title text-center text-success" id="resubmitRequestModalLabel">Resubmit
                                     Request</h2>
@@ -458,11 +466,11 @@
                                                 </div>
                                                 <div *ngIf="status">
                                                     <span class="text-success"
-                                                        id="resubmitRequestStatus">{{resubmitResponseMessage}}</span>
+                                                          id="resubmitRequestStatus">{{resubmitResponseMessage}}</span>
                                                 </div>
                                                 <div *ngIf="!status">
                                                     <span class="error-color"
-                                                        id="resubmitRequestStatus">{{resubmitResponseMessage}}</span>
+                                                          id="resubmitRequestStatus">{{resubmitResponseMessage}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -472,13 +480,15 @@
                             <div class="modal-footer" style="padding-top: 0px;">
                                 <div class="pull-right" id="resubmitRequestConfirmFooterId">
                                     <button class="btn btn-default themed-button btn-primary" id="resubmitRequestYes"
-                                        type="button" style="height:35px;font-size:15px;"
-                                        *ngIf="resubmitRequestConfirmBodyId"
-                                        (click)="resubmitRequestItem()">Yes</button>
+                                            type="button" style="height:35px;font-size:15px;"
+                                            *ngIf="resubmitRequestConfirmBodyId"
+                                            (click)="resubmitRequestItem()">Yes
+                                    </button>
                                     <button class="btn btn-default themed-button themed-button-cancel"
-                                        id="resubmitRequestNo" data-dismiss="modal" type="button"
-                                        style="height:35px;font-size:15px;" *ngIf="resubmitRequestConfirmBodyId"
-                                        (click)="closeResubmitRequestItem()">No</button>
+                                            id="resubmitRequestNo" data-dismiss="modal" type="button"
+                                            style="height:35px;font-size:15px;" *ngIf="resubmitRequestConfirmBodyId"
+                                            (click)="closeResubmitRequestItem()">No
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -488,7 +498,7 @@
 
                 <!-- Notes Modal Data-->
                 <div class="modal fade create-request-details" id="requestNotesModal" data-backdrop="static"
-                    data-keyboard="false" role="dialog" aria-labelledby="requestNotesLargeModalLabel" tabindex="-2">
+                     data-keyboard="false" role="dialog" aria-labelledby="requestNotesLargeModalLabel" tabindex="-2">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content" id="requestNotesModalContent">
                             <div class="modal-header bg-success">

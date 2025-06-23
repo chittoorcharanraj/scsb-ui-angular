@@ -1,6 +1,6 @@
 <!-- Request Tab-->
 <div id="requestContentId" name="requestContentName">
-    <link rel="stylesheet" />
+    <link rel="stylesheet"/>
     <script type="text/javascript"></script>
     <div id="requestFormDivId" name="requestFormDivName">
         <form class="form-horizontal" id="request-form" name="request-form" method="post">
@@ -57,7 +57,7 @@
                               outline: none;
                               height: 50px;
                               box-shadow: none;
-                            " (change)="statusChange()" >
+                            " (change)="statusChange()">
                                                         <option value=""></option>
                                                         <option value="success">SUCCESS</option>
                                                         <option value="failure">FAILURE</option>
@@ -68,14 +68,15 @@
                                                 <label class="fontcolor-dark margin-btm-10">Validation Status</label>
                                                 <div class="select-holder">
                                                     <select class="themed-input themed-select" id="validationStatus"
-                                                            name="validationStatus" [ngModelOptions]="{ standalone: true }"
+                                                            name="validationStatus"
+                                                            [ngModelOptions]="{ standalone: true }"
                                                             [(ngModel)]="validationStatus" style="
                               border: 1px solid #888988;
                               color: #555555;
                               outline: none;
                               height: 50px;
                               box-shadow: none;
-                            " (change)="statusChange()" >
+                            " (change)="statusChange()">
                                                         <option value=""></option>
                                                         <option value="success">SUCCESS</option>
                                                         <option value="failure">FAILURE</option>
@@ -104,7 +105,7 @@
                                                         </option>
                                                     </select>
                                                 </div>
-                                                <input id="searchInstitutionHdn" type="hidden" />
+                                                <input id="searchInstitutionHdn" type="hidden"/>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-lg-3" style="width: 10% !important;">
                                                 <div class="input-group-btn search-panel padding-right-10">
@@ -182,31 +183,36 @@
                           ">
                                                 <td id="data_rib_{{ i }}">{{ item.requestedItemBarcode }}</td>
                                                 <td id="data_ri_{{ i }}">{{ item.requestInstitution }}</td>
-                                                <td id="data_oi_{{ i }}"> {{ item.itemOwningInstitution }} </td>
-                                                <td id="data_rt_{{ i }}">  {{
+                                                <td id="data_oi_{{ i }}"> {{ item.itemOwningInstitution }}</td>
+                                                <td id="data_rt_{{ i }}"> {{
                                                     item.date
-                                                        | date
-                                                        : "yyyy-MM-dd HH:mm:ss"
-                                                            : timezone(
-                                                            item.date
-                                                                | date: "yyyy-MM-dd HH:mm:ss":"UTC"
-                                                        )
-                                                    }}</td>
+                                                    | date
+                                                    : "yyyy-MM-dd HH:mm:ss"
+                                                    : timezone(
+                                                    item.date
+                                                    | date: "yyyy-MM-dd HH:mm:ss":"UTC"
+                                                    )
+                                                    }}
+                                                </td>
                                                 <td id="data_is_{{ i }}">{{ item.status }}</td>
                                                 <td id="data_vm_{{ i }}">
                                                     <div>
-                                                        <span *ngIf="item.validationMessage == 'FAILURE'" (click)="requestValidationNoteModal(item.responseMessage)" class="failure_test_decoration">{{ item.validationMessage }}</span>
+                                                        <span *ngIf="item.validationMessage == 'FAILURE'"
+                                                              (click)="requestValidationNoteModal(item.responseMessage)"
+                                                              class="failure_test_decoration">{{ item.validationMessage }}</span>
                                                         <span *ngIf="item.validationMessage == 'SUCCESS'">SUCCESS</span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-round" id="btn_rs_{{ i }}" type="button" style="
+                                                    <button class="btn btn-round" id="btn_rs_{{ i }}" type="button"
+                                                            style="
                                 background-color: transparent;
                                 box-shadow: none;
                                 outline: none;
                                 color: #337ab7;
                                 border-color: #337ab7;
-                              " *ngIf="item.status == 'FAILURE'" (click)="reSubmitRequest(item.requestedItemBarcode,item.id)">
+                              " *ngIf="item.status == 'FAILURE'"
+                                                            (click)="reSubmitRequest(item.requestedItemBarcode,item.id)">
                                                         Resubmit Request
                                                     </button>
                                                 </td>
@@ -221,7 +227,7 @@
                                                  xmlns:th="http://www.w3.org/1999/xhtml">
                                                 <ul class="pagination">
                                                     <li [ngClass]="firstbutton == true ? 'disabled' : ''">
-                                                        <span id="first"  (click)="firstCall()"
+                                                        <span id="first" (click)="firstCall()"
                                                               style="cursor: pointer">First</span>
                                                     </li>
                                                     <li [ngClass]="previousbutton == true ? 'disabled' : ''">
@@ -308,31 +314,32 @@
                     </div>
                 </div>
                 <!-- Resubmit Request Modal Data-->
-                 <!-- Notes Modal Data-->
-                 <div class="modal fade create-request-details" id="requestNotesModal" data-backdrop="static"
-                 data-keyboard="false" role="dialog" aria-labelledby="requestNotesLargeModalLabel" tabindex="-2">
-                 <div class="modal-dialog" role="document">
-                     <div class="modal-content" id="requestNotesModalContent">
-                         <div class="modal-header bg-success">
-                             <button class="close" data-dismiss="modal" type="button" aria-label="Close">
-                                 <span aria-hidden="true">&times;</span>
-                             </button>
-                             <h2 class="modal-title text-center text-success" id="requestNotesModalLabel">
-                                 Request Validation Notes
-                             </h2>
-                         </div>
-                         <div class="modal-body">
-                             <div class="row">
-                                 <div class="col-sm-12">
-                                    <p id="requestNotesData" style="white-space: pre-wrap; word-wrap: break-word">Message: {{ this.requestNotesData }}
-                                    </p>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <!-- Notes Modal Data-->
+                <!-- Notes Modal Data-->
+                <div class="modal fade create-request-details" id="requestNotesModal" data-backdrop="static"
+                     data-keyboard="false" role="dialog" aria-labelledby="requestNotesLargeModalLabel" tabindex="-2">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" id="requestNotesModalContent">
+                            <div class="modal-header bg-success">
+                                <button class="close" data-dismiss="modal" type="button" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h2 class="modal-title text-center text-success" id="requestNotesModalLabel">
+                                    Request Validation Notes
+                                </h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p id="requestNotesData" style="white-space: pre-wrap; word-wrap: break-word">
+                                            Message: {{ this.requestNotesData }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Notes Modal Data-->
             </fieldset>
         </form>
     </div>
