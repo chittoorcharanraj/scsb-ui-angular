@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -91,7 +92,7 @@ import { RequestLogComponent } from './components/request-log/request-log.compon
     TooltipModule,
     ReactiveFormsModule,
   ],
-  providers: [CookieService, AuthGuard,
+  providers: [CookieService, AuthGuard, DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
