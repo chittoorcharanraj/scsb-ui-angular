@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { ReportsService } from '@service/reports/reports.service';
@@ -16,7 +16,8 @@ var moment = require('moment-timezone');
   styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
-  constructor(private reportsService: ReportsService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService,private datePipe: DatePipe) { }
+    private datePipe = inject(DatePipe);
+  constructor(private reportsService: ReportsService, private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) { }
   @ViewChild('dt') dt: Table;
   ngOnInit(): void {
     this.dashBoardService.setApiPath('reports');
