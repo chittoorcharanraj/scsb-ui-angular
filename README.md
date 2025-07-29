@@ -4,8 +4,8 @@ SCSB-UI is a microservice application that provides the User Interface for the a
 
 ## Software Required
 
- - Angular 15.2.10
- - Node 18
+ - Angular 18.2.13
+ - Node 22.12.0
  
 ## Prerequisite
 
