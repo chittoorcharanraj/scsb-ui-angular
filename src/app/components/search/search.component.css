@@ -44,3 +44,10 @@
 .row-child-clr{
   background-color: #699683 !important;
 }
+th {
+    padding: 0.5em !important;
+}
+
+td {
+    padding: 0.5em !important;
+}
