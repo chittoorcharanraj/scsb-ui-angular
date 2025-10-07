@@ -77,7 +77,7 @@ import { RequestLogComponent } from './components/request-log/request-log.compon
     FormsModule,
     HttpClientModule,
     NgSelectModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     CommonModule,
     TreeTableModule,
     BrowserAnimationsModule,
