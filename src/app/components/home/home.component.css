@@ -71,3 +71,75 @@
         margin-top: 5px !important;
     }
 }
+
+/* Member logos container - full width, equal spacing between logos */
+.logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   /* equal space between, none at edges */
+    flex-wrap: nowrap;
+    padding: 0;           /* no padding at container level */
+    margin: 0;            /* no margin */
+    width: 100%;          /* full width */
+}
+
+/* Remove bootstrap column effect and padding */
+.logo-row > div {
+    flex: 0 0 auto;
+    padding: 0;
+    margin: 0;
+}
+
+/* Proper logo scaling */
+.logo-row img {
+    max-height: 75px;     /* control visual size */
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.member-columbia-univ-logo {
+    max-height: 50px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 1200px) {
+    .logo-row img {
+        max-height: 65px;
+    }
+    .member-columbia-univ-logo {
+        max-height: 45px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .logo-row img {
+        max-height: 55px;
+    }
+    .member-columbia-univ-logo {
+        max-height: 40px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .logo-row > div {
+        padding: 10px 15px;
+    }
+    .logo-row img {
+        max-height: 50px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .logo-row img {
+        max-height: 40px;
+    }
+    .member-columbia-univ-logo {
+        max-height: 30px;
+    }
+}
