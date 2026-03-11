@@ -10,6 +10,7 @@ enum CONSTANTS {
   ENTER = 'Enter'
 }
 @Component({
+  standalone: false,
   selector: 'app-user-roles',
   templateUrl: './user-roles.component.html',
   styleUrls: ['./user-roles.component.css']

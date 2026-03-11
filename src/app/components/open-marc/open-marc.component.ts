@@ -7,6 +7,7 @@ import { OpenMarcService } from '@service/openMarc/open-marc.service';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 
 @Component({
+  standalone: false,
   selector: 'app-open-marc',
   templateUrl: './open-marc.component.html',
   styleUrls: ['./open-marc.component.css']

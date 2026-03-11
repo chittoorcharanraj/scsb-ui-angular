@@ -9,6 +9,7 @@ import { TreeNode } from 'primeng/api';
 declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'app-collection',
   templateUrl: './collection.component.html',
   styleUrls: ['./collection.component.css']

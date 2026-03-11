@@ -9,6 +9,7 @@ enum CONSTANTS {
   USER_NAME = 'userName'
 }
 @Component({
+  standalone: false,
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']

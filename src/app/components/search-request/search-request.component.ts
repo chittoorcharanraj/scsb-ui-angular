@@ -10,6 +10,7 @@ import { TreeNode } from 'primeng/api';
 declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'app-search-request',
   templateUrl: './search-request.component.html',
   styleUrls: ['./search-request.component.css']

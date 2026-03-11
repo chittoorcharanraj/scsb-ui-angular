@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 
 declare var $: any;
 @Component({
+  standalone: false,
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']

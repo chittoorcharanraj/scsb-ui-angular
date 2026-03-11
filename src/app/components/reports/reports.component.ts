@@ -11,6 +11,7 @@ declare var $: any;
 var moment = require('moment-timezone');
 
 @Component({
+  standalone: false,
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']

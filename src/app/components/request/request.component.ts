@@ -11,6 +11,7 @@ import { TreeNode } from 'primeng/api';
 declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'app-request',
   templateUrl: './request.component.html',
   styleUrls: ['./request.component.css']

@@ -6,6 +6,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { TreeNode } from 'primeng/api';
 declare var $: any;
 @Component({
+  standalone: false,
   selector: 'app-data-export',
   templateUrl: './data-export.component.html',
   styleUrls: ['./data-export.component.css']
