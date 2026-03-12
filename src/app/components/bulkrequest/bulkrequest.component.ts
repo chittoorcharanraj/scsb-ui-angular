@@ -10,6 +10,7 @@ import { DashBoardService } from '@service/dashBoard/dash-board.service';
 declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'app-bulkrequest',
   templateUrl: './bulkrequest.component.html',
   styleUrls: ['./bulkrequest.component.css']

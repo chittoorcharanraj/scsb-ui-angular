@@ -5,6 +5,7 @@ import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { MonitoringService } from '@service/monitoring/monitoring.service';
 
 @Component({
+  standalone: false,
   selector: 'app-monitoring',
   templateUrl: './monitoring.component.html',
   styleUrls: ['./monitoring.component.css']

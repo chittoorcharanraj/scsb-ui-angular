@@ -6,6 +6,7 @@ import { urls } from '@config/urls';
 import { environment } from 'src/environments/environment';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 @Component({
+  standalone: false,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']

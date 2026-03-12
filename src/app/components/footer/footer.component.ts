@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 
 @Component({
+  standalone: false,
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']

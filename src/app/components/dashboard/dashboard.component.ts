@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { RolesPermissionsService } from '@service/rolesPermissions/roles-permissions.service';
 @Component({
+  standalone: false,
   selector: 'app-maindashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']

@@ -6,6 +6,7 @@ import { JobsService } from '@service/jobs/jobs.service';
 import { urls } from '@config/urls';
 import { LoginService } from '@service/login/login.service';
 @Component({
+  standalone: false,
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.css']

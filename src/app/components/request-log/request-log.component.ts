@@ -11,6 +11,7 @@ import {from} from "rxjs";
 declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'app-request-log',
   templateUrl: './request-log.component.html',
   styleUrls: ['./request-log.component.css']

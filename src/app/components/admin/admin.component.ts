@@ -3,6 +3,7 @@ import { AdminService } from '@service/admin/admin.service';
 import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { TreeNode } from 'primeng/api';
 @Component({
+  standalone: false,
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']

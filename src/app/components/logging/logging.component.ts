@@ -5,6 +5,7 @@ import { MonitoringService } from '@service/monitoring/monitoring.service';
 import { TreeNode } from 'primeng/api';
 
 @Component({
+  standalone: false,
   selector: 'app-logging',
   templateUrl: './logging.component.html',
   styleUrls: ['./logging.component.css']
