@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 import { urls } from 'src/config/urls';
 export const environment = {
-  production: false.valueOf,
-  homeUrl: urls.APP_URL + ':' + urls.PORT
+  production: false,
+  homeUrl: window.location.origin
 };
 
 /*
