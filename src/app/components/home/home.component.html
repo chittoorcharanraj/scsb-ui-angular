@@ -1,77 +1,66 @@
-<div class="container-fluid home-block">
-    <div class="login-content content-top" style="padding-bottom: 60px;position:relative;">
-        <div class="container">
-            <div class="row" align="center">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-8 padding-15">
-                    <div class="col-sm-6">
-                        <div class="recap-logo-container row">
-                            <div class="col-xs-7 bdr-ln">
-                                <!---->
-                                <a href="http://recap.princeton.edu/"><img class="rcp-img img-responsive"
-                                                                           src="../../../assets/images/recap-logo-final.png" alt="ReCAP"></a>
-                            </div>
-                            <div class="col-xs-5 scsb-txt">
-                                SCSB
-                            </div>
-                        </div>
-                    </div>
+<div class="container-fluid home-block bs5-scope">
+
+    <!-- ================= Header ================= -->
+    <header class="bs5-site-header">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 d-flex align-items-center bs5-header-inner">
+                    <a class="bs5-header-logo-link" href="http://recap.princeton.edu/">
+                        <img class="rcp-img bs5-header-logo img-responsive" src="../../../assets/images/recap-logo-final.png" alt="ReCAP">
+                    </a>
+                    <span class="bs5-header-divider" aria-hidden="true"></span>
+                    <span class="scsb-txt bs5-header-scsb">SCSB</span>
                 </div>
             </div>
-            <!--    <div class="twitter-block row">
-                    <div class="col-sm-12">
-                        <a class="twitter-timeline" data-height="350" href="https://twitter.com/recaplib">Tweets
-                            by
-                            recaplib</a>
-                    </div>
-                </div> -->
-            <!--                <div class="twitter-block row"> -->
-            <div class="col-sm-12">
-                <div class="col-sm-2 col-md-1 col-lg-2">
-                </div>
-                <div class="col-sm-6 col-md-7 col-lg-6">
+        </div>
+    </header>
+
+    <div class="login-content content-top hero-section" style="position:relative;">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container position-relative">
+
+            <!-- ================= Login Section ================= -->
+            <div class="row justify-content-center login-section">
+                <div class="col-12 col-lg-8 col-xl-6">
                     <!-- Login Section-->
-                    <div class="login-wrapper">
-                        <form class="form-horizontal" id="home_login" ngNoForm [action]="url"
-                              style="padding-bottom: 30px;">
-                            <h2 class="heading">Login</h2>
-                            <div class="form-group">
-                                <div class="col-md-3 text-right">
-                                    <label class="margin-top-10" for="institution">Institution</label>
+                    <div class="login-wrapper modern-login-card">
+                        <form class="form-horizontal" id="home_login" ngNoForm [action]="url">
+                            <h2 class="heading modern-heading text-center">Login</h2>
+                            <div class="form-group modern-form-group">
+                                <label class="modern-label" for="institution">Institution</label>
+                                <div class="select-holder modern-select-holder" [ngClass]="(validate==false)?'select-inst-box':''">
+                                    <span class="modern-select-icon-left" aria-hidden="true"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                    <select class="form-control themed-input themed-select modern-select" id="institution"
+                                            name="institution" [ngClass]="(validate==false)?'select-inst-box':''"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="institution"
+                                            (change)="changeInst()">
+                                        <option value="default" selected="selected">Select One</option>
+                                        <option *ngFor="let inst of Institutions | keyvalue: returnZero"
+                                                [value]="inst.key">
+                                            {{inst.value}}
+                                        </option>
+                                    </select>
+                                    <span class="modern-select-icon-right" aria-hidden="true">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                        <span class="modern-select-icon-divider"></span>
+                                        <i class="glyphicon glyphicon-chevron-down"></i>
+                                    </span>
                                 </div>
-                                <div class="col-md-9">
-                                    <div class="select-holder">
-                                        <select class="form-control themed-input themed-select" id="institution"
-                                                name="institution" [ngClass]="(validate==false)?'select-inst-box':''"
-                                                [ngModelOptions]="{standalone: true}" [(ngModel)]="institution"
-                                                (change)="changeInst()">
-                                            <option value="default" selected="selected">Select One</option>
-                                            <option *ngFor="let inst of Institutions | keyvalue: returnZero"
-                                                    [value]="inst.key">
-                                                {{inst.value}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div class="invalid-feedback" style="color:red">
-                                            <span id="institutionErrorMessage" *ngIf="institutionErrorMessageDiv"
-                                                  style="color: red;">This field is required</span>
-                                    </div>
+                                <div class="invalid-feedback" style="color:red">
+                                        <span id="institutionErrorMessage" *ngIf="institutionErrorMessageDiv"
+                                              style="color: red;">This field is required</span>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3 text-right"></div>
-                                <div class="col-md-9">
-                                    <div class="login-form-button-wrapper  margin-btm-10">
-                                        <button class="btn btn-default themed-button" id="submitBtn" type="submit"
-                                                [disabled]="!validate">
-                                            Submit </button>
-                                        <div id="emailBtn" data-target="#emailModal" data-toggle="modal">
-                                            <a name="touch_us" style="cursor: pointer;">Get in touch with us</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="login-form-button-wrapper modern-button-wrapper margin-btm-10">
+                                <button class="btn btn-default themed-button modern-submit-btn" id="submitBtn" type="submit"
+                                        [disabled]="!validate">
+                                    Submit </button>
+                            </div>
+                            <div class="modern-support-row" id="emailBtn" data-target="#emailModal" data-toggle="modal">
+                                <span class="modern-support-text">Get in touch with us. </span><a class="modern-support-link" name="touch_us" style="cursor: pointer;">Support contact page</a>
+                            </div>
 
-                                <!--                        <div class="twitter-block row">
+                            <!--                        <div class="twitter-block row">
                                                             <div class="col-sm-12">
                                                                 <a class="twitter-timeline" data-height="350" href="https://twitter.com/recaplib">Tweets
                                                                     by
@@ -80,33 +69,32 @@
                                                         </div>-->
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="emailModal" role="dialog">
-                                    <div class="modal-dialog">
+                            <!-- Modal -->
+                            <div class="modal fade" id="emailModal" role="dialog">
+                                <div class="modal-dialog">
 
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button class="close" data-dismiss="modal"
-                                                        type="button">&times;</button>
-                                                <h4 class="modal-title">Email</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div *ngFor="let lst of getinTouch">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal"
+                                                    type="button">&times;</button>
+                                            <h4 class="modal-title">Email</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div *ngFor="let lst of getinTouch">
 
-                                                    <p>{{lst.for}} : <a href="{{lst.url}}"
-                                                                        target="_top"><span>{{lst.name}}</span></a></p>
+                                                <p>{{lst.for}} : <a href="{{lst.url}}"
+                                                                    target="_top"><span>{{lst.name}}</span></a></p>
 
-                                                </div>
-                                                <div>
-                                                    <p>Harvard users, consult the <a href="https://wiki.harvard.edu/confluence/pages/viewpage.action?pageId=273094310"
-                                                                                     target="_top"><span>SCSB information page</span></a></p>
-                                                </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-default" id="emailCloseButton"
-                                                        data-dismiss="modal" type="button">Close</button>
+                                            <div>
+                                                <p>Harvard users, consult the <a href="https://wiki.harvard.edu/confluence/pages/viewpage.action?pageId=273094310"
+                                                                                 target="_top"><span>SCSB information page</span></a></p>
                                             </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-default" id="emailCloseButton"
+                                                    data-dismiss="modal" type="button">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -116,72 +104,82 @@
                     <!-- Login Section-->
                 </div>
             </div>
+
+            <h3 class="text-center bs5-members-heading">Members of ReCAP</h3>
         </div>
     </div>
-    <div class="content-bottom margin-top-30 margin-btm-30" style="padding-bottom: 20px;">
+
+    <!-- ================= Members of ReCAP ================= -->
+    <div class="content-bottom bs5-members-section">
         <div class="container">
-            <div class="row">
-                <div class="recap-members-logos">
-                    <div class="col-sm-9">
-                        <h3 class="text-center margin-btm-20">Members of ReCAP</h3>
-                        <div class="row logo-row">
-                            <div class="col-sm-2">
-                                <a href="http://www.columbia.edu/"><img class="member-columbia-univ-logo "
-                                                                        src="../../../assets/images/member-logo/columbia-logo.png"
-                                                                        alt="columbia university"></a>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="http://www.harvard.edu/"><img class="member-columbia-univ-logo "
-                                                                       src="../../../assets/images/member-logo/harvard-logo.png"
-                                                                       alt="Harvard university"></a>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="https://www.nypl.org/"><img class="member-ny-public-logo "
-                                                                     src="../../../assets/images/member-logo/nypl-logo.png"
-                                                                     alt="Newyork Public Libraray"></a>
-                            </div>
-                            <div class="col-sm-2">
-                                <a href="https://www.princeton.edu/"><img class="member-princeton-univ-logo"
-                                                                          src="../../../assets/images/member-logo/princeton-logo.png"
-                                                                          alt="princeton university"></a>
-                            </div>
-                             <div class="col-sm-2">
-                                <a href="https://www.yale.edu/"><img class="member-yale-public-logo"
-                                                                          src="../../../assets/images/member-logo/yale-logo.png"
-                                                                          alt="yale university"></a>
-                            </div>
+            <div class="recap-members-logos">
+                <div class="row bs5-members-row">
+                    <div class="col-6 col-md-4 col-lg bs5-member-col">
+                        <div class="member-card">
+                            <a href="http://www.columbia.edu/"><img class="member-columbia-univ-logo"
+                                                                    src="../../../assets/images/member-logo/columbia-logo.png"
+                                                                    alt="columbia university"></a>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <h3 class="margin-btm-0">ReCAP</h3>
-                        <ul class="border-style-left">
-                            <li><a id="home" href="https://recap.princeton.edu/" target="_blank">Home</a></li>
-                            <li><a id="facility" href="https://recap.princeton.edu/facility-storage"
-                                   target="_blank">Facility &amp;
-                                Storage</a></li>
-                            <li><a id="0perations" href="https://recap.princeton.edu/operations-statistics"
-                                   target="_blank">Operations &amp;
-                                Statistics</a></li>
-                            <li><a id="collections" href="https://recap.princeton.edu/collections-services"
-                                   target="_blank">Collections &amp;
-                                Services</a></li>
-              <!--              <li><a name="information" href="https://recap.princeton.edu/information-publications"
-                                   target="_blank">Information
-                                &amp; Publications</a></li>
-              -->
-                        </ul>
+                    <div class="col-6 col-md-4 col-lg bs5-member-col">
+                        <div class="member-card">
+                            <a href="http://www.harvard.edu/"><img class="member-columbia-univ-logo"
+                                                                   src="../../../assets/images/member-logo/harvard-logo.png"
+                                                                   alt="Harvard university"></a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg bs5-member-col">
+                        <div class="member-card">
+                            <a href="https://www.nypl.org/"><img class="member-ny-public-logo"
+                                                                 src="../../../assets/images/member-logo/nypl-logo.png"
+                                                                 alt="Newyork Public Libraray"></a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg bs5-member-col">
+                        <div class="member-card">
+                            <a href="https://www.princeton.edu/"><img class="member-princeton-univ-logo"
+                                                                      src="../../../assets/images/member-logo/princeton-logo.png"
+                                                                      alt="princeton university"></a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg bs5-member-col">
+                        <div class="member-card">
+                            <a href="https://www.yale.edu/"><img class="member-yale-public-logo"
+                                                                      src="../../../assets/images/member-logo/yale-logo.png"
+                                                                      alt="yale university"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<footer id="footerForLoginPage" class="ftr-sl">
-    <div class="text-center">
-        <p><span class="text-center">Created and maintained by HTC Global Services. E-mail: <a
-                style="color:inherit;"><span inline="text">
-                        contact&#64;htcinc.com</span></a>
-            </span>
-        </p>
+
+<!-- ================= Footer ================= -->
+<footer id="footerForLoginPage" class="ftr-sl bs5-footer">
+    <div class="container">
+        <div class="row align-items-center bs5-footer-row">
+            <div class="col-12 col-md-6 d-flex align-items-center bs5-footer-left">
+                <span class="bs5-footer-links-label">ReCAP Links</span>
+                <ul class="bs5-footer-links-list list-unstyled d-flex align-items-center mb-0">
+                    <li><a id="home" href="https://recap.princeton.edu/" target="_blank" title="Home" aria-label="Home"><i class="glyphicon glyphicon-question-sign"></i></a></li>
+                    <li><a id="facility" href="https://recap.princeton.edu/facility-storage"
+                           target="_blank" title="Facility &amp; Storage" aria-label="Facility &amp; Storage"><i class="glyphicon glyphicon-file"></i></a></li>
+                    <li><a id="0perations" href="https://recap.princeton.edu/operations-statistics"
+                           target="_blank" title="Operations &amp; Statistics" aria-label="Operations &amp; Statistics"><i class="glyphicon glyphicon-book"></i></a></li>
+                    <li><a id="collections" href="https://recap.princeton.edu/collections-services"
+                           target="_blank" title="Collections &amp; Services" aria-label="Collections &amp; Services"><i class="glyphicon glyphicon-hdd"></i></a></li>
+                    <!--              <li><a name="information" href="https://recap.princeton.edu/information-publications"
+                           target="_blank">Information
+                        &amp; Publications</a></li>
+                    -->
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 text-md-end bs5-footer-right">
+                <span class="text-center">Maintained by <strong>HTC Global Services</strong>. E-mail: <a
+                        style="color:inherit;" href="mailto:contact@htcinc.com"><span inline="text">contact&#64;htcinc.com</span></a>
+                </span>
+            </div>
+        </div>
     </div>
 </footer>
