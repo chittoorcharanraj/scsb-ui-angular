@@ -2,78 +2,164 @@
     <app-header></app-header>
 </div>
 <div>
-    <span class="form-control bold bg-red color-white" *ngFor="let message of frozenInstitutionMessages">{{message}}</span>
+    <ng-container *ngFor="let message of frozenInstitutionMessages">
+        <span class="form-control bold bg-red color-white frozen-message" *ngIf="message">{{message}}</span>
+    </ng-container>
 </div>
 <section class="dashb-stl" style="background: #EEF3F2">
     <div class="container-fluid ">
         <div class="row">
             <div class="dashboard-content col-sm-12">
-                <ul class="nav nav-tabs" id="search-content-tab" role="tablist">
-                    <li class="tab-search-holder" routerLinkActive="tab-search-holder active"
+                <ul class="dashboard-card-grid" id="search-content-tab" role="list">
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isSearchAllowed']" (click)="reload()">
-                        <a class="tab-search" aria-controls="search" routerLink="/search"><span
-                                class="icons"></span><span>Search Items</span></a>
+                        <a class="dashboard-card card-blue" aria-controls="search" routerLink="/search">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-search" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Search Items</span>
+                                <span class="dashboard-card-desc">Find and explore items</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-collection-holder" routerLinkActive="tab-collection-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isCollectionAllowed'] || res['isDeaccessionAllowed']" (click)="reload()">
-                        <a class="tab-collection" aria-controls="collection" routerLink="/collection"><span
-                                class="icons"></span><span>Collection</span></a>
+                        <a class="dashboard-card card-purple" aria-controls="collection" routerLink="/collection">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-clone" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Collection</span>
+                                <span class="dashboard-card-desc">Manage collections</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-request-holder" routerLinkActive="tab-request-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isRequestAllowed'] || res['isRequestAllAllowed'] || res['isRequestItemAllowed']"
                         (click)="reload()">
-                        <a class="tab-request" aria-controls="request" routerLink="/request"><span
-                                class="icons"></span><span>Request</span></a>
+                        <a class="dashboard-card card-green" aria-controls="request" routerLink="/request">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-hand-o-right" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Request</span>
+                                <span class="dashboard-card-desc">Create requests</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-search-holder" routerLinkActive="tab-search-request-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                     *ngIf="res['isRequestAllowed'] || res['isRequestAllAllowed'] || res['isRequestItemAllowed']" (click)="reload()">
-                    <a class="tab-search-request" aria-controls="search" routerLink="/search-request"><span
-                            class="icons"></span><span>Search Requests</span></a>
+                    <a class="dashboard-card card-pink" aria-controls="search" routerLink="/search-request">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-search" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Search Requests</span>
+                                <span class="dashboard-card-desc">Track requests</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-request-holder" routerLinkActive="tab-request-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isBulkRequestAllowed']" (click)="reload()">
-                        <a class="tab-request" aria-controls="request" routerLink="/bulkrequest"><span
-                                class="icons"></span><span class="margin-top-bk">Bulk Request</span></a>
+                        <a class="dashboard-card card-teal" aria-controls="request" routerLink="/bulkrequest">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-files-o" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Bulk Request</span>
+                                <span class="dashboard-card-desc">Process bulk requests</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-reports-holder" routerLinkActive="tab-reports-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isReportAllowed']" (click)="reload()">
-                        <a class="tab-reports" aria-controls="reports" routerLink="/reports"><span
-                                class="icons"></span><span>Reports</span></a>
+                        <a class="dashboard-card card-orange" aria-controls="reports" routerLink="/reports">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-bar-chart" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Reports</span>
+                                <span class="dashboard-card-desc">View analytics</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-roles-holder" routerLinkActive="tab-roles-holder active" *ngIf="res['isRoleAllowed']"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active" *ngIf="res['isRoleAllowed']"
                         (click)="reload()">
-                        <a class="tab-role" aria-controls="roles" routerLink="/roles"><span
-                                class="icons"></span><span>Roles</span></a>
+                        <a class="dashboard-card card-purple" aria-controls="roles" routerLink="/roles">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-key" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Roles</span>
+                                <span class="dashboard-card-desc">Manage roles</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-users-holder" routerLinkActive="tab-users-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isUserRoleAllowed']" (click)="reload()">
-                        <a class="tab-users" aria-controls="users" routerLink="/userRoles"><span
-                                class="icons"></span><span>Users</span></a>
+                        <a class="dashboard-card card-green" aria-controls="users" routerLink="/userRoles">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-users" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Users</span>
+                                <span class="dashboard-card-desc">Manage users</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li routerLinkActive="tab-users-holder active" *ngIf="res['isSuperAdmin']" (click)="reload()">
-                        <a class="tab-jobs" aria-controls="jobs" routerLink="/jobs"><span
-                                class="icons"></span><span>Jobs</span></a>
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active" *ngIf="res['isSuperAdmin']" (click)="reload()">
+                        <a class="dashboard-card card-blue" aria-controls="jobs" routerLink="/jobs">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-briefcase" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Jobs</span>
+                                <span class="dashboard-card-desc">Monitor jobs</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li routerLinkActive="tab-users-holder active" *ngIf="res['isMonitoring']" (click)="reload()">
-                        <a class="tab-monitor" aria-controls="monitoring" routerLink="/monitoring"><span
-                                class="icons"></span><span>Monitoring</span></a>
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active" *ngIf="res['isMonitoring']" (click)="reload()">
+                        <a class="dashboard-card card-teal" aria-controls="monitoring" routerLink="/monitoring">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-desktop" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Monitoring</span>
+                                <span class="dashboard-card-desc">System monitoring</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li routerLinkActive="tab-users-holder active" *ngIf="res['isLogging']" (click)="reload()">
-                        <a class="tab-logg" aria-controls="logging" routerLink="/logging"><span
-                                class="icons"></span><span>Logging</span></a>
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active" *ngIf="res['isLogging']" (click)="reload()">
+                        <a class="dashboard-card card-orange" aria-controls="logging" routerLink="/logging">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-file-text" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Logging</span>
+                                <span class="dashboard-card-desc">View logs</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li routerLinkActive="tab-users-holder active" *ngIf="false" (click)="reload()">
-                        <a class="tab-users " aria-controls="logging" routerLink="/admin"><span
-                                class="icons"></span><span>Admin</span></a>
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active" *ngIf="false" (click)="reload()">
+                        <a class="dashboard-card card-blue " aria-controls="logging" routerLink="/admin">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-cog" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Admin</span>
+                                <span class="dashboard-card-desc">Administration</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li routerLinkActive="tab-users-holder active" *ngIf="res['isDataExport']" (click)="reload()">
-                        <a class="tab-users" aria-controls="logging" routerLink="/dataExport"><span
-                                class="icons"></span><span>Data Export</span></a>
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active" *ngIf="res['isDataExport']" (click)="reload()">
+                        <a class="dashboard-card card-green" aria-controls="logging" routerLink="/dataExport">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-cloud-download" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Data Export</span>
+                                <span class="dashboard-card-desc">Export data</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
-                    <li class="tab-request-log-holder" routerLinkActive="tab-request-log-holder active"
+                    <li class="dashboard-card-holder" routerLinkActive="dashboard-card-holder active"
                         *ngIf="res['isRequestLog']" (click)="reload()">
-                        <a class="tab-search-request" aria-controls="search" routerLink="/requestLog"><span
-                                class="icons"></span><span class="margin-top-bk">Gateway Request Log</span></a>
+                        <a class="dashboard-card card-purple" aria-controls="search" routerLink="/requestLog">
+                            <span class="dashboard-card-icon"><span class="icons fa fa-file-text-o" aria-hidden="true"></span></span>
+                            <span class="dashboard-card-body">
+                                <span class="dashboard-card-title">Gateway Request Log</span>
+                                <span class="dashboard-card-desc">View gateway logs</span>
+                            </span>
+                            <span class="dashboard-card-chevron fa fa-chevron-right" aria-hidden="true"></span>
+                        </a>
                     </li>
                 </ul>
                 <div class="tab-content">
