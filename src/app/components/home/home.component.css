@@ -4,8 +4,8 @@
 .scsb-home-header{width:100%;background:#fff;padding:22px 20px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,.06);z-index:2}
 .scsb-home-header-brand{display:flex;align-items:center;text-decoration:none}
 .scsb-home-header-logo{height:58px;width:auto}
-.scsb-home-header-divider{width:1px;height:46px;background:#c9d3d3;margin:0 18px}
-.scsb-home-header-scsb{color:var(--scsb-navy);font:600 34px var(--scsb-f-med);letter-spacing:.5px}
+.scsb-home-header-divider{width:2px;height:56px;background:#24578d;margin:0 18px}
+.scsb-home-header-scsb{color:#24578d;font:700 36px mukta-regular,arial,sans-serif;letter-spacing:.5px}
 .scsb-home-hero{position:relative;width:100%;min-height:420px;flex:1 0 auto;background:url("../../../assets/images/home-bg.png") no-repeat center center;background-size:cover;display:flex;align-items:center;justify-content:center;padding:56px 20px}
 .scsb-home-hero::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.06)}
 .scsb-login-card{position:relative;z-index:1;width:100%;max-width:320px;background:var(--scsb-card-bg);border-radius:26px;box-shadow:0 20px 45px rgba(15,40,45,.22);padding:34px 34px 26px}
