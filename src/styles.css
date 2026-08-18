@@ -2016,29 +2016,29 @@ tr.shown td.details-control {
   #search-content-tab.nav-tabs li {
     width: 16.66%;
   }
-  #search-filter .col-xs-2,
-  #search-filter .col-xs-4,
-  #search-filter .col-xs-6 {
+  #search-filter .col-2,
+  #search-filter .col-4,
+  #search-filter .col-6 {
     width: 100%;
   }
-  #search-filter .col-xs-6.border-style-left-white {
+  #search-filter .col-6.border-style-left-white {
     border: 0;
     padding-left: 20px;
   }
-  #search-filter .col-xs-4 .col-xs-6 {
+  #search-filter .col-4 .col-6 {
     width: 50%;
   }
-  #search-filter .col-xs-4 .col-xs-6 {
+  #search-filter .col-4 .col-6 {
     width: 50%;
   }
-  #search-filter .col-xs-6 .col-xs-4 {
+  #search-filter .col-6 .col-4 {
     width: 33.3333%;
   }
   #search-filter h2 {
     margin: 10px 0;
   }
-  #search-filter .col-xs-4.padding-btm-30,
-  #search-filter .col-xs-6.padding-btm-30 {
+  #search-filter .col-4.padding-btm-30,
+  #search-filter .col-6.padding-btm-30 {
     padding-bottom: 10px;
   }
   #search-filter .allfacet label {

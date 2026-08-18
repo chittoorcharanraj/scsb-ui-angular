@@ -1,53 +1,172 @@
-.pi-chevron-right:before {
-  content: url("src/assets/images/show-icon.png") !important;
-  color: blue !important;
-  margin-left: -5px;
+/*
+ * Bootstrap 4.6.2 compatibility fix
+ * ----------------------------------
+ * The original application used Bootstrap 3 input-group-btn behavior.
+ * Bootstrap 4 uses flexbox and no longer provides input-group-btn
+ * as Bootstrap 3 did.
+ */
+
+.search-bar .buscador-principal.scsb-search-controls {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    position: relative;
+    border-collapse: initial;
 }
 
-.pi-chevron-down:before {
-  content: url("src/assets/images/hide-icon.png") !important;
-  color: blue !important;
-  margin-left: -5px;
-}
-#colData_column_0 {
-  width: 30%;
+/* Search input takes the available space */
+.search-bar .scsb-search-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
 }
 
-#header_column_0 {
-  text-align: center;
-  width: 30%;
+/* Keep Bootstrap form-control height consistent */
+.search-bar .scsb-search-input .form-control {
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    border: 1px solid #888988;
+    border-radius: 0;
 }
 
-#colData_column_1 {
-  width: 15%;
+/* All Fields */
+.search-bar .scsb-search-field {
+    flex: 0 0 170px;
+    width: 170px;
+    min-width: 170px;
 }
 
-#header_column_1 {
-  width: 15%;
+/* All Fields select */
+.search-bar .scsb-search-field select {
+    width: 170px !important;
+    height: 50px;
+    min-height: 50px;
+    border-left-width: 0 !important;
+    border-radius: 0;
 }
 
-#colData_column_2 {
-  width: 10%;
+/* Search / Reset / Facets containers */
+.search-bar .scsb-search-action,
+.search-bar .scsb-search-facets {
+    flex: 0 0 auto;
+    min-width: 0;
 }
 
-#header_column_2 {
-  width: 10%;
+/* All buttons same height */
+.search-bar .scsb-search-controls .btn {
+    height: 50px;
+    min-height: 50px;
+    white-space: nowrap;
+    border-radius: 0;
 }
 
-#colData_column_10 {
-  width: 5%;
+/* Existing spacing */
+.search-bar .scsb-search-action {
+    padding-right: 10px;
 }
 
-#header_column_10 {
-  width: 5%;
-}
-.row-child-clr{
-  background-color: #699683 !important;
-}
-th {
-    padding: 0.5em !important;
+/* Show Facets */
+.search-bar .scsb-search-facets .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-td {
-    padding: 0.5em !important;
+/* Facets arrow */
+.search-bar .scsb-search-facets .fa-chevron-down {
+    margin-left: 8px;
+    font-size: 11px;
+}
+
+/* Clear search icon */
+.search-bar .scsb-search-input .add-clear-x {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #0c0c0c;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/*
+ * Important:
+ * Existing global styles.css has:
+ *
+ * .input-group {
+ *     display: table;
+ * }
+ *
+ * Override that only for the Search page.
+ */
+.search-bar .buscador-principal.scsb-search-controls {
+    display: flex;
+}
+
+/*
+ * Bootstrap 4 compatibility for old Bootstrap 3
+ * .input-group-btn markup.
+ */
+.search-bar .scsb-search-controls .input-group-btn {
+    display: flex;
+    align-items: stretch;
+    vertical-align: middle;
+}
+
+/* Desktop search layout */
+@media (min-width: 768px) {
+
+    .search-bar .scsb-search-input {
+        flex: 1 1 auto;
+    }
+
+    .search-bar .scsb-search-field {
+        flex: 0 0 170px;
+    }
+
+    .search-bar .scsb-search-action {
+        flex: 0 0 auto;
+    }
+
+    .search-bar .scsb-search-facets {
+        flex: 0 0 auto;
+    }
+}
+
+/*
+ * Mobile:
+ * Preserve the application's existing stacked search behavior.
+ */
+@media only screen and (max-width: 767px) {
+
+    .search-bar .buscador-principal.scsb-search-controls {
+        display: block;
+        width: 100%;
+    }
+
+    .search-bar .scsb-search-input {
+        width: 100%;
+        display: block;
+    }
+
+    .search-bar .scsb-search-field,
+    .search-bar .scsb-search-action,
+    .search-bar .scsb-search-facets {
+        width: 100%;
+        min-width: 0;
+        display: block;
+        padding-right: 0;
+        margin-top: 5px;
+    }
+
+    .search-bar .scsb-search-field select {
+        width: 100% !important;
+    }
+
+    .search-bar .scsb-search-controls .btn {
+        width: 100%;
+    }
 }
