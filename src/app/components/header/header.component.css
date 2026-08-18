@@ -1,13 +1,51 @@
 
 .scsb-cls{
     color: #24578D!important;
-    font-weight: 500;
-    font-size: 50px;
+    font-weight: 700;
+    font-size: 58px;
     font-family: mukta-regular;
-    margin-top: 33px
+    margin-top: 38px;
+    white-space: nowrap;
 }
 .clr-bl{
     color: #29588C;
+}
+
+/* Bootstrap 4.6.2's .row is a flex container (BS 3.5.1 used floats).
+   The logo/separator block has a fixed size in the legacy design, so
+   keep it from being flex-shrunk or stretched by its new flex parent.
+   Sized up slightly (and vertically centered) so the logo reads as
+   large/prominent as in the legacy design, with the border-right
+   acting as the tall, distinct divider next to it. */
+#recapPageHeaderId .dashboard_recap {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    width: 290px;
+    height: 120px;
+    max-width: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* object-fit:contain scales the full logo (including the tagline text)
+   to fit the box without ever cropping or stretching it - this is what
+   was going wrong before: max-height:100% + width:auto could compute a
+   width larger than the box, which overflow:hidden then cropped. */
+#recapPageHeaderId .dashboard_recap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* Bootstrap 4.6.2 renamed .pull-right/.pull-left to .float-right/.float-left.
+   Those utilities still rely on normal (non-flex) block children, which is
+   the case here, so no further changes are needed beyond the class rename
+   in the template - this just guarantees the row below them clears floats. */
+#recapPageHeaderId .header-info .col-12 {
+    overflow: hidden;
 }
 .img-clr{
     height: 140px;
