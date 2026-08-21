@@ -1,28 +1,29 @@
-/* Bootstrap 4.6.2 removed .pull-left/.pull-right (renamed to .float-left/
-   .float-right - already updated in the template) and resets default <p>
-   margins differently than Bootstrap 3.5.1. Scope the legacy footer look
-   here instead of touching global styles so no other page is affected. */
+/* ===== Compact Dark Footer Styling ===== */
+
 #recapPageFooterId footer {
-    background: #5b5c5d;
-    color: #fff;
+    background: #1f2937; /* Dark gray/charcoal background */
+    color: #9ca3af; /* Muted light gray text color */
     width: 100%;
-    min-height: 45px;
-    padding: 12px 0;
+    min-height: 40px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 #recapPageFooterId footer .container-fluid {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 #recapPageFooterId footer p {
     margin: 0;
     overflow: hidden;
-    line-height: 21px;
+    line-height: 20px;
 }
 
 #recapPageFooterId footer .float-left,
 #recapPageFooterId footer .float-right {
-    font-size: 14px;
-    color: #fff;
+    font-size: 12px; /* Small, clean typography */
+    color: #9ca3af;
+    font-weight: 500;
 }

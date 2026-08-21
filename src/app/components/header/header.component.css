@@ -1,57 +1,113 @@
+/* ===== Compact Header Styling ===== */
 
-.scsb-cls{
-    color: #24578D!important;
-    font-weight: 700;
-    font-size: 58px;
-    font-family: mukta-regular;
-    margin-top: 38px;
-    white-space: nowrap;
-}
-.clr-bl{
-    color: #29588C;
-}
-
-/* Bootstrap 4.6.2's .row is a flex container (BS 3.5.1 used floats).
-   The logo/separator block has a fixed size in the legacy design, so
-   keep it from being flex-shrunk or stretched by its new flex parent.
-   Sized up slightly (and vertically centered) so the logo reads as
-   large/prominent as in the legacy design, with the border-right
-   acting as the tall, distinct divider next to it. */
-#recapPageHeaderId .dashboard_recap {
-    flex: 0 0 auto;
-    flex-shrink: 0;
+.compact-header {
+    background-color: #ffffff;
+    height: 140px; /* Set height to original 140px */
     display: flex;
     align-items: center;
-    width: 290px;
-    height: 120px;
-    max-width: none;
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-
-/* object-fit:contain scales the full logo (including the tagline text)
-   to fit the box without ever cropping or stretching it - this is what
-   was going wrong before: max-height:100% + width:auto could compute a
-   width larger than the box, which overflow:hidden then cropped. */
-#recapPageHeaderId .dashboard_recap img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: left center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Bootstrap 4.6.2 renamed .pull-right/.pull-left to .float-right/.float-left.
-   Those utilities still rely on normal (non-flex) block children, which is
-   the case here, so no further changes are needed beyond the class rename
-   in the template - this just guarantees the row below them clears floats. */
-#recapPageHeaderId .header-info .col-12 {
-    overflow: hidden;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
-.img-clr{
-    height: 140px;
-    margin-top: 2.5px;
-    opacity: 0.3;
-    width: 670px;
-    margin-top: 2.5px;
-    margin-left: 27%;
+
+/* Brand Section (Logo & Text) */
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.recap-logo-link {
+    display: flex;
+    align-items: center;
+    height: 110px; /* Restored logo box */
+    border-right: 2px solid #24578D;
+    padding-right: 24px;
+}
+
+.recap-logo {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.scsb-cls {
+    color: #24578D !important;
+    font-weight: 500;
+    font-size: 58px; /* Restored from 26px */
+    font-family: 'mukta-regular', 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* User Info and Actions Section */
+.actions-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.welcome-text {
+    font-weight: 500;
+    color: #374151;
+}
+
+.welcome-text span {
+    font-weight: 600;
+    color: #24578D;
+}
+
+.help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #24578D !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.help-link:hover {
+    color: #1d4ed8 !important;
+}
+
+.logout-form {
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #24578D !important;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn-logout:hover {
+    color: #1d4ed8 !important;
+}
+
+.logout-icon {
+    height: 14px;
+    width: auto;
 }

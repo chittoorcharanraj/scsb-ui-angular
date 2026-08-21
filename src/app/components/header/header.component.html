@@ -1,45 +1,28 @@
 <div id="recapPageHeaderId" name="recapPageHeaderName">
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-8 width-100">
-                    <div class="row mrg-left-per">
-                        <div class="dashboard_recap col-6">
-                            <a href="http://recap.princeton.edu/">
-                                <img src="../../../../assets/images/recap-logo-final.png" alt="ReCAP">
-                            </a>
-                        </div>
-                        <div class="dashboard_recaptext col-4 scsb-cls">
-                            SCSB
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 width-100">
-                    <div class="row header-info">
-                        <div class="col-12">
-                            <div class="float-right margin-left-30 clr-bl">
-                                Welcome <span>{{userDesc}}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 padding-top-15">
-                            <div class="float-right  margin-left-30">
-                                <form id="logoutForm" name="logoutForm" ngNoForm [action]="url" method="GET">
-                                    <input type="hidden">
-                                    <button class="btn logout-login logout clr-bl" id="logout" type="submit"
-                                        style="background-color: transparent;box-shadow: none;outline: none;"><span
-                                            style="position: relative;top: -13px;left: 8px;"><img
-                                                src="../../../../assets/images/logout.png"></span>Logout</button>
-                                </form>
-                            </div>
-                            <div class="float-right" style="margin-top: 5px;">
-                                <a class="clr-bl" id="help"
-                                    href="https://htcrecap.atlassian.net/wiki/display/RTG/Search" target="_blank"><span
-                                        class="glyphicon glyphicon-question-sign clr-bl"></span>
-                                    Help</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <header class="compact-header">
+        <div class="header-container">
+            <!-- Brand Section on Left -->
+            <div class="brand-section">
+                <a href="http://recap.princeton.edu/" class="recap-logo-link">
+                    <img src="../../../../assets/images/recap-logo-final.png" alt="ReCAP" class="recap-logo">
+                </a>
+                <span class="scsb-cls">SCSB</span>
+            </div>
+
+            <!-- User Info and Actions on Right -->
+            <div class="actions-section">
+                <span class="welcome-text">Welcome <span>{{userDesc}}</span></span>
+
+                <a class="help-link" id="help" href="https://htcrecap.atlassian.net/wiki/display/RTG/Search" target="_blank">
+                    <span class="glyphicon glyphicon-question-sign"></span> Help
+                </a>
+
+                <form id="logoutForm" name="logoutForm" ngNoForm [action]="url" method="GET" class="logout-form">
+                    <input type="hidden">
+                    <button class="btn-logout" id="logout" type="submit">
+                        <img src="../../../../assets/images/logout.png" alt="" class="logout-icon"> Logout
+                    </button>
+                </form>
             </div>
         </div>
     </header>
