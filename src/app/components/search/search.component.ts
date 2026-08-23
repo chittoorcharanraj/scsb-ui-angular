@@ -11,6 +11,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { MessageService, TreeNode } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
+import { environment } from 'src/environments/environment';
 declare var $: any;
 
 enum CONSTANTS {
@@ -44,6 +45,8 @@ export class SearchComponent implements OnInit {
   @ViewChild('dt') dt: Table;
   @ViewChild('dt1') dt1: Table;
   public data: Object[];
+  public environment = environment;
+  facetsChecked = true;
   clearSearchTextCross = false;
   fieldValuseStatus = false;
   toggleCheck = true;
@@ -192,8 +195,13 @@ export class SearchComponent implements OnInit {
     headers: []
   };
   ngOnInit(): void {
-    document.getElementById("fieldValue").focus();
-    $("#clearSearchText").hide();
+    const searchInput = document.getElementById("fieldValue");
+    if (searchInput) {
+      searchInput.focus();
+    }
+    if (typeof $ !== 'undefined') {
+      $("#clearSearchText").hide();
+    }
     this.dashBoardService.setApiPath('search');
     this.rolesRes = this.rolesService.getRes();
     if (this.rolesRes['isBarcodeRestricted'] == true) {
@@ -219,6 +227,23 @@ export class SearchComponent implements OnInit {
       InLibraryUse: [true],
       SupervisedUse: [true]
     });
+  }
+  getSelectedFiltersCount(): number {
+    if (!this.searchForm) return 0;
+    let count = 0;
+    const filterKeys = [
+      'owningInstitutionNYPL', 'owningInstitutionCUL', 'owningInstitutionPUL',
+      'Monograph', 'Serial', 'others',
+      'matched', 'notMatched',
+      'Available', 'notAvailable',
+      'NoRestrictions', 'InLibraryUse', 'SupervisedUse'
+    ];
+    for (const key of filterKeys) {
+      if (this.searchForm.get(key)?.value === true) {
+        count++;
+      }
+    }
+    return count;
   }
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -655,6 +680,9 @@ export class SearchComponent implements OnInit {
             (error) => {
               this.dashBoardService.errorNavigation();
             });
+        },
+        (error) => {
+          this.dashBoardService.errorNavigation();
         });
     }
   }
@@ -747,6 +775,8 @@ export class SearchComponent implements OnInit {
       this.pageNumber = this.searchVal['pageNumber'] + 1;
     } else if (actionName == 'pageSize') {
       this.pageNumber = this.searchVal['pageNumber'];
+    } else if (typeof actionName === 'number') {
+      this.pageNumber = actionName;
     }
     this.postData = {
       "fieldValue": searchfullrec.fieldValue,
@@ -851,5 +881,68 @@ export class SearchComponent implements OnInit {
         }
       }
     }
+  }
+
+  toggleAllFacets(checked: boolean) {
+    this.facetsChecked = checked;
+    const filterKeys = [
+      'Monograph', 'Serial', 'others',
+      'matched', 'notMatched',
+      'Available', 'notAvailable',
+      'NoRestrictions', 'InLibraryUse', 'SupervisedUse'
+    ];
+    filterKeys.forEach(key => {
+      this.searchForm.get(key)?.setValue(checked);
+    });
+    if (checked) {
+      this.owningInstitutionInst = [...(this.instVal || [])];
+      this.cgdTypeList = [...(this.cgdVal || [])];
+      this.storageLocationsList = [...(this.storageLocationVal || [])];
+    } else {
+      this.owningInstitutionInst = [];
+      this.cgdTypeList = [];
+      this.storageLocationsList = [];
+    }
+  }
+
+  getShowingStart(): number {
+    if (!this.searchVal) return 0;
+    return (this.searchVal['pageNumber'] * this.showentries) + 1;
+  }
+
+  getShowingEnd(): number {
+    if (!this.searchVal) return 0;
+    return Math.min(this.getShowingStart() + this.showentries - 1, parseInt(this.searchVal['totalRecordsCount']));
+  }
+
+  hasSelection(): boolean {
+    return (this.selectedNodes1 && this.selectedNodes1.length > 0) || (this.selectedNodes2 && this.selectedNodes2.length > 0);
+  }
+
+  goToPage(pageNum: number) {
+    this.spinner.show();
+    this.owningInstitutions = [];
+    this.collectionGroupDesignations = [];
+    this.availability = [];
+    this.materialTypes = [];
+    this.titleMatch = [];
+    this.useRestrictions = [];
+    var searchfullrec = this.searchForm.value;
+    this.validateInputs(searchfullrec);
+    this.showresultdiv = true;
+    this.searchService.onPageSizeChange(this.setPostData(searchfullrec, pageNum)).subscribe(
+      (res) => {
+        this.spinner.hide();
+        this.searchVal = res;
+        this.searchVal['searchResultRows'].forEach((items, i) => {
+          items.id = i + 1;
+        });
+        this.pagination();
+      },
+      (error) => {
+        this.dashBoardService.errorNavigation();
+      }
+    );
+    this.mappingResults();
   }
 }
