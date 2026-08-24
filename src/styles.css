@@ -2586,6 +2586,11 @@ tr.shown td.details-control {
     color: #111827;
 }
 
+/* Gap Utilities */
+.gap-8 { gap: 8px !important; }
+.gap-12 { gap: 12px !important; }
+.gap-16 { gap: 16px !important; }
+
 /* Results Card Styling */
 .results-card {
     background: #ffffff;
@@ -2594,27 +2599,60 @@ tr.shown td.details-control {
     padding: 24px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     margin-bottom: 24px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .results-card-header {
     margin-bottom: 20px;
     padding-bottom: 16px;
     border-bottom: 1px solid #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.show-entries-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .results-card-header .show-entries-select {
-    width: 70px;
-    height: 38px;
+    width: 75px;
+    height: 36px;
     border-radius: 6px;
-    border-color: #D1D5DB;
+    border: 1px solid #D1D5DB;
     display: inline-block;
-    padding: 6px 8px;
+    padding: 4px 24px 4px 10px;
     font-size: 13px;
+    color: #374151;
+    background-color: #ffffff;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7 9l3 3 3-3' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.results-card-header .show-entries-select:focus {
+    border-color: #1b62ec;
+    outline: none;
 }
 
 .results-card-header .show-entries-label {
     font-size: 13px;
     color: #4B5563;
+    font-weight: 500;
 }
 
 .results-card-header .legend-help-text {
@@ -2638,13 +2676,19 @@ tr.shown td.details-control {
 }
 
 .results-card-header .btn-save-search {
-    height: 38px;
+    height: 36px;
     border-radius: 6px;
     font-size: 13px;
     font-weight: 500;
     color: #374151;
-    border-color: #D1D5DB;
+    border: 1px solid #D1D5DB;
     padding: 0 16px;
+    background-color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
 .results-card-header .btn-save-search:hover {
@@ -2652,9 +2696,16 @@ tr.shown td.details-control {
     border-color: #C5C7CD;
 }
 
+.grid-table-container {
+    min-height: 480px;
+    width: 100%;
+    overflow-x: auto;
+}
+
 /* Custom PrimeNG Table Styling */
 .custom-p-table .p-datatable {
     border: none;
+    width: 100%;
 }
 
 .custom-p-table th {
@@ -2803,7 +2854,7 @@ tr.shown td.details-control {
 .results-card-footer {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -2811,7 +2862,7 @@ tr.shown td.details-control {
     padding-top: 16px;
     border-top: 1px solid #F3F4F6;
     box-sizing: border-box;
-    gap: 24px;
+    gap: 16px;
 }
 
 .results-card-footer .showing-info-text {
@@ -2854,8 +2905,9 @@ tr.shown td.details-control {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 38px;
-    padding: 0 14px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0 12px;
     color: #4B5563;
     background-color: #ffffff;
     border: 1px solid #D1D5DB;
@@ -2863,9 +2915,10 @@ tr.shown td.details-control {
     font-weight: 500;
     white-space: nowrap;
     box-sizing: border-box;
-    transition: all 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
     text-decoration: none;
     line-height: 1;
+    margin-left: -1px;
 }
 
 .custom-pagination .page-arrow {
@@ -2889,7 +2942,6 @@ tr.shown td.details-control {
 .custom-pagination .page-link:focus,
 .custom-pagination .page-link:active {
     outline: none;
-    box-shadow: inset 0 0 0 2px rgba(27, 98, 236, 0.4);
     border-color: #1b62ec;
     z-index: 3;
 }
@@ -2899,11 +2951,13 @@ tr.shown td.details-control {
     background-color: #F9FAFB;
     border-color: #E5E7EB;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 .custom-pagination .page-item:first-child .page-link {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+    margin-left: 0;
 }
 
 .custom-pagination .page-item:last-child .page-link {
@@ -2924,13 +2978,14 @@ tr.shown td.details-control {
     gap: 12px;
     flex-shrink: 0;
     white-space: nowrap;
+    max-width: 100%;
 }
 
 .results-card-footer .btn-footer-action {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 38px !important;
+    height: 36px !important;
     padding: 0 16px !important;
     font-size: 13px !important;
     font-weight: 500 !important;
