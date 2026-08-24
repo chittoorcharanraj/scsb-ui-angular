@@ -1,8 +1,3 @@
-/*
- * Modern SCSB Search Items UI Styling
- * Matches the visual design and spacing shown in Image 2
- */
-
 .search-bar {
     background: #ffffff;
     border: 1px solid #E5E7EB;
@@ -21,22 +16,19 @@
     border-collapse: initial;
 }
 
-/* Search input wrapper */
 .search-bar .scsb-search-input {
     flex: 1 1 auto;
     min-width: 0;
     position: relative;
 }
 
-/* Modernized form control input */
 .search-bar .scsb-search-input .form-control {
     width: 100%;
     height: 48px;
-    min-height: 48px;
     border: 1px solid #D1D5DB;
     border-radius: 8px;
-    padding-left: 40px; /* Space for search icon on left */
-    padding-right: 32px; /* Space for clear 'x' icon on right */
+    padding-left: 40px;
+    padding-right: 32px;
     font-size: 15px;
     background-color: #ffffff;
     color: #1F2937;
@@ -49,7 +41,6 @@
     outline: none;
 }
 
-/* Search icon on left inside input */
 .search-bar .scsb-search-input .search-icon-left {
     position: absolute;
     left: 14px;
@@ -61,7 +52,6 @@
     z-index: 5;
 }
 
-/* Clear icon on right inside input */
 .search-bar .scsb-search-input .add-clear-x {
     position: absolute;
     right: 14px;
@@ -78,26 +68,21 @@
     color: #4B5563;
 }
 
-/* All Fields Wrapper */
 .search-bar .scsb-search-field {
     flex: 0 0 150px;
     width: 150px;
     min-width: 150px;
 }
 
-/* All Fields Select styling */
 .search-bar .scsb-search-field select {
     width: 150px !important;
     height: 48px;
-    min-height: 48px;
     border: 1px solid #D1D5DB !important;
     border-radius: 8px !important;
     background-color: #ffffff;
     color: #374151;
     font-size: 15px;
     padding: 0 16px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7 9l3 3 3-3' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -112,30 +97,30 @@
     outline: none;
 }
 
-/* Search / Reset Search wrappers */
 .search-bar .scsb-search-action,
 .search-bar .scsb-search-facets {
     flex: 0 0 auto;
     min-width: 0;
 }
 
-/* Neutralize legacy padding in flex layout */
 .search-bar .scsb-search-action.padding-right-10 {
     padding-right: 0 !important;
 }
 
-/* Search Button styling */
-.search-bar .scsb-search-controls .btn#search {
+.search-bar .scsb-search-controls .btn#search,
+.search-bar .scsb-search-controls .btn#resetSearch {
     height: 48px;
-    min-height: 48px;
-    background-color: #1b62ec;
-    color: #ffffff;
     border: none;
     border-radius: 8px;
-    padding: 0 24px;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.search-bar .scsb-search-controls .btn#search {
+    background-color: #1b62ec;
+    color: #ffffff;
+    padding: 0 24px;
     transition: background-color 0.2s, box-shadow 0.2s;
 }
 
@@ -147,18 +132,10 @@
     background-color: #0f3fa4;
 }
 
-/* Reset Search (Clear) Button styling */
 .search-bar .scsb-search-controls .btn#resetSearch {
-    height: 48px;
-    min-height: 48px;
     background-color: #9CA3AF;
     color: #ffffff;
-    border: none;
-    border-radius: 8px;
     padding: 0 20px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
     transition: background-color 0.2s, opacity 0.2s;
 }
 
@@ -171,10 +148,8 @@
     cursor: not-allowed;
 }
 
-/* Show Facets Button styling */
 .search-bar .scsb-search-facets .btn.themed-button-facet {
     height: 48px;
-    min-height: 48px;
     background-color: #ffffff;
     color: #374151;
     border: 1px solid #D1D5DB;
@@ -206,7 +181,6 @@
     margin-left: 2px;
 }
 
-/* Overlapping Facet Badge styling */
 .search-bar .scsb-search-facets .facet-badge {
     position: absolute;
     top: -6px;
@@ -227,13 +201,11 @@
     z-index: 10;
 }
 
-/* Bootstrap 4/5 integration overrides */
 .search-bar .scsb-search-controls .input-group-btn {
     display: flex;
     align-items: center;
 }
 
-/* Desktop search layout */
 @media (min-width: 768px) {
     .search-bar .scsb-search-input {
         flex: 1 1 auto;
@@ -243,16 +215,12 @@
         flex: 0 0 150px;
     }
 
-    .search-bar .scsb-search-action {
-        flex: 0 0 auto;
-    }
-
+    .search-bar .scsb-search-action,
     .search-bar .scsb-search-facets {
         flex: 0 0 auto;
     }
 }
 
-/* Mobile search layout */
 @media only screen and (max-width: 767px) {
     .search-bar .buscador-principal.scsb-search-controls {
         display: flex;
@@ -286,21 +254,39 @@
         justify-content: center !important;
     }
 }
-/* Facets/Filters Panel Styling */
+
+#search-filter.search-filter-panel,
 .search-filter-panel {
-    background: #ffffff;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    padding: 24px;
+    position: relative !important;
+    background: #699683 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important;
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+    width: 100% !important;
+    color: #ffffff !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    margin-bottom: 24px;
-    width: 100%;
+}
+
+.search-filter-panel,
+.search-filter-panel * {
+    box-sizing: border-box !important;
 }
 
 .search-filter-panel .facet-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .search-filter-panel .facet-row {
+        flex-wrap: wrap;
+    }
 }
 
 .search-filter-panel .facet-column {
@@ -309,80 +295,85 @@
 }
 
 .search-filter-panel .col-select-all {
-    flex: 0 0 15%;
-    min-width: 150px;
+    flex: 0 0 auto;
+    min-width: 130px;
 }
 
 .search-filter-panel .col-bib-facets {
     flex: 1 1 38%;
-    border-left: 1px solid #F3F4F6;
-    border-right: 1px solid #F3F4F6;
-    padding: 0 24px;
-    min-width: 320px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0 16px;
+    min-width: 260px;
 }
 
 .search-filter-panel .col-item-facets {
-    flex: 1 1 42%;
-    padding-left: 12px;
-    min-width: 380px;
+    flex: 1 1 48%;
+    padding-left: 8px;
+    min-width: 340px;
 }
 
 .search-filter-panel .facet-group-header {
     font-size: 13px;
     font-weight: 700;
-    color: #4B5563;
+    color: #ffffff;
     text-transform: uppercase;
-    border-bottom: 2px solid #F3F4F6;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
     letter-spacing: 0.05em;
 }
 
 .search-filter-panel .facet-sections-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
     justify-content: space-between;
+    width: 100%;
 }
 
 .search-filter-panel .facet-section {
     display: flex;
     flex-direction: column;
-    min-width: 100px;
+    min-width: 0;
+    flex: 1 1 auto;
 }
 
 .search-filter-panel .facet-section-header {
     font-size: 12px;
     font-weight: 600;
-    color: #1F2937;
-    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 8px;
 }
 
 .search-filter-panel .facet-checkbox-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .search-filter-panel .facet-checkbox-label {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-size: 13px;
     font-weight: 400;
-    color: #4B5563;
+    color: #ffffff;
     cursor: pointer;
     user-select: none;
     margin-bottom: 0;
+    white-space: nowrap;
 }
 
 .search-filter-panel .facet-checkbox-label input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    border: 1px solid #D1D5DB;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
     cursor: pointer;
     margin: 0;
+    accent-color: #1b62ec;
 }
 
 .search-results-container {
