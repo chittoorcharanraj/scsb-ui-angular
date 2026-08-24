@@ -229,18 +229,27 @@ export class SearchComponent implements OnInit {
     });
   }
   getSelectedFiltersCount(): number {
-    if (!this.searchForm) return 0;
     let count = 0;
+    if (this.owningInstitutionInst) {
+      count += this.owningInstitutionInst.length;
+    }
+    if (this.cgdTypeList) {
+      count += this.cgdTypeList.length;
+    }
+    if (this.storageLocationsList) {
+      count += this.storageLocationsList.length;
+    }
     const filterKeys = [
-      'owningInstitutionNYPL', 'owningInstitutionCUL', 'owningInstitutionPUL',
       'Monograph', 'Serial', 'others',
       'matched', 'notMatched',
       'Available', 'notAvailable',
       'NoRestrictions', 'InLibraryUse', 'SupervisedUse'
     ];
-    for (const key of filterKeys) {
-      if (this.searchForm.get(key)?.value === true) {
-        count++;
+    if (this.searchForm) {
+      for (const key of filterKeys) {
+        if (this.searchForm.get(key)?.value === true) {
+          count++;
+        }
       }
     }
     return count;
@@ -323,7 +332,7 @@ export class SearchComponent implements OnInit {
     this.selectedNodes1 = [];
     this.selectedNodes2 = [];
     this.spinner.show();
-    $("#search-filter").slideUp();
+    this.toggleSlide('search-filter', 'up');
     this.showentries = 10;
     this.owningInstitutions = [];
     this.collectionGroupDesignations = [];
@@ -656,8 +665,34 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/request', barcode]);
   }
 
+  toggleSlide(elementId: string, action: 'toggle' | 'up' | 'down' = 'toggle') {
+    if (typeof $ !== 'undefined' && typeof $(`#${elementId}`).slideToggle === 'function') {
+      if (action === 'toggle') {
+        $(`#${elementId}`).slideToggle();
+        return;
+      } else if (action === 'up') {
+        $(`#${elementId}`).slideUp();
+        return;
+      } else if (action === 'down') {
+        $(`#${elementId}`).slideDown();
+        return;
+      }
+    }
+    const el = document.getElementById(elementId);
+    if (el) {
+      if (action === 'up') {
+        el.style.display = 'none';
+      } else if (action === 'down') {
+        el.style.display = 'block';
+      } else {
+        const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
+        el.style.display = isHidden ? 'block' : 'none';
+      }
+    }
+  }
+
   facetsshowhide() {
-    $("#search-filter").slideToggle();
+    this.toggleSlide('search-filter', 'toggle');
     if (this.toggleCheck) {
       this.toggleCheck = !this.toggleCheck;
       this.reportsService.getInstitutions().subscribe(

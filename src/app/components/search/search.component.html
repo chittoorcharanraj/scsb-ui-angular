@@ -98,7 +98,7 @@
                         </button>
                     </div>
 
-                    <!-- Reset Search -->
+                    <!-- Reset Search / Clear -->
                     <div class="input-group-btn padding-right-10 scsb-search-action">
                         <button
                             class="btn themed-button themed-button-cancel"
@@ -109,11 +109,11 @@
                             (click)="onReset()"
                             value="newSearch">
 
-                            Reset Search
+                            Clear
                         </button>
                     </div>
 
-                    <!-- Show Facets -->
+                    <!-- Show Facets / Filters -->
                     <div class="input-group-btn scsb-search-facets">
                         <button
                             class="btn themed-button themed-button-facet dropdown-toggle"
@@ -123,7 +123,7 @@
                             <span class="fa fa-sliders" aria-hidden="true"></span>
 
                             <span id="showFacets">
-                                Show Facets
+                                Filters
                             </span>
 
                             <span
@@ -151,14 +151,14 @@
                         <div class="facet-section">
                             <label class="facet-checkbox-label">
                                 <input type="checkbox" [checked]="facetsChecked" (change)="toggleAllFacets($event.target.checked)" />
-                                <strong>Facets</strong>
+                                <span>Facets</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Bib Facets Column -->
                     <div class="facet-column col-bib-facets">
-                        <h4 class="facet-group-header text-center">Bib Facets</h4>
+                        <h4 class="facet-group-header">Bib Facets</h4>
                         <div class="facet-sections-row">
                             <div class="facet-section">
                                 <h5 class="facet-section-header">Owning Institution</h5>
@@ -170,7 +170,7 @@
                                 </div>
                             </div>
                             <div class="facet-section">
-                                <h5 class="facet-section-header">Material type</h5>
+                                <h5 class="facet-section-header">Material Type</h5>
                                 <div class="facet-checkbox-list">
                                     <label class="facet-checkbox-label">
                                         <input type="checkbox" formControlName="Monograph" /> Monograph
@@ -199,7 +199,7 @@
 
                     <!-- Item Facets Column -->
                     <div class="facet-column col-item-facets">
-                        <h4 class="facet-group-header text-center">Item Facets</h4>
+                        <h4 class="facet-group-header">Item Facets</h4>
                         <div class="facet-sections-row">
                             <div class="facet-section">
                                 <h5 class="facet-section-header">Collection Group</h5>
