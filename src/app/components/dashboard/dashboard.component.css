@@ -59,16 +59,14 @@
 .main-nav {
     flex-grow: 1;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
 .main-nav::-webkit-scrollbar {
-    width: 4px;
-}
-
-.main-nav::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
+    display: none; /* Chrome, Safari, Opera */
+    width: 0;
+    height: 0;
 }
 
 /* Bottom pinned navigation */
@@ -81,7 +79,7 @@
 
 /* Navigation Item styling */
 .nav-item-wrapper {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -94,7 +92,7 @@
 .nav-item-link {
     display: flex;
     align-items: center;
-    padding: 14px 16px;
+    padding: 11px 14px;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none !important;
     border-radius: 12px;
