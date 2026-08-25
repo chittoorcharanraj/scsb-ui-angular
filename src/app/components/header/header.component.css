@@ -2,11 +2,11 @@
 
 .compact-header {
     background-color: #ffffff;
-    height: 140px; /* Set height to original 140px */
+    height: 75px;
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 20px;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
@@ -22,15 +22,15 @@
 .brand-section {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 18px;
 }
 
 .recap-logo-link {
     display: flex;
     align-items: center;
-    height: 110px; /* Restored logo box */
+    height: 55px;
     border-right: 2px solid #24578D;
-    padding-right: 24px;
+    padding-right: 18px;
 }
 
 .recap-logo {
@@ -42,7 +42,7 @@
 .scsb-cls {
     color: #24578D !important;
     font-weight: 500;
-    font-size: 58px; /* Restored from 26px */
+    font-size: 38px;
     font-family: 'mukta-regular', 'Inter', sans-serif;
     margin: 0;
     line-height: 1;
@@ -53,9 +53,9 @@
 .actions-section {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     color: #4b5563;
 }
 
