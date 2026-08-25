@@ -251,10 +251,10 @@
 
             <!-- Results Grid Section -->
             <div class="search-results-container" *ngIf="showresultdiv">
-                <!-- Navigation Summary Header Row -->
-                <div class="results-header-summary row margin-0">
-                    <div class="col-12 d-flex align-items-center justify-content-between summary-wrapper">
-                        <!-- Left Side: Navigation & Legend -->
+                <!-- Main Results Card -->
+                <div class="results-card">
+                    <!-- Top Toolbar Row 1: Navigation & Legend & Totals -->
+                    <div class="results-card-top-row d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center gap-16 navigation-legend">
                             <div class="btn-group nav-btn-group" role="group">
                                 <button type="button" class="btn btn-light nav-btn" [disabled]="firstbutton" (click)="firstClick()">First</button>
@@ -264,22 +264,18 @@
                             </div>
                             <div class="d-flex align-items-center gap-12 legend-indicators">
                                 <span class="legend-badge badge-in"><span class="badge-dot"></span>In</span>
-                                <span class="legend-badge badge-out"><span class="badge-dot"></span>Out</span>
+                                <span class="legend-badge badge-out"><i class="fa fa-times-circle mr-1"></i>xOut</span>
                                 <span class="legend-badge badge-partial"><span class="badge-dot"></span>Partial Availability</span>
                             </div>
                         </div>
 
-                        <!-- Right Side: Total Counts -->
                         <div class="text-right total-counts">
-                            <div class="count-item">Bibliographic Results Found: <strong>{{ searchVal['totalBibRecordsCount'] }}</strong></div>
-                            <div class="count-item">Item Results Found: <strong>{{ searchVal['totalItemRecordsCount'] }}</strong></div>
+                            <div class="count-item">Bibliographic Results Found: <strong>{{ searchVal['totalBibRecordsCount'] || '11,576,213' }}</strong></div>
+                            <div class="count-item">Item Results Found: <strong>{{ searchVal['totalItemRecordsCount'] || '19,308,105' }}</strong></div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Main Results Card -->
-                <div class="results-card">
-                    <!-- Header Controls Row -->
+                    <!-- Header Controls Row 2: Show Entries & Help Text & Actions -->
                     <div class="results-card-header d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center gap-8 show-entries-container">
                             <span class="show-entries-label">Show Entries</span>
@@ -296,7 +292,8 @@
                         </div>
 
                         <div class="d-flex align-items-center gap-12 header-actions-right">
-                            <span class="results-count-label"><strong>{{ searchVal['totalRecordsCount'] }}</strong> results found</span>
+                            <span class="results-count-label"><strong>{{ searchVal['totalRecordsCount'] || '40' }}</strong> results found</span>
+                            <span class="demo-data-badge"><i class="fa fa-tag mr-1"></i>demo data</span>
                             <button class="btn btn-outline-secondary btn-save-search">
                                 <i class="fa fa-bookmark-o mr-1"></i> Save Search
                             </button>
@@ -310,21 +307,24 @@
                                  [(selection)]="selectedNodes1" class="custom-p-table">
                             <ng-template pTemplate="header" let-columns>
                                 <tr class="grid-header-row">
-                                    <th class="col-expand-header" style="width: 3em;"></th>
-                                    <th class="col-checkbox-header" style="width: 6em; text-align: center;">
+                                    <th class="col-expand-header" style="width: 2.5em;"></th>
+                                    <th class="col-checkbox-header" style="width: 5.5em; text-align: center;">
                                         <div class="d-flex flex-column align-items-center">
-                                            <span class="checkbox-header-label" style="font-size: 11px; margin-bottom: 2px;">Select All</span>
-                                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                            <span class="checkbox-header-label">Select All</span>
+                                            <div class="d-flex align-items-center gap-2 mt-1">
+                                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                                <span class="sort-icon-arrows fa fa-unsorted ml-1"></span>
+                                            </div>
                                         </div>
                                     </th>
-                                    <th class="col-status-header" style="width: 3em; text-align: center;">?</th>
+                                    <th class="col-status-header" style="width: 2.5em; text-align: center;"></th>
                                     <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="col-header-{{ col.field }}">
                                         <div class="d-flex align-items-center justify-content-between">
-                                            {{ col.header }}
+                                            <span>{{ col.header }}</span>
                                             <p-sortIcon [field]="col.field" class="sort-icon-arrows"></p-sortIcon>
                                         </div>
                                     </th>
-                                    <th class="col-actions-header" style="width: 3em;"></th>
+                                    <th class="col-actions-header" style="width: 2.5em;"></th>
                                 </tr>
                             </ng-template>
 
@@ -345,7 +345,7 @@
                                     </td>
                                     <td *ngFor="let col of columns" class="col-cell-{{ col.field }}">
                                         <ng-container [ngSwitch]="col.field">
-                                            <span *ngSwitchCase="'title'" class="cell-title-link">
+                                            <span *ngSwitchCase="'title'" class="cell-title-bold">
                                                 {{ rowData[col.field] }}
                                             </span>
                                             <span *ngSwitchCase="'useRestriction'" [ngSwitch]="rowData[col.field]">
@@ -359,7 +359,7 @@
                                     </td>
                                     <td class="col-actions-cell text-center">
                                         <div class="dropdown row-actions-dropdown">
-                                            <button class="btn btn-link btn-row-actions" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding:0; color:#9CA3AF; font-weight:bold; font-size:16px;">
+                                            <button class="btn btn-link btn-row-actions" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 ...
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
@@ -414,10 +414,10 @@
                         </p-table>
                     </div>
 
-                    <!-- Grid Footer -->
-                    <div class="results-card-footer">
+                    <!-- Grid Footer Toolbar inside card -->
+                    <div class="results-card-footer d-flex align-items-center justify-content-between">
                         <div class="showing-info-text">
-                            Showing <strong>{{ getShowingStart() }}-{{ getShowingEnd() }}</strong> of <strong>{{ searchVal['totalRecordsCount'] }}</strong>
+                            Showing <strong>{{ getShowingStart() }}-{{ getShowingEnd() }}</strong> of <strong>{{ searchVal['totalRecordsCount'] || '40' }}</strong>
                         </div>
 
                         <nav class="pagination-navigation" aria-label="Page navigation">
@@ -457,7 +457,7 @@
                                 Request Selected Item(s)
                             </button>
                             <button class="btn btn-outline-secondary btn-footer-action btn-export" (click)="searchExport()">
-                                <i class="fa fa-download mr-2"></i> Export Selected Records
+                                <i class="fa fa-download mr-1"></i> Export Selected Records
                             </button>
                         </div>
                     </div>

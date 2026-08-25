@@ -3,7 +3,8 @@
 .main-app-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .app-layout-container {
@@ -13,12 +14,14 @@
     background-color: #EEF3F2;
     overflow: hidden;
     border-top: 1px solid #e5e7eb;
-    /* Subtle thin separator line below header */
+    height: calc(100vh - 140px);
 }
 
 /* Sidebar Wrapper */
 .app-sidebar {
     width: 240px;
+    height: calc(100% - 24px);
+    max-height: calc(100vh - 164px);
     background-color: #031448;
     border-right: 1px solid #020e36;
     display: flex;
@@ -78,19 +81,20 @@
 
 /* Navigation Item styling */
 .nav-item-wrapper {
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-item-wrapper:last-child {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 .nav-item-link {
     display: flex;
     align-items: center;
-    padding: 10px 14px;
+    padding: 14px 16px;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none !important;
     border-radius: 12px;
@@ -171,6 +175,7 @@
     min-width: 0;
     overflow-y: hidden;
     background-color: #EEF3F2;
+    height: 100%;
 }
 
 .main-content-scrollable {
@@ -179,6 +184,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .frozen-messages-banner {
