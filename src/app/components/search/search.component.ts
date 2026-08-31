@@ -954,6 +954,23 @@ export class SearchComponent implements OnInit {
     return (this.selectedNodes1 && this.selectedNodes1.length > 0) || (this.selectedNodes2 && this.selectedNodes2.length > 0);
   }
 
+  getPageNumbers(): number[] {
+    if (!this.searchVal || !this.searchVal['totalPageCount']) {
+      return [];
+    }
+    const totalPages = this.searchVal['totalPageCount'];
+    const current = this.searchVal['pageNumber'] || 0;
+    const maxButtons = 4;
+    let start = Math.max(0, current - Math.floor(maxButtons / 2));
+    let end = Math.min(totalPages - 1, start + maxButtons - 1);
+    start = Math.max(0, end - maxButtons + 1);
+    const pages: number[] = [];
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }
+
   goToPage(pageNum: number) {
     this.spinner.show();
     this.owningInstitutions = [];

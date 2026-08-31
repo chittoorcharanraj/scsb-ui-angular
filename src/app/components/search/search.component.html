@@ -143,7 +143,7 @@
             </div>
 
             <!-- Facet/Filters Panel -->
-            <div id="search-filter" class="search-filter-panel" [formGroup]="searchForm" style="display: none; padding-top: 10px; padding-bottom: 15px;">
+            <div id="search-filter" class="search-filter-panel" style="display: none; padding-top: 10px; padding-bottom: 15px;">
                 <div class="facet-row">
                     <!-- Select / Unselect All Column -->
                     <div class="facet-column col-select-all">
@@ -164,7 +164,7 @@
                                 <h5 class="facet-section-header">Owning Institution</h5>
                                 <div class="facet-checkbox-list">
                                     <label class="facet-checkbox-label" *ngFor="let item of instVal">
-                                        <input type="checkbox" [checked]="checkedItem(item)" (change)="onChange($event.target.checked, item)" />
+                                        <input type="checkbox" [checked]="checkedItem(item)" (change)="onChange($event.target.checked, item); enableResetSearch($event.target.checked)" />
                                         {{ item }}
                                     </label>
                                 </div>
@@ -205,7 +205,7 @@
                                 <h5 class="facet-section-header">Collection Group</h5>
                                 <div class="facet-checkbox-list">
                                     <label class="facet-checkbox-label" *ngFor="let item of cgdVal">
-                                        <input type="checkbox" [checked]="checkedItemCGD(item)" (change)="onChangeCGD($event.target.checked, item)" />
+                                        <input type="checkbox" [checked]="checkedItemCGD(item)" (change)="onChangeCGD($event.target.checked, item); enableResetSearch($event.target.checked)" />
                                         {{ item }}
                                     </label>
                                 </div>
@@ -239,7 +239,7 @@
                                 <h5 class="facet-section-header">Storage Location</h5>
                                 <div class="facet-checkbox-list">
                                     <label class="facet-checkbox-label" *ngFor="let item of storageLocationVal">
-                                        <input type="checkbox" [checked]="checkedItemStorageLocation(item)" (change)="onChangeStorageLocation($event.target.checked, item)" />
+                                        <input type="checkbox" [checked]="checkedItemStorageLocation(item)" (change)="onChangeStorageLocation($event.target.checked, item); enableResetSearchStorageLocation($event.target.checked)" />
                                         {{ item }}
                                     </label>
                                 </div>
@@ -251,8 +251,19 @@
 
             <!-- Results Grid Section -->
             <div class="search-results-container" *ngIf="showresultdiv">
+
+                <!-- Error Message -->
+                <div class="row margin-btm-10" *ngIf="errorMessage_Div">
+                    <div class="col-sm-12">
+                        <div class="bg-danger text-danger padding-10">
+                            <span class="fa fa-exclamation-triangle margin-right-05" aria-hidden="true"></span>
+                            <span>{{ searchVal['errorMessage'] }}</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Main Results Card -->
-                <div class="results-card">
+                <div class="results-card" *ngIf="searchResultsDiv">
                     <!-- Top Toolbar Row 1: Navigation & Legend & Totals -->
                     <div class="results-card-top-row d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center gap-16 navigation-legend">
@@ -269,9 +280,12 @@
                             </div>
                         </div>
 
-                        <div class="text-right total-counts">
-                            <div class="count-item">Bibliographic Results Found: <strong>{{ searchVal['totalBibRecordsCount'] || '11,576,213' }}</strong></div>
-                            <div class="count-item">Item Results Found: <strong>{{ searchVal['totalItemRecordsCount'] || '19,308,105' }}</strong></div>
+                        <div class="text-right total-counts" *ngIf="!searchVal['showTotalCount']">
+                            <div class="count-item">Bibliographic Results Found: <strong>{{ searchVal['totalBibRecordsCount'] }}</strong></div>
+                            <div class="count-item">Item Results Found: <strong>{{ searchVal['totalItemRecordsCount'] }}</strong></div>
+                        </div>
+                        <div class="text-right total-counts" *ngIf="searchVal['showTotalCount']">
+                            <div class="count-item">Total Results Found: <strong>{{ searchVal['totalRecordsCount'] }}</strong></div>
                         </div>
                     </div>
 
@@ -279,7 +293,7 @@
                     <div class="results-card-header d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center gap-8 show-entries-container">
                             <span class="show-entries-label">Show Entries</span>
-                            <select class="form-control show-entries-select" [ngModel]="showentries" (ngModelChange)="onPageSizeChange($event)">
+                            <select class="form-control show-entries-select" [ngModel]="showentries" [ngModelOptions]="{ standalone: true }" (ngModelChange)="onPageSizeChange($event)">
                                 <option [value]="10">10</option>
                                 <option [value]="25">25</option>
                                 <option [value]="50">50</option>
@@ -292,8 +306,7 @@
                         </div>
 
                         <div class="d-flex align-items-center gap-12 header-actions-right">
-                            <span class="results-count-label"><strong>{{ searchVal['totalRecordsCount'] || '40' }}</strong> results found</span>
-                            <span class="demo-data-badge"><i class="fa fa-tag mr-1"></i>demo data</span>
+                            <span class="results-count-label"><strong>{{ searchVal['totalRecordsCount'] }}</strong> results found</span>
                             <button class="btn btn-outline-secondary btn-save-search">
                                 <i class="fa fa-bookmark-o mr-1"></i> Save Search
                             </button>
@@ -303,8 +316,9 @@
                     <!-- PrimeNG Table -->
                     <div class="table-responsive grid-table-container">
                         <p-table name="p_table" #dt [columns]="cols" rowExpandMode="single"
-                                 [value]="searchVal['searchResultRows']" dataKey="barcode"
-                                 [(selection)]="selectedNodes1" class="custom-p-table">
+                                 [value]="searchVal['searchResultRows']" dataKey="id"
+                                 [(selection)]="selectedNodes1" (onHeaderCheckboxToggle)="onTableHeaderCheckboxToggle1($event)"
+                                 (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" class="custom-p-table">
                             <ng-template pTemplate="header" let-columns>
                                 <tr class="grid-header-row">
                                     <th class="col-expand-header" style="width: 2.5em;"></th>
@@ -377,7 +391,8 @@
                                         <div class="inner-table-wrapper" [@rowExpansionTrigger]="'active'" style="padding: 12px 20px; background: #F9FAFB;">
                                             <p-table name="p_tablesub" #dt1 [columns]="cols1"
                                                      [value]="rowData.searchItemResultRows"
-                                                     [(selection)]="selectedNodes2" class="inner-p-table">
+                                                     [(selection)]="selectedNodes2" (onHeaderCheckboxToggle)="onTableHeaderCheckboxToggle1($event)"
+                                                     (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" class="inner-p-table">
                                                 <ng-template pTemplate="header" let-innerCols>
                                                     <tr class="inner-header-row">
                                                         <th class="inner-checkbox-header text-center" style="width: 3em;">
@@ -415,15 +430,15 @@
                     </div>
 
                     <!-- Grid Footer Toolbar inside card -->
-                    <div class="results-card-footer d-flex align-items-center justify-content-between">
+                    <div class="results-card-footer d-flex align-items-center justify-content-between" *ngIf="paginationBtmDiv">
                         <div class="showing-info-text">
-                            Showing <strong>{{ getShowingStart() }}-{{ getShowingEnd() }}</strong> of <strong>{{ searchVal['totalRecordsCount'] || '40' }}</strong>
+                            Showing <strong>{{ getShowingStart() }}-{{ getShowingEnd() }}</strong> of <strong>{{ searchVal['totalRecordsCount'] }}</strong>
                         </div>
 
                         <nav class="pagination-navigation" aria-label="Page navigation">
                             <ul class="pagination pagination-sm custom-pagination mb-0">
                                 <li class="page-item" [ngClass]="{ disabled: firstbutton }">
-                                    <a class="page-link" href="#" (click)="goToPage(0); $event.preventDefault()">
+                                    <a class="page-link" href="#" (click)="firstClick(); $event.preventDefault()">
                                         <span class="page-arrow">«</span>
                                         <span class="page-label">First</span>
                                     </a>
@@ -434,7 +449,7 @@
                                         <span class="page-label">Previous</span>
                                     </a>
                                 </li>
-                                <li class="page-item" *ngFor="let p of [0, 1, 2, 3]" [ngClass]="{ active: searchVal['pageNumber'] === p }">
+                                <li class="page-item" *ngFor="let p of getPageNumbers()" [ngClass]="{ active: searchVal['pageNumber'] === p }">
                                     <a class="page-link" href="#" (click)="goToPage(p); $event.preventDefault()">{{ p + 1 }}</a>
                                 </li>
                                 <li class="page-item" [ngClass]="{ disabled: nextbutton }">
@@ -444,7 +459,7 @@
                                     </a>
                                 </li>
                                 <li class="page-item" [ngClass]="{ disabled: lastbutton }">
-                                    <a class="page-link" href="#" (click)="goToPage(3); $event.preventDefault()">
+                                    <a class="page-link" href="#" (click)="lastClick(); $event.preventDefault()">
                                         <span class="page-label">Last</span>
                                         <span class="page-arrow">»</span>
                                     </a>
@@ -456,7 +471,7 @@
                             <button class="btn btn-light btn-footer-action" id="requestSelected" (click)="routeToRequest()" [disabled]="!hasSelection()">
                                 Request Selected Item(s)
                             </button>
-                            <button class="btn btn-outline-secondary btn-footer-action btn-export" (click)="searchExport()">
+                            <button class="btn btn-outline-secondary btn-footer-action btn-export" (click)="searchExport()" [disabled]="!hasSelection()">
                                 <i class="fa fa-download mr-1"></i> Export Selected Records
                             </button>
                         </div>
