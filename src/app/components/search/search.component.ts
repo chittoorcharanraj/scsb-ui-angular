@@ -7,6 +7,7 @@ import { DashBoardService } from '@service/dashBoard/dash-board.service';
 import { ReportsService } from '@service/reports/reports.service';
 import { RolesPermissionsService } from '@service/rolesPermissions/roles-permissions.service';
 import { SearchService } from '@service/search/search.service';
+import { OpenMarcService } from '@service/openMarc/open-marc.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MessageService, TreeNode } from 'primeng/api';
 import { Table } from 'primeng/table';
@@ -41,7 +42,7 @@ enum CONSTANTS {
 export class SearchComponent implements OnInit {
   constructor(private rolesService: RolesPermissionsService, private reportsService: ReportsService, private searchService: SearchService,
     private messageService: MessageService, private formBuilder: UntypedFormBuilder, private router: Router,
-    private spinner: NgxSpinnerService, private dashBoardService: DashBoardService) {     }
+    private spinner: NgxSpinnerService, private dashBoardService: DashBoardService, private openMarcService: OpenMarcService) {     }
   @ViewChild('dt') dt: Table;
   @ViewChild('dt1') dt1: Table;
   public data: Object[];
@@ -93,6 +94,10 @@ export class SearchComponent implements OnInit {
   errorMessage_Div = false;
   searchResultsDiv = false;
   paginationBtmDiv = false;
+  showMarcModal = false;
+  marcModalErrorDiv = false;
+  selectedMarcRecord: any = {};
+  selectedRowData: any = {};
   postData = {
     "fieldValue": "",
     "fieldName": "",
@@ -952,6 +957,31 @@ export class SearchComponent implements OnInit {
 
   hasSelection(): boolean {
     return (this.selectedNodes1 && this.selectedNodes1.length > 0) || (this.selectedNodes2 && this.selectedNodes2.length > 0);
+  }
+
+  openMarcModal(rowData: any) {
+    this.selectedRowData = rowData;
+    this.selectedMarcRecord = {};
+    this.marcModalErrorDiv = false;
+    this.showMarcModal = true;
+    this.spinner.show();
+    this.openMarcService.openMarc(rowData['bibId']).subscribe(
+      (res) => {
+        this.selectedMarcRecord = res;
+        this.marcModalErrorDiv = this.selectedMarcRecord['errorMessage'] != null;
+        this.spinner.hide();
+      },
+      (error) => {
+        this.spinner.hide();
+        this.showMarcModal = false;
+        this.dashBoardService.errorNavigation();
+      });
+  }
+
+  closeMarcModal() {
+    this.showMarcModal = false;
+    this.selectedMarcRecord = {};
+    this.selectedRowData = {};
   }
 
   getPageNumbers(): number[] {

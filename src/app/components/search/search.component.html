@@ -315,7 +315,7 @@
 
                     <!-- PrimeNG Table -->
                     <div class="table-responsive grid-table-container">
-                        <p-table name="p_table" #dt [columns]="cols" rowExpandMode="single"
+                        <p-table name="p_table" #dt [columns]="cols" rowExpandMode="single" selectionMode="checkbox"
                                  [value]="searchVal['searchResultRows']" dataKey="id"
                                  [(selection)]="selectedNodes1" (onHeaderCheckboxToggle)="onTableHeaderCheckboxToggle1($event)"
                                  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" class="custom-p-table">
@@ -359,7 +359,7 @@
                                     </td>
                                     <td *ngFor="let col of columns" class="col-cell-{{ col.field }}">
                                         <ng-container [ngSwitch]="col.field">
-                                            <span *ngSwitchCase="'title'" class="cell-title-bold">
+                                            <span *ngSwitchCase="'title'" class="cell-title-bold cell-title-link" (click)="openMarcModal(rowData)">
                                                 {{ rowData[col.field] }}
                                             </span>
                                             <span *ngSwitchCase="'useRestriction'" [ngSwitch]="rowData[col.field]">
@@ -389,7 +389,7 @@
                                 <tr class="expanded-row-wrapper">
                                     <td [attr.colspan]="columns.length + 4" class="expanded-row-cell">
                                         <div class="inner-table-wrapper" [@rowExpansionTrigger]="'active'" style="padding: 12px 20px; background: #F9FAFB;">
-                                            <p-table name="p_tablesub" #dt1 [columns]="cols1"
+                                            <p-table name="p_tablesub" #dt1 [columns]="cols1" selectionMode="checkbox"
                                                      [value]="rowData.searchItemResultRows"
                                                      [(selection)]="selectedNodes2" (onHeaderCheckboxToggle)="onTableHeaderCheckboxToggle1($event)"
                                                      (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" class="inner-p-table">
@@ -479,6 +479,85 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- MARC Record Modal (opens in-page instead of navigating to a new tab/page) -->
+    <div class="marc-modal-backdrop" *ngIf="showMarcModal" (click)="closeMarcModal()">
+        <div class="marc-modal-card" (click)="$event.stopPropagation()">
+            <div class="marc-modal-header">
+                <h3 class="marc-modal-title">&lt;{{ selectedMarcRecord['title'] }}&gt;</h3>
+                <button type="button" class="marc-modal-close" (click)="closeMarcModal()" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="marc-modal-error" *ngIf="marcModalErrorDiv">
+                <span class="fa fa-exclamation-triangle margin-right-05" aria-hidden="true"></span>
+                <span>{{ selectedMarcRecord['errorMessage'] }}</span>
+            </div>
+
+            <ng-container *ngIf="!marcModalErrorDiv">
+                <div class="marc-modal-meta">
+                    <div class="marc-modal-meta-col">
+                        <div class="marc-modal-meta-row"><span class="meta-label">Author</span><span class="meta-value">{{ selectedMarcRecord['author'] }}</span></div>
+                        <div class="marc-modal-meta-row"><span class="meta-label">Published Date</span><span class="meta-value">{{ selectedMarcRecord['publishedDate'] }}</span></div>
+                        <div class="marc-modal-meta-row"><span class="meta-label">Call Number</span><span class="meta-value">{{ selectedMarcRecord['callNumber'] }}</span></div>
+                        <div class="marc-modal-meta-row"><span class="meta-label">Material Type</span><span class="meta-value">{{ selectedMarcRecord['leaderMaterialType'] }}</span></div>
+                    </div>
+                    <div class="marc-modal-meta-col">
+                        <div class="marc-modal-meta-row"><span class="meta-label">Publisher</span><span class="meta-value">{{ selectedMarcRecord['publisher'] }}</span></div>
+                        <div class="marc-modal-meta-row"><span class="meta-label">Owning Institution</span><span class="meta-value">{{ selectedMarcRecord['owningInstitution'] }}</span></div>
+                        <div class="marc-modal-meta-row"><span class="meta-label">Collection Group Designation (CGD)</span><span class="meta-value">{{ selectedMarcRecord['monographCollectionGroupDesignation'] }}</span></div>
+                        <div class="marc-modal-meta-row"><span class="meta-label">Storage Location</span><span class="meta-value">{{ selectedMarcRecord['locationCode'] }}</span></div>
+                    </div>
+                </div>
+
+                <div class="marc-modal-body">
+                    <div class="marc-modal-panel marc-modal-panel-content">
+                        <h4 class="marc-modal-panel-header">MARC Content</h4>
+                        <div class="marc-modal-panel-scroll">
+                            <table class="marc-modal-table">
+                                <tr>
+                                    <td class="marc-tag">tag000</td>
+                                    <td class="marc-value">{{ selectedMarcRecord['tag000'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="marc-tag">Control Number (001)</td>
+                                    <td class="marc-value">{{ selectedMarcRecord['controlNumber001'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="marc-tag">Date and Time (005)</td>
+                                    <td class="marc-value">{{ selectedMarcRecord['controlNumber005'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="marc-tag">Fixed Length Data Element (008)</td>
+                                    <td class="marc-value">{{ selectedMarcRecord['controlNumber008'] }}</td>
+                                </tr>
+                                <tr *ngFor="let bibDataField of selectedMarcRecord['bibDataFields']">
+                                    <td class="marc-tag">
+                                        {{ bibDataField['dataFieldTag'] }}{{ bibDataField.indicator1 }}{{ bibDataField.indicator2 }}
+                                    </td>
+                                    <td class="marc-value">{{ bibDataField['dataFieldValue'] }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="marc-modal-panel marc-modal-panel-item">
+                        <h4 class="marc-modal-panel-header">Item Details</h4>
+                        <div class="marc-modal-item-row"><span class="meta-label">Availability</span><span class="meta-value">{{ selectedRowData['availability'] }}</span></div>
+                        <div class="marc-modal-item-row"><span class="meta-label">Barcode</span><span class="meta-value">{{ selectedRowData['barcode'] }}</span></div>
+                        <div class="marc-modal-item-row"><span class="meta-label">Customer Code</span><span class="meta-value">{{ selectedRowData['customerCode'] }}</span></div>
+                        <div class="marc-modal-item-row"><span class="meta-label">Use Restriction</span><span class="meta-value">{{ selectedRowData['useRestriction'] }}</span></div>
+                        <div class="marc-modal-item-row"><span class="meta-label">Collection Group Designation (CGD)</span><span class="meta-value">{{ selectedRowData['collectionGroupDesignation'] }}</span></div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="marc-modal-footer">
+                <button type="button" class="btn btn-light" (click)="closeMarcModal()">Close</button>
+            </div>
         </div>
     </div>
 </div>
