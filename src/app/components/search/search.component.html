@@ -253,13 +253,9 @@
             <div class="search-results-container" *ngIf="showresultdiv">
 
                 <!-- Error Message -->
-                <div class="row margin-btm-10" *ngIf="errorMessage_Div">
-                    <div class="col-sm-12">
-                        <div class="bg-danger text-danger padding-10">
-                            <span class="fa fa-exclamation-triangle margin-right-05" aria-hidden="true"></span>
-                            <span>{{ searchVal['errorMessage'] }}</span>
-                        </div>
-                    </div>
+                <div class="search-error-banner" *ngIf="errorMessage_Div">
+                    <span class="fa fa-exclamation-triangle margin-right-05" aria-hidden="true"></span>
+                    <span>{{ searchVal['errorMessage'] }}</span>
                 </div>
 
                 <!-- Main Results Card -->
@@ -513,7 +509,7 @@
                     </div>
                 </div>
 
-                <div class="marc-modal-body">
+                <div class="marc-modal-body marc-modal-body-single">
                     <div class="marc-modal-panel marc-modal-panel-content">
                         <h4 class="marc-modal-panel-header">MARC Content</h4>
                         <div class="marc-modal-panel-scroll">
@@ -542,15 +538,6 @@
                                 </tr>
                             </table>
                         </div>
-                    </div>
-
-                    <div class="marc-modal-panel marc-modal-panel-item">
-                        <h4 class="marc-modal-panel-header">Item Details</h4>
-                        <div class="marc-modal-item-row"><span class="meta-label">Availability</span><span class="meta-value">{{ selectedRowData['availability'] }}</span></div>
-                        <div class="marc-modal-item-row"><span class="meta-label">Barcode</span><span class="meta-value">{{ selectedRowData['barcode'] }}</span></div>
-                        <div class="marc-modal-item-row"><span class="meta-label">Customer Code</span><span class="meta-value">{{ selectedRowData['customerCode'] }}</span></div>
-                        <div class="marc-modal-item-row"><span class="meta-label">Use Restriction</span><span class="meta-value">{{ selectedRowData['useRestriction'] }}</span></div>
-                        <div class="marc-modal-item-row"><span class="meta-label">Collection Group Designation (CGD)</span><span class="meta-value">{{ selectedRowData['collectionGroupDesignation'] }}</span></div>
                     </div>
                 </div>
             </ng-container>
