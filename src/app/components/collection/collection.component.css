@@ -136,6 +136,255 @@ a:hover{
     color: #6B7280;
 }
 
+.search-results-container {
+    margin-top: 14px;
+    width: 100%;
+}
+
+/* Results grid ? its own separate card, distinct from the .search-bar form card above,
+   mirroring the Search page's .results-card pattern. */
+.results-card {
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    padding: 14px 18px;
+}
+
+.results-legend-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.results-legend-row .recap-status {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.results-legend-text {
+    margin: 0;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.grid-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+}
+
+.modern-collection-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.modern-collection-table .grid-header-row th {
+    background-color: #F9FAFB;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-bottom: 2px solid #E5E7EB;
+    border-top: none;
+    white-space: nowrap;
+}
+
+.modern-collection-table .grid-body-row th,
+.modern-collection-table .grid-body-row td {
+    padding: 12px 12px;
+    font-size: 13px;
+    color: #1F2937;
+    border-bottom: 1px solid #F3F4F6;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.modern-collection-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.modern-collection-table tbody tr:nth-child(odd) {
+    background-color: #F9FAFB;
+}
+
+.modern-collection-table .grid-body-row:hover {
+    background-color: #F3F4F6;
+}
+
+.cell-title-link {
+    cursor: pointer;
+    color: #1b62ec;
+    font-weight: 500;
+}
+
+.cell-title-link a {
+    color: inherit;
+}
+
+.cell-title-link:hover {
+    text-decoration: underline;
+}
+
+/* ===== Modern skin for the title-click MARC/CGD modal =====
+   Purely visual: the modal keeps its Bootstrap .modal/.fade/data-dismiss
+   structure (required by the $('#collection-result-inner').modal() call
+   in the .ts file) and every existing id/binding/click handler ? only the
+   look is modernized, matching the Search page's MARC modal styling. */
+#collectionUpdateModal #collectionModalContent {
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+}
+
+#collectionUpdateModal .modal-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid #E5E7EB;
+    align-items: center;
+}
+
+#collectionUpdateModal .modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+}
+
+#collectionUpdateModal .modal-header .close {
+    font-size: 22px;
+    font-weight: 400;
+    opacity: 0.6;
+    color: #4B5563;
+}
+
+#collectionUpdateModal .modal-header .close:hover {
+    opacity: 1;
+}
+
+#collectionUpdateModal .modal-body {
+    padding: 18px 22px;
+    font-size: 13px;
+    color: #374151;
+}
+
+#collectionUpdateModal .fulldetails .row.margin-btm-05 {
+    margin-bottom: 10px !important;
+    font-size: 13px;
+}
+
+#collectionUpdateModal .fulldetails .col-sm-5 {
+    color: #6B7280;
+    font-weight: 500;
+}
+
+#collectionUpdateModal .fulldetails .fontcolor-light {
+    color: #111827;
+}
+
+#collectionUpdateModal .divider-horizontal {
+    border-top: 1px solid #F3F4F6;
+}
+
+#collectionUpdateModal .contentdetail,
+#collectionUpdateModal .itemdetail {
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+#collectionUpdateModal .contentdetail h4,
+#collectionUpdateModal .itemdetail h4 {
+    background-color: #F9FAFB;
+    margin: 0;
+    padding: 10px 14px !important;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    border-bottom: 1px solid #E5E7EB !important;
+}
+
+#collectionUpdateModal .contentdetail table,
+#collectionUpdateModal .itemdetail table {
+    font-size: 13px;
+    margin-bottom: 0 !important;
+}
+
+#collectionUpdateModal .contentdetail table td,
+#collectionUpdateModal .itemdetail table td {
+    padding: 8px 14px;
+    border-top: 1px solid #F3F4F6;
+    color: #1F2937;
+}
+
+#collectionUpdateModal .contentdetail table tr:first-child td,
+#collectionUpdateModal .itemdetail table tr:first-child td {
+    border-top: none;
+}
+
+#collectionUpdateModal .radio-inline label {
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+}
+
+#collectionUpdateModal select.themed-select,
+#collectionUpdateModal textarea.themed-input,
+#collectionUpdateModal input.themed-input {
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#collectionUpdateModal select.themed-select:focus,
+#collectionUpdateModal textarea.themed-input:focus,
+#collectionUpdateModal input.themed-input:focus {
+    border-color: #1b62ec;
+    box-shadow: 0 0 0 3px rgba(27, 98, 236, 0.15);
+    outline: none;
+}
+
+#collectionUpdateModal .fontcolor-dark {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#collectionUpdateModal #collectionUpdateCgdButton,
+#collectionUpdateModal #collectionDeaccessionButton {
+    background-color: #1b62ec;
+    border: none;
+    border-radius: 6px;
+    height: 38px;
+    padding: 0 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#collectionUpdateModal #collectionUpdateCgdButton:hover,
+#collectionUpdateModal #collectionDeaccessionButton:hover {
+    background-color: #154ec5;
+}
+
+#collectionUpdateModal .modal-footer {
+    padding: 14px 22px;
+    border-top: 1px solid #E5E7EB;
+}
+
+#collectionUpdateModal .modal-footer #btn_close {
+    height: 38px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+}
+
 @media (max-width: 767px) {
     .collection-search-row {
         flex-direction: column;

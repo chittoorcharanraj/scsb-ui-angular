@@ -57,86 +57,80 @@
                     </div>
                 </div>
                 <div class="search-results-container" id="searchResultsContainer" *ngIf="showresultdiv">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="divider-horizontal margin-top-10 margin-btm-10"></div>
-                            <div class="row margin-btm-10" id="errorMessageId" *ngIf="norecord">
-                                <div class="col-sm-12">
-                                    <div class="search-error-banner"><span
-                                            class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
-                                            id="errorMessageSpanId" text>No results found.</span></div>
+                    <div class="row margin-btm-10" id="errorMessageId" *ngIf="norecord">
+                        <div class="col-sm-12">
+                            <div class="search-error-banner"><span
+                                    class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
+                                    id="errorMessageSpanId" text>No results found.</span></div>
+                        </div>
+                    </div>
+                    <div class="row margin-btm-10" id="barcodesNotFoundErrorMessageId"
+                         *ngIf="barcodesNotFoundErrorMessageId">
+                        <div class="col-sm-12">
+                            <div class="search-error-banner"><span
+                                    class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
+                                    id="barcodesNotFoundErrorMessageSpanId" text>{{barerrmsg}}</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Results Grid Card (separate container from the search-bar form above) -->
+                    <div class="results-card" *ngIf="resultdiv">
+                        <div class="results-legend-row">
+                            <div class="recap-status">
+                                <div class="inline-box margin-right-10">
+                                    <img class="status" src="../../../../assets/images/inRecap.png"
+                                         alt="In ReCAP" style="width:20px;height:25px;"><span
+                                            class="align-middle padding-5">In</span>
+                                </div>
+                                <div class="inline-box">
+                                    <img class="status" src="../../../../assets/images/out.png"
+                                         alt="Out" style="width:20px;height:25px;"><span
+                                            class="align-middle padding-5">OUT</span>
                                 </div>
                             </div>
-                            <div class="row margin-btm-10" id="barcodesNotFoundErrorMessageId"
-                                 *ngIf="barcodesNotFoundErrorMessageId">
-                                <div class="col-sm-12">
-                                    <div class="search-error-banner"><span
-                                            class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
-                                            id="barcodesNotFoundErrorMessageSpanId" text>{{barerrmsg}}</span></div>
-                                </div>
-                            </div>
-                            <div class="row" *ngIf="resultdiv">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="pull-left col-sm-2">
-                                            <div class="recap-status">
-                                                <div class="inline-box margin-right-10">
-                                                    <img class="status" src="../../../../assets/images/inRecap.png"
-                                                         alt="In ReCAP" style="width:20px;height:25px;"><span
-                                                        class="align-middle padding-5">In</span>
-                                                </div>
-                                                <div class="inline-box">
-                                                    <img class="status" src="../../../../assets/images/out.png"
-                                                         alt="Out" style="width:20px;height:25px;"><span
-                                                        class="align-middle padding-5">OUT</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="">CGD - Collection Group Designation, SL - Storage Location</p>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <table class="table table-striped margin-btm-0" id="collection-result-table">
-                                        <thead class="tablesorter-headerRow">
-                                        <tr name="results_rowData_headers">
-                                            <th width="30%" height="40">
-                                                <div>Barcode</div>
-                                            </th>
-                                            <th width="50%">
-                                                <div>Title</div>
-                                            </th>
-                                            <th title="'Collection Group Designation'">
-                                                <div>CGD</div>
-                                            </th>
-                                            <th title="'Storage Location'">
-                                                <div>SL</div>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr id="results_rowData_{{i}}"
-                                            *ngFor="let item of collectionVal['searchResultRows'];  let i = index">
-                                            <th id="rowData_barcode_{{i}}"><img class="status"
-                                                                                src="../../../../assets/images/inRecap.png"
-                                                                                alt="In ReCAP"
-                                                                                *ngIf="item.availability =='Available'"
-                                                                                style="width:20px;height:25px;margin-bottom: 3px;">
-                                                <img
-                                                        class="status" src="../../../../assets/images/out.png"
-                                                        alt="In ReCAP" *ngIf="item.availability =='Not Available'"
-                                                        style="width:20px;height:25px;margin-bottom: 3px;">
-                                                &nbsp;&nbsp;{{ item.barcode }}
-                                            </th>
-                                            <td (click)="openMarcView(item.bibId,item.barcode,item.itemId)"
-                                                style="cursor: pointer;color:#337ab7"><a
-                                                    id="rowData_title_{{i}}">{{ item.title }}</a></td>
-                                            <td id="rowData_desc_{{i}}">{{ item.collectionGroupDesignation }}</td>
-                                            <td id="rowData_sl_{{i}}">{{ item.imsLocation }}</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                            <p class="results-legend-text">CGD - Collection Group Designation, SL - Storage Location</p>
+                        </div>
+
+                        <div class="grid-table-container">
+                            <table class="table modern-collection-table margin-btm-0" id="collection-result-table">
+                                <thead>
+                                <tr class="grid-header-row" name="results_rowData_headers">
+                                    <th width="30%" height="40">
+                                        <div>Barcode</div>
+                                    </th>
+                                    <th width="50%">
+                                        <div>Title</div>
+                                    </th>
+                                    <th title="'Collection Group Designation'">
+                                        <div>CGD</div>
+                                    </th>
+                                    <th title="'Storage Location'">
+                                        <div>SL</div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="grid-body-row" id="results_rowData_{{i}}"
+                                    *ngFor="let item of collectionVal['searchResultRows'];  let i = index">
+                                    <th id="rowData_barcode_{{i}}"><img class="status"
+                                                                        src="../../../../assets/images/inRecap.png"
+                                                                        alt="In ReCAP"
+                                                                        *ngIf="item.availability =='Available'"
+                                                                        style="width:20px;height:25px;margin-bottom: 3px;">
+                                        <img
+                                                class="status" src="../../../../assets/images/out.png"
+                                                alt="In ReCAP" *ngIf="item.availability =='Not Available'"
+                                                style="width:20px;height:25px;margin-bottom: 3px;">
+                                        &nbsp;&nbsp;{{ item.barcode }}
+                                    </th>
+                                    <td (click)="openMarcView(item.bibId,item.barcode,item.itemId)"
+                                        class="cell-title-link"><a
+                                            id="rowData_title_{{i}}">{{ item.title }}</a></td>
+                                    <td id="rowData_desc_{{i}}">{{ item.collectionGroupDesignation }}</td>
+                                    <td id="rowData_sl_{{i}}">{{ item.imsLocation }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
