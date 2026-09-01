@@ -248,9 +248,17 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <!-- Results Grid Section -->
-            <div class="search-results-container" *ngIf="showresultdiv">
+<!-- Results Grid Section is now a sibling container of the search form/facets
+     panel above (matching the Collection page's .search-bar /
+     .search-results-container layout), instead of being nested inside the
+     .search-bar form. No form controls or [formGroup] bindings are used
+     below this point, so closing the form containers here does not affect
+     any existing functionality. -->
+<div class="search-results-container" *ngIf="showresultdiv">
 
                 <!-- Error Message -->
                 <div class="search-error-banner" *ngIf="errorMessage_Div">
@@ -299,13 +307,6 @@
 
                         <div class="legend-help-text text-muted text-center flex-grow-1 px-3">
                             OI - Owning Institution, SL - Storage Location, CC - Customer Code, CGD - Collection Group Designation, SH - Summary Holdings
-                        </div>
-
-                        <div class="d-flex align-items-center gap-12 header-actions-right">
-                            <span class="results-count-label"><strong>{{ searchVal['totalRecordsCount'] }}</strong> results found</span>
-                            <button class="btn btn-outline-secondary btn-save-search">
-                                <i class="fa fa-bookmark-o mr-1"></i> Save Search
-                            </button>
                         </div>
                     </div>
 
@@ -475,10 +476,7 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-
-    <!-- MARC Record Modal (opens in-page instead of navigating to a new tab/page) -->
+        <!-- MARC Record Modal (opens in-page instead of navigating to a new tab/page) -->
     <div class="marc-modal-backdrop" *ngIf="showMarcModal" (click)="closeMarcModal()">
         <div class="marc-modal-card" (click)="$event.stopPropagation()">
             <div class="marc-modal-header">
@@ -547,4 +545,3 @@
             </div>
         </div>
     </div>
-</div>
