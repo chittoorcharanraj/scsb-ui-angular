@@ -179,6 +179,20 @@ a:hover{
     border-radius: 8px;
 }
 
+/* The global stylesheet defines a shared ".grid-table-container" rule with
+   "min-height: 480px" (used by the Search page's larger results grid). Because
+   that global rule never sets width/overflow/border, it doesn't get fully
+   overridden here and its min-height still applies to this page too, forcing
+   a tall, mostly-empty container even when only one or two records are
+   returned. Scope an override to the Collection page's own results wrapper
+   (#searchResultsContainer, unique to this component) so the container
+   height is driven purely by its content, without touching the Search page's
+   grid or any other shared styling. */
+#searchResultsContainer .grid-table-container {
+    min-height: 0;
+    height: auto;
+}
+
 .modern-collection-table {
     width: 100%;
     border-collapse: collapse;
