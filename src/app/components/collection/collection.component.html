@@ -9,43 +9,40 @@
                 <div class="search-bar">
                     <div class="row margin-0">
                         <div class="col-xs-12  padding-0">
-                            <div class="row margin-btm-10">
-                                <div class="col-sm-1 padding-right-10 collection-title">Barcode(s)</div>
-                                <div class="col-sm-11 padding-left-0">
-                                    <form>
-                                        <div class="input-group buscador-principal">
-                                            <input id="bibId" type="hidden">
-                                            <input id="itemId" type="hidden">
-                                            <input id="shared" type="hidden">
-                                            <input id="submitted" type="hidden" value="false">
-                                            <input id="title" type="hidden">
-                                            <input id="author" type="hidden">
-                                            <input id="publisher" type="hidden">
-                                            <input id="publishedDate" type="hidden">
-                                            <input id="callNumber" type="hidden">
-                                            <input id="showModal" type="hidden">
-                                            <div>
-                                                <input class="form-control" id="barcodeFieldId" name="barcodeFieldName"
-                                                       type="text" [(ngModel)]="barcodeFieldName"
-                                                       placeholder="Type Text Here.....">
-
-                                            </div>
-                                            <div class="input-group-btn search-panel padding-right-10">
-                                                <button class="btn themed-button themed-button-collection"
-                                                        id="displayRecords" name="action" type="button"
-                                                        (click)="displayRecords()" value="displayRecords">Display
-                                                    Records
-                                                </button>
-                                            </div>
-                                            <div class="input-group-btn">
-                                                <button class="btn themed-button themed-button-cancel" id="clearSearch"
-                                                        name="clearSearch" type="button" (click)="clearsearch()">Clear
-                                                    Search
-                                                </button>
-                                            </div>
+                            <div class="collection-search-row">
+                                <div class="collection-title">Barcode(s)</div>
+                                <form>
+                                    <div class="input-group buscador-principal collection-search-controls">
+                                        <input id="bibId" type="hidden">
+                                        <input id="itemId" type="hidden">
+                                        <input id="shared" type="hidden">
+                                        <input id="submitted" type="hidden" value="false">
+                                        <input id="title" type="hidden">
+                                        <input id="author" type="hidden">
+                                        <input id="publisher" type="hidden">
+                                        <input id="publishedDate" type="hidden">
+                                        <input id="callNumber" type="hidden">
+                                        <input id="showModal" type="hidden">
+                                        <div class="collection-search-input">
+                                            <input class="form-control" id="barcodeFieldId" name="barcodeFieldName"
+                                                   type="text" [(ngModel)]="barcodeFieldName"
+                                                   placeholder="Type Text Here.....">
                                         </div>
-                                    </form>
-                                </div>
+                                        <div class="input-group-btn collection-search-action">
+                                            <button class="btn themed-button themed-button-collection"
+                                                    id="displayRecords" name="action" type="button"
+                                                    (click)="displayRecords()" value="displayRecords">Display
+                                                Records
+                                            </button>
+                                        </div>
+                                        <div class="input-group-btn collection-search-action">
+                                            <button class="btn themed-button themed-button-cancel" id="clearSearch"
+                                                    name="clearSearch" type="button" (click)="clearsearch()">Clear
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div id="noteTextDivId">
                                 <strong>NOTE:</strong>
@@ -65,16 +62,16 @@
                             <div class="divider-horizontal margin-top-10 margin-btm-10"></div>
                             <div class="row margin-btm-10" id="errorMessageId" *ngIf="norecord">
                                 <div class="col-sm-12">
-                                    <div class="bg-danger text-danger padding-10"><span
-                                            class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span
+                                    <div class="search-error-banner"><span
+                                            class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
                                             id="errorMessageSpanId" text>No results found.</span></div>
                                 </div>
                             </div>
                             <div class="row margin-btm-10" id="barcodesNotFoundErrorMessageId"
                                  *ngIf="barcodesNotFoundErrorMessageId">
                                 <div class="col-sm-12">
-                                    <div class="bg-danger text-danger padding-10"><span
-                                            class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span
+                                    <div class="search-error-banner"><span
+                                            class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
                                             id="barcodesNotFoundErrorMessageSpanId" text>{{barerrmsg}}</span></div>
                                 </div>
                             </div>
@@ -268,9 +265,9 @@
                                                             <div class="row margin-btm-10" id="collectionUpdateMessage"
                                                                  *ngIf="collectionUpdateMessage">
                                                                 <div class="col-sm-12">
-                                                                    <div class="bg-success text-success padding-10">
+                                                                    <div class="search-success-banner">
                                                                         <span
-                                                                                class="margin-right-05 glyphicon glyphicon-saved"></span><span>{{message}}</span>
+                                                                                class="margin-right-05 fa fa-check-circle" aria-hidden="true"></span><span>{{message}}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -278,9 +275,9 @@
                                                                  id="collectionUpdateErrorMessage"
                                                                  *ngIf="collectionUpdateErrorMessage">
                                                                 <div class="col-sm-12">
-                                                                    <div class="bg-danger text-danger padding-10">
+                                                                    <div class="search-error-banner">
                                                                         <span
-                                                                                class="margin-right-05 glyphicon glyphicon-warning-sign"></span><span
+                                                                                class="margin-right-05 fa fa-exclamation-triangle" aria-hidden="true"></span><span
                                                                             [innerHTML]="errorMessage"></span>
                                                                     </div>
                                                                 </div>
@@ -289,10 +286,10 @@
                                                                  id="collectionUpdateWarningMessage"
                                                                  *ngIf="collectionUpdateWarningMessage">
                                                                 <div class="col-sm-12">
-                                                                    <div class="bg-warning text-warning padding-10">
+                                                                    <div class="search-warning-banner">
                                                                         <span
-                                                                                class="margin-right-05 glyphicon glyphicon-warning-sign"
-                                                                                id="warningMessageId"></span><span>{{warningMessage}}</span>
+                                                                                class="margin-right-05 fa fa-exclamation-triangle"
+                                                                                id="warningMessageId" aria-hidden="true"></span><span>{{warningMessage}}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
