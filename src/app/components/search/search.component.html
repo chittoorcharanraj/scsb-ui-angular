@@ -312,13 +312,12 @@
 
                     <!-- PrimeNG Table -->
                     <div class="table-responsive grid-table-container">
-                        <p-table name="p_table" #dt [columns]="cols" rowExpandMode="single" selectionMode="checkbox"
+                        <p-table name="p_table" #dt [columns]="cols" selectionMode="checkbox"
                                  [value]="searchVal['searchResultRows']" dataKey="id"
                                  [(selection)]="selectedNodes1" (onHeaderCheckboxToggle)="onTableHeaderCheckboxToggle1($event)"
                                  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" class="custom-p-table">
                             <ng-template pTemplate="header" let-columns>
                                 <tr class="grid-header-row">
-                                    <th class="col-expand-header" style="width: 2.5em;"></th>
                                     <th class="col-checkbox-header" style="width: 5.5em; text-align: center;">
                                         <div class="d-flex flex-column align-items-center">
                                             <span class="checkbox-header-label">Select All</span>
@@ -339,13 +338,8 @@
                                 </tr>
                             </ng-template>
 
-                            <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-rowIndex="rowIndex">
+                            <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
                                 <tr [pSelectableRow]="rowData" class="grid-body-row" [ngClass]="rowIndex % 2 === 0 ? 'row-even' : 'row-odd'">
-                                    <td class="col-expand-cell text-center">
-                                        <a href="#" [pRowToggler]="rowData" class="row-toggler-link" (click)="$event.preventDefault()">
-                                            <i [ngClass]="expanded ? 'fa fa-chevron-down' : 'fa fa-chevron-right'"></i>
-                                        </a>
-                                    </td>
                                     <td class="col-checkbox-cell text-center">
                                         <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                                     </td>
@@ -377,48 +371,6 @@
                                                 <a class="dropdown-item" href="#" (click)="$event.preventDefault()">View Details</a>
                                                 <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Request Item</a>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </ng-template>
-
-                            <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
-                                <tr class="expanded-row-wrapper">
-                                    <td [attr.colspan]="columns.length + 4" class="expanded-row-cell">
-                                        <div class="inner-table-wrapper" [@rowExpansionTrigger]="'active'" style="padding: 12px 20px; background: #F9FAFB;">
-                                            <p-table name="p_tablesub" #dt1 [columns]="cols1" selectionMode="checkbox"
-                                                     [value]="rowData.searchItemResultRows"
-                                                     [(selection)]="selectedNodes2" (onHeaderCheckboxToggle)="onTableHeaderCheckboxToggle1($event)"
-                                                     (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" class="inner-p-table">
-                                                <ng-template pTemplate="header" let-innerCols>
-                                                    <tr class="inner-header-row">
-                                                        <th class="inner-checkbox-header text-center" style="width: 3em;">
-                                                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                                        </th>
-                                                        <th *ngFor="let col of innerCols" class="inner-col-header-{{ col.field }}">
-                                                            {{ col.header }}
-                                                        </th>
-                                                    </tr>
-                                                </ng-template>
-                                                <ng-template pTemplate="body" let-innerRow let-innerIndex="rowIndex">
-                                                    <tr class="inner-body-row" [ngClass]="innerIndex % 2 === 0 ? 'inner-row-even' : 'inner-row-odd'">
-                                                        <td class="inner-checkbox-cell text-center">
-                                                            <p-tableCheckbox [value]="innerRow"></p-tableCheckbox>
-                                                        </td>
-                                                        <td *ngFor="let col of cols1" class="inner-col-cell-{{ col.field }}">
-                                                            <ng-container [ngSwitch]="col.field">
-                                                                <span *ngSwitchCase="'useRestriction'" [ngSwitch]="innerRow[col.field]">
-                                                                    <span *ngSwitchCase="'In Library Use'" class="badge-restriction r-in-library">In Library Use</span>
-                                                                    <span *ngSwitchCase="'Supervised Use'" class="badge-restriction r-supervised">Supervised Use</span>
-                                                                    <span *ngSwitchCase="'No Restrictions'" class="badge-restriction r-no-restrictions">No Restrictions</span>
-                                                                    <span *ngSwitchDefault class="badge-restriction r-default">{{ innerRow[col.field] }}</span>
-                                                                </span>
-                                                                <span *ngSwitchDefault>{{ innerRow[col.field] }}</span>
-                                                            </ng-container>
-                                                        </td>
-                                                    </tr>
-                                                </ng-template>
-                                            </p-table>
                                         </div>
                                     </td>
                                 </tr>
